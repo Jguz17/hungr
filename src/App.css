@@ -30,3 +30,17 @@ body {
   height: 100vh;
 }
 
+/* ==== HEADER STYLES ==== */
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+/* ==== FOOD ITEM STYLES ==== */
+
+.food-item {
+  position: absolute;
+}
+
+/* ==== FOOTER STYLES ==== */

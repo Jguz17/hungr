@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 const Logo = () => {
     return (
-        <Fragment>
-            <img src={require('../../images/logo-white.png')}/>
-        </Fragment>
+        <img className='logo' src={require('../../images/logo-white.png')} alt=''/>
     )
 }
 
