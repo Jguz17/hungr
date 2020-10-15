@@ -1,11 +1,7 @@
-@media only screen and (min-width: 320px) and (max-width: 479px) {
+@media only screen and (min-width: 320px) and (max-width: 374px) {
     /* ==== HEADER STYLES ==== */
     .header {
         padding: .75rem 0;
-    }
-
-    .header p {
-        font-size: 1.6rem;
     }
     
     .logo {
@@ -81,4 +77,704 @@
         color: #fff;
     }
 
+}
+
+@media only screen and (min-width: 375px) and (max-width: 424px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 70%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 40%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 45%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 60%;
+        margin-top: 12rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 460px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+
+    .logo {
+        width: 60%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 30%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 45%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 50%;
+        margin-top: 12rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 461px) and (max-width: 560px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 50%;
+    }
+      
+    .header p {
+        font-size: 1.5rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 30%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 45%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 50%;
+        margin-top: 12rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 561px) and (max-width: 667px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 50%;
+    }
+      
+    .header p {
+        font-size: 1.5rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 25%;
+        margin-left: -3rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 35%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 35%;
+        margin-top: 15rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 668px) and (max-width: 767px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 40%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 22.5%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 30%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 30%;
+        margin-top: 15rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 35%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 20%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 30%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 30%;
+        margin-top: 15rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1023px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+      
+    .header p {
+        font-size: 1.4rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 20%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 30%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -1.5rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 30%;
+        margin-top: 17rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 17.5%;
+        margin-left: -2rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 25%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -2rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 25%;
+        margin-top: 17rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    /* ==== HEADER STYLES ==== */
+    .header {
+        padding: .75rem 0;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+      
+    .header p {
+        font-size: 1.6rem;
+        margin-top: -.5rem;
+    }
+    /* ==== FOOD ITEM STYLES ==== */
+    #drink {
+        width: 15%;
+        margin-left: -2rem;
+        margin-top: -4rem;
+    }
+
+    #drink img {
+        width: 100%;
+    }
+
+    #taco {
+        width: 22.5%;
+        right: 0;
+        /* I think it looks cool like this
+        margin-top: -2rem; 
+        */
+        margin-top: -2.5rem;
+    }
+
+    #taco img {
+        width: 100%;
+    }
+
+    #wings {
+        width: 20%;
+        margin-top: 15rem;
+    }
+
+    #wings img {
+        width: 100%;
+    }
+
+    /* ==== FOOTER STYLES ==== */
+    .footer-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+      
+    .footer-container button {
+        width: 17rem;
+        border: none;
+        height: 3rem;
+        -webkit-border-radius: 18px;
+        -moz-border-radius: 18px;
+        border-radius: 18px;
+        font-size: 1.25rem;
+        color: #41b7e1;
+        background-color: #fff;
+        outline: none;
+        -webkit-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    }
+
+    .footer-container p {
+        margin-top: 1rem;
+        color: #fff;
+    }
 }
