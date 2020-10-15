@@ -95,7 +95,7 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 40%;
+        width: 35%;
         margin-left: -2rem;
     }
 
@@ -117,8 +117,8 @@
     }
 
     #wings {
-        width: 60%;
-        margin-top: 12rem;
+        width: 50%;
+        margin-top: 14rem;
     }
 
     #wings img {
