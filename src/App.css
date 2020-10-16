@@ -120,14 +120,17 @@ body {
 
 #submit {
   width: 40%;
+  height: 3rem;
   border: none;
   outline: none;
 }
 
 #back {
   width: 40%;
+  height: 3rem;
   background-color: #FC545D;
   border: none;
   color: #fff;
   outline: none;
+  border-radius: 0;
 }
