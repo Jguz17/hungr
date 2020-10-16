@@ -131,6 +131,7 @@ body {
   appearance: none;
   background-color: #EFEFEF;
   padding-left: 0;
+  border-radius: 0;
 }
 
 #back {
