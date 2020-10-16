@@ -18,8 +18,8 @@ const HiddenForm = () => {
             <div id='form-container'>
                 <form className='form'>
                     <h1 style={{textAlign: 'center', color: '#41b7e1'}}>Log In</h1>
-                    <input type='text' placeholder='Email'/>
-                    <input type='text' placeholder='Password'/>
+                    <input type='email' placeholder='Email' required/>
+                    <input type='password' placeholder='Password' required minLength='6'/>
                     <div className='form-buttons'>
                     <input style={{textAlign: 'center'}} id='back' onClick={onClick} type='button' value='Back'/>
                     <input id='submit' type='submit' value='Submit'/>
