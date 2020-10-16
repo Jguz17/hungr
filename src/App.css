@@ -111,9 +111,6 @@ body {
 .form-buttons {
   display: flex;
   justify-content: space-around;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 #submit:hover,
@@ -126,6 +123,9 @@ body {
   height: 3rem;
   border: none;
   outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 #back {
@@ -136,4 +136,7 @@ body {
   color: #fff;
   outline: none;
   border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
