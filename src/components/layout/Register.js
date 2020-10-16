@@ -51,7 +51,7 @@ const Register = () => {
 
         registerPhone.className = 'register-phone hide'
         phoneVerificationForm.className = 'phone-verification unhide'
-        document.querySelector('.phoneVerification').style.display = 'block'
+        document.querySelector('.phoneVerification').style.display = 'initial'
     }
 
     const submitPhoneVerification = (e) => {
