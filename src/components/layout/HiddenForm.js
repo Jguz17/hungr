@@ -9,7 +9,6 @@ const HiddenForm = () => {
         if (square.className.includes('notHidden')) {
             square.className = 'animation-test hidden'
             document.querySelector('#form-container').style.display = 'none'
-
         } 
     }
     
