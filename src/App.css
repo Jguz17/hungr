@@ -53,7 +53,7 @@ body {
   cursor: pointer;
 }
 
-/* ==== FORM STYLES ==== */
+/* ==== SIGNIN FORM STYLES ==== */
 .animation-test {
   /* height: 100px;
   width: 100px; */
@@ -74,7 +74,7 @@ body {
   /* opacity: 0; */
   height: 0%;
   width: 0%;
-   transform: translateX(700px) translateY(0);
+  transform: translateX(700px) translateY(0);
   /* display: contents;  */
 }
 
@@ -146,4 +146,28 @@ body {
   -moz-appearance: none;
   appearance: none;
   padding-left: 0;
+}
+
+/* ==== REGISTER STYLES ==== */
+.register-container {
+  /* height: 0; */
+  bottom: 0;
+  position: absolute;
+  transition: all .5s;
+  background-color: #43B2F6;
+}
+
+.register-phone {
+  width: 100%;
+}
+
+.register-phone-screen {
+  display: none;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#register-close {
+  display: none;
 }

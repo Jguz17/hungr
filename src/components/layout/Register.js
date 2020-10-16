@@ -1,0 +1,59 @@
+import React, { useState, useEffect } from 'react'
+
+const Register = () => {
+
+    const [state, setState] = useState({
+        phone: '',
+        phoneVerification: 'false',
+        email: '',
+        firstName: '',
+        lastName: ''
+    })
+
+    const onClick = () => {
+        const registerContainer = document.querySelector('#register-container')
+       
+        if (registerContainer.className.includes('notHidden')) {
+            registerContainer.className = 'register-container hidden'
+            document.querySelector('.register-phone-screen').style.display = 'none'
+            document.querySelector('#register-close').style.display = 'none'
+        }
+ 
+    }
+
+    const phoneChange = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const submitPhone = (e) => {
+        e.preventDefault()
+        const phone = state.phone
+        console.log(phone)
+
+        setState({
+            ...state,
+            phone: ''
+        })
+        e.target.reset()
+    }
+
+    return (
+        <div id='register-container' className='register-container hidden'>
+            <i id='register-close' onClick={onClick} className="fas fa-times"></i>
+
+            <div className='register-phone'>
+                <form onSubmit={submitPhone} className='register-phone-screen'>
+                    <h1>Enter your mobile phone number</h1>
+                    <p>We'll send you a verification code</p>
+                    <input onChange={phoneChange} name='phone' type='phone' placeholder='987-654-3210' required/>
+                    <input type='submit' value='Submit'/>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default Register

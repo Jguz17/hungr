@@ -2,6 +2,7 @@ import React from 'react'
 import MainHeader from '../layout/MainHeader'
 import MainFooter from '../layout/MainFooter'
 import HiddenForm from '../layout/HiddenForm'
+import Register from '../layout/Register'
 const Home = () => {
     return (
         <div className='home-container'>
@@ -18,6 +19,7 @@ const Home = () => {
                 </div>
             </div>
             <MainFooter/>
+            <Register/>
             <HiddenForm/>
         </div>
     )
