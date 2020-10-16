@@ -111,6 +111,9 @@ body {
 .form-buttons {
   display: flex;
   justify-content: space-around;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 #submit:hover,
