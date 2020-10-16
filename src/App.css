@@ -130,7 +130,7 @@ body {
   -moz-appearance: none;
   appearance: none;
   background-color: #EFEFEF;
-
+  padding-left: 0;
 }
 
 #back {
@@ -144,4 +144,5 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  padding-left: 0;
 }
