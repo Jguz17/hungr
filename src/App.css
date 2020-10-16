@@ -183,6 +183,28 @@ body {
   text-align: center;
 }
 
+.register-email {
+  width: 100%;
+}
+
+.email-form {
+  display: none;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#register-name {
+  width: 100%;
+}
+
+.name-form {
+  display: none;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center; 
+}
+
 .hide {
   opacity: 0;
   height: 0;
@@ -194,3 +216,4 @@ body {
   opacity: 1;
   transition: all .5s;
 }
+
