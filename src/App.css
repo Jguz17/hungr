@@ -86,7 +86,7 @@ body {
 }
 
 #form-container {
-  display: block;
+  display: none;
 }
 
 .form {
@@ -106,6 +106,9 @@ body {
   border: 1px solid #41b7e1;
   height: 3rem;
   margin-bottom: 2rem;
+  font-size: 1.25rem;
+  outline: none;
+  padding-left: 1rem;
 }
 
 .form-buttons {
