@@ -44,3 +44,90 @@ body {
 }
 
 /* ==== FOOTER STYLES ==== */
+.footer-container button {
+  width: 55%;
+}
+
+.footer-container p:hover,
+.footer-container button:hover {
+  cursor: pointer;
+}
+
+/* ==== FORM STYLES ==== */
+.animation-test {
+  /* height: 100px;
+  width: 100px; */
+  bottom: 0;
+  position: absolute;
+  background-color: #fff;
+  transition: all .5s;
+  -webkit-border-top-left-radius: 100px;
+  -webkit-border-bottom-right-radius: 100px;
+  -moz-border-radius-topleft: 100px;
+  -moz-border-radius-bottomright: 100px;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  /* left: 5%; */
+}
+
+.hidden {
+  /* opacity: 0; */
+  height: 0%;
+  width: 0%;
+   transform: translateX(700px) translateY(0);
+  /* display: contents;  */
+}
+
+.notHidden {
+  /* /* opacity: 100%; */
+  transform: translateX(0) translateY(0);
+  height: 100%;
+  width: 100%; 
+}
+
+#form-container {
+  display: block;
+}
+
+.form {
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 50%;
+  margin: 12.5rem auto;
+}
+
+.form h1 {
+  margin-bottom: 2rem;
+}
+
+.form input {
+  width: 100%;
+  border: 1px solid #41b7e1;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#submit:hover,
+#back:hover {
+  cursor: pointer;
+}
+
+#submit {
+  width: 40%;
+  border: none;
+  outline: none;
+}
+
+#back {
+  width: 40%;
+  background-color: #FC545D;
+  border: none;
+  color: #fff;
+  outline: none;
+}
