@@ -40,7 +40,7 @@ class Step2 extends React.Component {
     }
 
       return(
-        <div>
+        <div className='step-2'>
             <h1>Enter the 4 digit code we sent you</h1>
             <p>Text sent to *Dynamic Number Here*</p>
             <input type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
