@@ -16,6 +16,7 @@
     #drink {
         width: 45%;
         margin-left: -2rem;
+        margin-top: .5rem;
     }
 
     #drink img {
@@ -24,11 +25,8 @@
 
     #taco {
         width: 50%;
-        right: 0;
-        /* I think it looks cool like this
-        margin-top: -2rem; 
-        */
-        margin-top: 1rem;
+        right: 0;    
+        margin-top: 1.75rem;
     }
 
     #taco img {
@@ -36,8 +34,8 @@
     }
 
     #wings {
-        width: 70%;
-        margin-top: 13rem;
+        width: 60%;
+        margin-top: 15rem;
     }
 
     #wings img {
@@ -168,8 +166,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 35%;
+        width: 40%;
         margin-left: -2rem;
+        margin-top: 1rem;
     }
 
     #drink img {
@@ -182,7 +181,7 @@
         /* I think it looks cool like this
         margin-top: -2rem; 
         */
-        margin-top: -1rem;
+        margin-top: 2rem;
     }
 
     #taco img {
@@ -191,7 +190,7 @@
 
     #wings {
         width: 50%;
-        margin-top: 14rem;
+        margin-top: 16rem;
     }
 
     #wings img {
@@ -248,8 +247,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 30%;
+        width: 35%;
         margin-left: -2rem;
+        margin-top: 1rem;
     }
 
     #drink img {
@@ -262,7 +262,7 @@
         /* I think it looks cool like this
         margin-top: -2rem; 
         */
-        margin-top: -1rem;
+        margin-top: 2rem;
     }
 
     #taco img {
@@ -270,8 +270,8 @@
     }
 
     #wings {
-        width: 50%;
-        margin-top: 12rem;
+        width: 45%;
+        margin-top: 16rem;
     }
 
     #wings img {
@@ -328,7 +328,7 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 30%;
+        width: 35%;
         margin-left: -2rem;
     }
 
@@ -337,12 +337,12 @@
     }
 
     #taco {
-        width: 45%;
+        width: 42.5%;
         right: 0;
         /* I think it looks cool like this
         margin-top: -2rem; 
         */
-        margin-top: -1rem;
+        margin-top: 2rem;
     }
 
     #taco img {
@@ -350,8 +350,8 @@
     }
 
     #wings {
-        width: 50%;
-        margin-top: 12rem;
+        width: 45%;
+        margin-top: 15rem;
     }
 
     #wings img {
@@ -405,7 +405,7 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 25%;
+        width: 30%;
         margin-left: -3rem;
     }
 
@@ -419,7 +419,7 @@
         /* I think it looks cool like this
         margin-top: -2rem; 
         */
-        margin-top: -1rem;
+        /* margin-top: 1rem; */
     }
 
     #taco img {
@@ -482,8 +482,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 22.5%;
+        width: 27.5%;
         margin-left: -2rem;
+        margin-top: -2rem;
     }
 
     #drink img {
@@ -493,10 +494,6 @@
     #taco {
         width: 30%;
         right: 0;
-        /* I think it looks cool like this
-        margin-top: -2rem; 
-        */
-        margin-top: -1rem;
     }
 
     #taco img {
@@ -559,8 +556,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 20%;
+        width: 22.5%;
         margin-left: -2rem;
+        margin-top: -2rem;
     }
 
     #drink img {
@@ -573,7 +571,7 @@
         /* I think it looks cool like this
         margin-top: -2rem; 
         */
-        margin-top: -1rem;
+        margin-top: -2rem;
     }
 
     #taco img {
@@ -713,8 +711,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 17.5%;
+        width: 20%;
         margin-left: -2rem;
+        margin-top: -2rem;
     }
 
     #drink img {
@@ -790,9 +789,9 @@
     }
     /* ==== FOOD ITEM STYLES ==== */
     #drink {
-        width: 15%;
+        width: 17.5%;
         margin-left: -2rem;
-        margin-top: -4rem;
+        margin-top: -2rem;
     }
 
     #drink img {
@@ -814,7 +813,7 @@
 
     #wings {
         width: 20%;
-        margin-top: 15rem;
+        margin-top: 20rem;
     }
 
     #wings img {
