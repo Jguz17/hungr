@@ -251,6 +251,11 @@ input {
   color: #fff;
 }
 
+.carousel-buttons button:hover,
+#register-close {
+  cursor: pointer;
+}
+
 .carousel-buttons {
   width: 100%;
 }
