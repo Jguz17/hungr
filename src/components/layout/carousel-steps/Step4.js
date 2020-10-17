@@ -8,8 +8,10 @@ class Step4 extends React.Component {
       if (this.props.currentStep !== 4) {
         return null;
       } 
+
+      document.querySelector('#hidden-text').style.display = 'none'
+
       return(
-        //   
         <div className='step-4'>
             <h1>What's your name?</h1>
             <p>Your email is used for updates</p>
