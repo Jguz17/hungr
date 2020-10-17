@@ -77,8 +77,8 @@
 
     /* ==== REGISTER COMPONENT STYLES ==== */
     #register-close {
-        margin: 2.5%;
-        font-size: 1.5rem;
+        /* margin: 2.5%; */
+        /* font-size: 1.5rem; */
         padding-top: 1rem;
     }
 
