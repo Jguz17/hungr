@@ -56,6 +56,7 @@ const Carousel = (props) => {
            <div className='carousel-buttons'>
                {/* <button onClick={props.prev}>Prev</button> */}
                <button onClick={props.next}>Continue</button>
+                <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
            </div>
         </div>
     )

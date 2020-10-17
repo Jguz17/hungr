@@ -317,14 +317,64 @@ input {
   text-align: center;
   color: #fff;
   font-size: 1.5rem;
-  /* border: none;
+}
+
+.step-3 h1 {
+  font-size: 1.3rem;
+  /* letter-spacing: .01rem; */
+  margin-top: 1.8rem;
+  margin-bottom: .3rem;
+}
+
+#hidden-text {
+  margin: 0 auto;
+  font-size: 1.15rem;
+  letter-spacing: .05rem;
+  opacity: .8;
+  margin-top: 1.8rem;
+}
+
+.step-3 p {
+  font-size: 1.15rem;
+  letter-spacing: .05rem;
+  opacity: .8;
+  margin-bottom: 1.8rem;
+}
+
+.step-3 input {
+  width: 300px;
+  border: none;
   height: 2.5rem;
   padding-left: .5rem;
   font-size: 1.1rem;
-  margin-bottom: 1.8rem; */
+  margin-bottom: 1.8rem;
 }
-
 
 .carousel-buttons {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.step-4 h1 {
+  font-size: 1.3rem;
+  letter-spacing: .03rem;
+  margin-top: 1.8rem;
+  margin-bottom: .3rem;
+}
+
+.step-4 p {
+  font-size: 1.15rem;
+  letter-spacing: .05rem;
+  opacity: .8;
+  margin-bottom: 1.8rem;
+}
+
+.step-4 input {
+  width: 300px;
+  border: none;
+  height: 2.5rem;
+  padding-left: .5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
 }

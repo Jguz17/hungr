@@ -23,7 +23,8 @@ const Register = () => {
             setState({
                 step: state.step + 1
             })
-        }        
+        }       
+        document.querySelector('#hidden-text').style.display = 'none' 
     }
 
     const prev = () => {
@@ -56,6 +57,7 @@ const Register = () => {
             registerContainer.className = 'register-container hidden'
             document.querySelector('#register-close').style.display = 'none'
             document.querySelector('#carousel-container').style.display = 'none'
+            document.querySelector('#hidden-text').style.display = 'none'
             setState({
                 ...state,
                 hidden: 'true'
