@@ -4,6 +4,7 @@ import MainFooter from '../layout/MainFooter'
 import HiddenForm from '../layout/HiddenForm'
 import Register from '../layout/Register'
 const Home = () => {
+
     return (
         <div className='home-container'>
             <MainHeader/>
