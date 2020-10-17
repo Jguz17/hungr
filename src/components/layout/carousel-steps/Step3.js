@@ -18,7 +18,7 @@ class Step3 extends React.Component {
         <div className='step-3'>
             <h1>What's your email?</h1>
             <p>Your email is used for updates</p>
-            <input type='phone' required placeholder='hangry@hungr.com'/>
+            <input type='email' required placeholder='hangry@hungr.com'/>
         </div>
      );
    }
