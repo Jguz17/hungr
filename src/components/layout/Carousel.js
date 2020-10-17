@@ -54,8 +54,8 @@ const Carousel = (props) => {
            <Step3 currentStep={props.step} />
            <Step4 currentStep={props.step} />
            <div className='carousel-buttons'>
-               <button onClick={props.prev}>Prev</button>
-               <button onClick={props.next}>Next</button>
+               {/* <button onClick={props.prev}>Prev</button> */}
+               <button onClick={props.next}>Continue</button>
            </div>
         </div>
     )

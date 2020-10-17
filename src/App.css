@@ -29,7 +29,8 @@ input {
 
 #register-close {
   color: #fff;
-  margin-left: 20%;
+  margin: 2.5% 0 0 0;
+  font-size: 2rem;
 }
 
 .home-container {
@@ -181,6 +182,7 @@ input {
 
 #register-close {
   display: none;
+  padding-left: .5rem;
 }
 
 .phone-verification {
@@ -233,12 +235,54 @@ input {
 }
 
 .carousel {
-  width: 80%;
+  width: 100%;
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.carousel-buttons {
+  width: 100%;
+}
+
+.carousel-buttons button {
+  width: 310px;
+  margin: 0 auto;
+  height: 2.7rem;
+  border-radius: 14px;
+  border: none;
+  background-color: #fff;
+  color: #00adef;
+  font-family: 'Roboto';
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.step-1 h1 {
+  font-size: 1.3rem;
+  letter-spacing: .03rem;
+  margin-top: 1.8rem;
+  margin-bottom: .3rem;
+}
+
+.step-1 p {
+  font-size: 1.15rem;
+  letter-spacing: .05rem;
+  font-family: 'roboto-light';
+  margin-bottom: 1.8rem;
+}
+
+.step-1 input {
+  width: 300px;
+  border: none;
+  height: 2.5rem;
+  padding-left: .5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
 }
 
 .carousel-buttons {
