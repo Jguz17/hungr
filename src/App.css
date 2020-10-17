@@ -21,6 +21,11 @@ body {
   width: 100%;
 }
 
+#register-close {
+  color: #fff;
+  margin-left: 20%;
+}
+
 .home-container {
   background-image: url('./images/blue_background.jpg');
   background-position: center;
@@ -103,7 +108,7 @@ body {
 
 .form input {
   width: 100%;
-  border: 1px solid #41b7e1;
+  border: 1px solid #00ADEE;
   height: 3rem;
   margin-bottom: 2rem;
   font-size: 1rem;
@@ -154,7 +159,7 @@ body {
   bottom: 0;
   position: absolute;
   transition: all .5s;
-  background-color: #43B2F6;
+  background-color: #00ADEE;
 }
 
 .register-phone {

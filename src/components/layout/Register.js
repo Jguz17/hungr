@@ -130,14 +130,19 @@ const Register = () => {
 
     return (
         <div id='register-container' className='register-container hidden'>
-            <i id='register-close' onClick={onClick} className="fas fa-times"></i>
-
-            <div className='register-phone'>
+            <div className='close-container'>
+                <i id='register-close' onClick={onClick} className="fas fa-times"></i>
+            </div>
+            <div className='register-phone' style={{color: 'white'}}>
                 <form onSubmit={submitPhone} className='register-phone-screen'>
                     <h1>Enter your mobile phone number</h1>
                     <p>We'll send you a verification code</p>
-                    <input onChange={phoneChange} name='phone' type='phone' placeholder='987-654-3210' required/>
-                    <input type='submit' value='Continue'/>
+                        <div className='phone-input-container'>
+                            <input onChange={phoneChange} name='phone' type='phone' placeholder='987-654-3210' required/>
+                        </div>
+                        <div className='phone-continue-container'>
+                            <input name='phone' type='submit' value='Continue'/>
+                        </div>
                 </form>
             </div>
 

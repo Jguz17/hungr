@@ -77,6 +77,79 @@
         color: #fff;
     }
 
+    /* ==== REGISTER COMPONENT STYLES ==== */
+    #register-close {
+        margin: 2.5%;
+        font-size: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .register-phone {
+        padding: 1.5rem 0;
+    }
+    
+    .register-phone h1{
+        font-size: 1.275rem;
+        letter-spacing: .03rem;
+        padding-bottom: .4rem;
+
+        /* font-weight: 300; */
+    }
+    
+    .register-phone p{
+        padding-bottom: 1.725rem;
+        font-family: 'roboto-light';
+        /* color: #DADADA; */
+        font-size: 1.15rem;
+        letter-spacing: .03rem;
+        /* font-weight: 300; */
+    }
+
+    .register-phone-screen {
+        width: 97.5%;
+    }
+
+    .phone-input-container {
+        width: 100%;
+    }
+
+    input[name='phone'] {
+        width: 284px;
+        display: block;
+        margin: 0 auto;
+        border: 0;
+        height: 3rem;
+        padding-left: 1rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .phone-continue-container {
+        width: 100%;
+    }
+
+    .phone-continue-container input[name='phone'] {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        padding-left: 0;
+        background-color: #fff;
+        border-radius: 18px;
+        color: #00ADEE;
+    }
+
+    .phone-verification {
+        width: 100%;    
+    }    
+
+    .phoneVerification {
+        width: 90%;    
+    }  
+    
+    .phone-verification h1{
+        font-size: 1;    
+    }    
+
 }
 
 @media only screen and (min-width: 375px) and (max-width: 424px) {
