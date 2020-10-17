@@ -16,7 +16,7 @@ const HiddenForm = () => {
         <div id='test' className='animation-test hidden'>
             <div id='form-container'>
                 <form className='form'>
-                    <h1 style={{textAlign: 'center', color: '#41b7e1'}}>Log In</h1>
+                    <h1 style={{textAlign: 'center', color: '#41b7e1'}}>Sign In</h1>
                     <input type='email' placeholder='Email' required/>
                     <input type='password' placeholder='Password' required minLength='6'/>
                     <div className='form-buttons'>
