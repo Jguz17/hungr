@@ -19,7 +19,7 @@ const Register = () => {
     }
 
     const next = () => {
-        if (state.step <= 3) {
+        if (state.step <= 4) {
             setState({
                 step: state.step + 1
             })
