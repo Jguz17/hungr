@@ -14,8 +14,8 @@ class Step4 extends React.Component {
       return(
         <div className='step-4'>
             <h1>What's your name?</h1>
-            <p>Your email is used for updates</p>
-            <input type='phone' required placeholder='hangry@hungr.com'/>
+            <input type='text' required placeholder='First Name'/>
+            <input type='text' required placeholder='Last Name'/>
         </div>
      );
    }

@@ -356,11 +356,17 @@ input {
   flex-direction: column;
 }
 
+.step-4 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 .step-4 h1 {
   font-size: 1.3rem;
   letter-spacing: .03rem;
   margin-top: 1.8rem;
-  margin-bottom: .3rem;
+  margin-bottom: 2rem;
 }
 
 .step-4 p {
