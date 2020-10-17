@@ -277,7 +277,7 @@ input {
 .step-1 p {
   font-size: 1.15rem;
   letter-spacing: .05rem;
-  font-family: 'roboto-light';
+  opacity: .8;
   margin-bottom: 1.8rem;
 }
 
