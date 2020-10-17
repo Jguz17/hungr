@@ -4,12 +4,9 @@ const MainFooter = () => {
 
     const registerClick = () => {
        const registerContainer = document.querySelector('#register-container')
-       
-       if (registerContainer.className.includes('hidden')) {
-           registerContainer.className = 'register-container notHidden'
-           document.querySelector('.register-phone-screen').style.display = 'block'
-           document.querySelector('#register-close').style.display = 'block'
-       }
+       registerContainer.className = 'register-container notHidden'
+       document.querySelector('#register-close').style.display = 'block'
+       document.querySelector('#carousel-container').style.display = 'block'
     }
 
     const onClick = () => {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import Carousel from './Carousel'
 
 const Register = () => {
 
@@ -7,29 +8,58 @@ const Register = () => {
         phoneVerificationCode: '',
         email: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        color: '',
+        hidden: 'true',
+        step: 1
     })
 
+    const onSubmit = () => {
+        console.log('triggered')
+    }
+
+    const next = () => {
+        if (state.step <= 3) {
+            setState({
+                step: state.step + 1
+            })
+        }        
+    }
+
+    const prev = () => {
+        let currentStep = state.step;
+        if (currentStep <= 1) {
+          currentStep = 1;
+        } else {
+          currentStep = currentStep - 1;
+        }
+        
+        setState({
+          step: currentStep
+        });
+    }
+
     const onClick = () => {
+
         const registerContainer = document.querySelector('#register-container')
 
-        if (document.querySelector('.register-phone').className.includes('hide')) {
-            document.querySelector('.register-phone').className = 'register-phone unhide'
-        }
-       
-        if (registerContainer.className.includes('notHidden')) {
+        if (document.querySelector('.register-container').className.includes('hidden')) {
+            document.querySelector('.register-container').className = 'register-container notHidden'
+            document.querySelector('#register-close').style.display = 'block'
+
+            setState({
+                ...state,
+                hidden: 'false'
+            })
+            document.querySelector('#carousel-container').style.display = 'block'
+        } else if (registerContainer.className.includes('notHidden')) {
             registerContainer.className = 'register-container hidden'
-            document.querySelector('.register-phone-screen').style.display = 'none'
             document.querySelector('#register-close').style.display = 'none'
-
-            document.querySelector('.phoneVerification').style.display = 'none'
-            document.querySelector('.phone-verification').style.display = 'none'
-
-            document.querySelector('.register-email').style.display = 'none'
-            document.querySelector('.email-form').style.display = 'none'
-
-            document.querySelector('#register-name').style.display = 'none'
-            document.querySelector('.name-form').style.display = 'none'
+            document.querySelector('#carousel-container').style.display = 'none'
+            setState({
+                ...state,
+                hidden: 'true'
+            })
         }
  
     }
@@ -128,49 +158,20 @@ const Register = () => {
         document.querySelector('.name-form').style.display = 'block'
     }
 
+    const sendStep = (num) => {
+        setState({
+            step: num 
+        })
+        console.log(state.step)
+    }
+
     return (
         <div id='register-container' className='register-container hidden'>
-            <div className='close-container'>
+            <div onClick={() => setState({ step: 1 })} className='close-container'>
                 <i id='register-close' onClick={onClick} className="fas fa-times"></i>
             </div>
-            <div className='register-phone' style={{color: 'white'}}>
-                <form onSubmit={submitPhone} className='register-phone-screen'>
-                    <h1>Enter your mobile phone number</h1>
-                    <p>We'll send you a verification code</p>
-                        <div className='phone-input-container'>
-                            <input onChange={phoneChange} name='phone' type='phone' placeholder='987-654-3210' required/>
-                        </div>
-                        <div className='phone-continue-container'>
-                            <input name='phone' type='submit' value='Continue'/>
-                        </div>
-                </form>
-            </div>
-
-            <div className='phone-verification hide'>
-                <form onSubmit={submitPhoneVerification} className='phoneVerification'>
-                    <h1>Enter the 4-digit code sent to you</h1>
-                    <input onChange={phoneVerification} type='text' placeholder='1234' name='phoneVerificationCode'/>
-                    <input type='submit' value='Continue'/>
-                    <p>Resend code</p>
-                </form>
-            </div>
-       
-            <div className='register-email hide'>
-                <form onSubmit={submitEmail} className='email-form'>
-                    <h1>What's your email</h1>
-                    <input onChange={emailChange} type='email' placeholder='hangry@hungr.com' name='email' required/>
-                    <button>Continue</button>
-                    <p>Clicking continue agress to our terms of service</p>
-                </form>
-            </div>
-
-            <div id='register-name' className='hide'>
-                <form className='name-form'>
-                    <h1>Enter your name</h1>
-                    <input type='text' placeHolder='First Name' required/>
-                    <input type='text' placeHolder='Last Name' required/>
-                    <input type='submit' value='Continue'/>
-                </form>
+            <div style={{display: 'none', width: '100%'}}  id='carousel-container' >
+                <Carousel sendStep={sendStep} prev={prev} next={next} step={state.step}/>
             </div>
         </div>
     )

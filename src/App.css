@@ -222,3 +222,19 @@ body {
   transition: all .5s;
 }
 
+.carousel-container {
+  width: 100%;
+}
+
+.carousel {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-buttons {
+  display: flex;
+}
