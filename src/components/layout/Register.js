@@ -177,9 +177,15 @@ const Register = () => {
         console.log(state.step)
     }
 
+    const handleClick = () => {
+        setState({ step: 1 })
+        setDisabled('true')
+            document.querySelector('.cont-overlay').style.display = 'block';
+    }
+
     return (
         <div id='register-container' className='register-container hidden'>
-            <div onClick={() => setState({ step: 1 })} className='close-container'>
+            <div onClick={handleClick} className='close-container'>
                 <i id='register-close' onClick={onClick} className="fas fa-times"></i>
             </div>
             <div style={{display: 'none', width: '100%'}}  id='carousel-container' >
