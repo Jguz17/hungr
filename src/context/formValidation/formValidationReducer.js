@@ -11,7 +11,7 @@ export default (state, action) => {
     switch(action.type) {
         case SET_PHONE_NUMBER:
             return {...state,
-            phone: action.payload
+            phone: action.payload.replace(/-/g, "")
         }
         default:
             return state

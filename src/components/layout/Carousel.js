@@ -35,16 +35,18 @@ const Carousel = (props) => {
     },[])
 
     const receiveSomething = (something) => {
-        // let emailValidator = re.test(document.querySelector('#email-verification').value)
-        if (disabledStatus === 'true' && document.querySelector('#phoneNumber').value.length >= 10) {
-            setDisabled('false')
-            document.querySelector('.cont-overlay').style.display = 'none';
-            document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
-                setState({
-                    currentStep: 2
+
+        if (disabledStatus === 'true' && document.querySelector('#phoneNumber').value.slice(-1) !== '0') {
+                if (document.querySelector('#phoneNumber').value.length >= 12) {
+                    setDisabled('false')
+                document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 2
+                    })
                 })
-            })
+                }
         }  
     }
 
@@ -93,7 +95,9 @@ const Carousel = (props) => {
                 setAlert('Please enter your phone number', 'danger')
             } else if (document.querySelector('#phoneNumber').value.length < 10) {
                 setAlert('Please enter a 10 digit phone number', 'danger')
-            } 
+            } else if (phone.slice(-1) === '0') {
+                setAlert('Number already registered', 'danger')
+            }
         } else if (disabledStatus === 'true' && props.step === 2) {
             if (document.querySelector('#code-verification-1').value === '' || document.querySelector('#code-verification-2').value === '' || document.querySelector('#code-verification-3').value === '' || document.querySelector('#code-verification-4').value === '') {
                 setAlert('Please enter verication code', 'danger')
