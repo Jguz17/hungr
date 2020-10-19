@@ -31,10 +31,30 @@ const Step1 = (props) => {
         if(e.target.value.length === 7) {
           phoneT.value = phoneT.value + "-";
         }
-    })
-
+      })
     }
 
+    if (document.querySelector('#continue-button')) {
+
+      document.querySelector('#continue-button').addEventListener('click', () => {
+      
+        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            variable: phone,
+            value: phone
+          })
+        })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+      })
+
+
+    }
     
 
       return(
