@@ -51,7 +51,7 @@ const Step2 = (props) => {
         // })
         // let verificationCode = []
         // verificationCode
-        props.something(holder)
+        props.validateCode(holder)
     }
 
       return(

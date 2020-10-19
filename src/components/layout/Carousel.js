@@ -10,7 +10,7 @@ import AlertContext from '../../context/alert/alertContext'
 const Carousel = (props) => {
 
     const [state, setState] = useState({
-        currentStep: props.step,
+        currentStep: props.step    
     })
 
     const disabledContext = useContext(DisabledContext)
@@ -21,6 +21,7 @@ const Carousel = (props) => {
 
     useEffect(() => {
         setDisabled('true')
+        
         // if(disabledStatus === 'true') {
 
         // }
@@ -31,9 +32,8 @@ const Carousel = (props) => {
     },[])
 
     const receiveSomething = (something) => {
-        console.log(something)
-
-        if (disabledStatus === 'true' && something.length >= 10) {
+        // let emailValidator = re.test(document.querySelector('#email-verification').value)
+        if (disabledStatus === 'true' && document.querySelector('#phoneNumber').value.length >= 10) {
             setDisabled('false')
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
@@ -42,21 +42,7 @@ const Carousel = (props) => {
                     currentStep: 2
                 })
             })
-        } else if (disabledStatus === 'true' && something.length >= 4) {
-            setDisabled('false')
-            document.querySelector('.cont-overlay').style.display = 'none';
-            document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
-                setState({
-                    currentStep: 3
-                })
-            })
-        } 
-
-        const re = /\S+@\S+\.\S+/
-        let emailValidator = re.test(document.querySelector('#email-verification').value)
-
-        if (disabledStatus === 'true' && emailValidator) {
+        } else if (disabledStatus === 'true' && something) {
             setDisabled('false')
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
@@ -65,8 +51,20 @@ const Carousel = (props) => {
                     currentStep: 4
                 })
             })
-        }
+        } 
+    }
 
+    const validateCode = (code) => {
+        if (disabledStatus === 'true' && code.length >= 4) {
+            setDisabled('false')
+            document.querySelector('.cont-overlay').style.display = 'none';
+            document.querySelector('#continue-button').addEventListener('click', () => {
+                setDisabled('true')
+                setState({
+                    currentStep: 3
+                })
+            })
+        }
     }
 
     const contClick = () => {
@@ -89,6 +87,10 @@ const Carousel = (props) => {
             } else if (!emailValidator) {
                 setAlert('Please enter a valid email address', 'danger') 
             }
+        } else if (disabledStatus === 'true' && props.step === 4) {
+            if (document.querySelector('#firstName').value === '' || document.querySelector('#lastName').value === '') {
+                setAlert('Please enter all missing fields', 'danger')
+            } 
         }
     }
 
@@ -97,7 +99,7 @@ const Carousel = (props) => {
     return (
         <div className='carousel'>
            <Step1 something={receiveSomething} currentStep={props.step} />
-           <Step2 something={receiveSomething} currentStep={props.step} />
+           <Step2 validateCode={validateCode} currentStep={props.step} />
            <Step3 something={receiveSomething} currentStep={props.step} />
            <Step4 something={receiveSomething} currentStep={props.step} />
            <div  className='carousel-buttons'>
