@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Alerts from '../Alerts'
 
-class Step2 extends React.Component {
-    constructor(props) {
-        super(props);
-      }
-    render() {
-      if (this.props.currentStep !== 2) {
+const Step2 = (props) => {
+
+    const [state, setState] = useState({
+        verificationCode: ''
+    })
+
+      if (props.currentStep !== 2) {
         return null;
       } 
 
@@ -39,17 +41,30 @@ class Step2 extends React.Component {
         }
     }
 
+    let holder = ''
+
+    const onChange = (e) => {
+        // let holder = ''
+        holder += e.target.value
+        // setState({
+        //     verificationCode: holder
+        // })
+        // let verificationCode = []
+        // verificationCode
+        props.something(holder)
+    }
+
       return(
         <div className='step-2'>
             <h1>Enter the 4 digit code we sent you</h1>
             <p>Text sent to *Dynamic Number Here*</p>
-            <input type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
-            <input type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
-            <input type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
-            <input type='phone' maxLength='1' size='1' onKeyUp={(e) => e.target.blur()}/>
+            <Alerts/>
+            <input onChange={onChange} id='code-verification-1' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
+            <input onChange={onChange} id='code-verification-2' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
+            <input onChange={onChange} id='code-verification-3' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
+            <input onChange={onChange} id='code-verification-4' type='phone' maxLength='1' size='1' onKeyUp={(e) => e.target.blur()}/>
         </div>
      );
-   }
 }
 
 export default Step2
