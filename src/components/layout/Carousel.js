@@ -80,9 +80,9 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
                 setDisabled('true')
-                setState({
-                    currentStep: 5
-                })
+                // setState({
+                //     currentStep: 5
+                // })
             })
         }
     }
