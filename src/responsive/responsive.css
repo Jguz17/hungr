@@ -624,9 +624,7 @@
     }
     
     /* ==== VALIDATIONS AND DISABLE FIELD ==== */
-    .cont-overlay {
-        height: 65%;
-    }
+
 }
 
 @media only screen and (min-width: 980px) and (max-width: 1023px) {
@@ -707,9 +705,9 @@
     }
 
     /* ==== VALIDATIONS AND DISABLE FIELD ==== */
-    .cont-overlay {
+    /* .cont-overlay {
         height: 65%;
-    }
+    } */
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
@@ -790,9 +788,9 @@
     }
 
     /* ==== VALIDATIONS AND DISABLE FIELD ==== */
-    .cont-overlay {
+    /* .cont-overlay {
         height: 65%;
-    }
+    } */
 }
 
 @media only screen and (min-width: 1200px) {
@@ -869,7 +867,7 @@
     }
 
     /* ==== VALIDATIONS AND DISABLE FIELD ==== */
-    .cont-overlay {
+    /* .cont-overlay {
         height: 64%;
-    }
+    } */
 }

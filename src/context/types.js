@@ -1,3 +1,9 @@
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 export const SET_DISABLED = 'SET_DISABLED';
+export const SET_PHONE_NUMBER = 'SET_PHONE_NUMBER'
+export const SET_VERIFICATION_CODE = 'SET_VERIFICATION_CODE'
+export const SET_EMAIL_ADDRESS = 'SET_EMAIL_ADDRESS'
+export const SET_FIRST_NAME = 'SET_FIRST_NAME'
+export const SET_LAST_NAME = 'SET_LAST_NAME'
+export const CLEAR_ALL = 'CLEAR_ALL'
