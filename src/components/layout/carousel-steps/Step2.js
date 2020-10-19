@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Alerts from '../Alerts'
+import FormValidationContext from '../../../context/formValidation/formValidationContext'
 
 const Step2 = (props) => {
 
     const [state, setState] = useState({
         verificationCode: ''
     })
+
+    const formValidationContext = useContext(FormValidationContext)
+
+    const { phone } = formValidationContext
+
+    
 
       if (props.currentStep !== 2) {
         return null;
@@ -57,8 +64,8 @@ const Step2 = (props) => {
       return(
         <div className='step-2'>
             <h1>Enter the 4 digit code we sent you</h1>
-            <p>Text sent to *Dynamic Number Here*</p>
-            <input onChange={onChange} id='code-verification-1' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
+            <p>Text sent to {phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}</p>
+            <input onChange={onChange} id='code-verification-1' type='phone' maxLength='1' size='1' onKeyUp={handleUp} autoFocus/>
             <input onChange={onChange} id='code-verification-2' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
             <input onChange={onChange} id='code-verification-3' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
             <input onChange={onChange} id='code-verification-4' type='phone' maxLength='1' size='1' onKeyUp={(e) => e.target.blur()}/>
