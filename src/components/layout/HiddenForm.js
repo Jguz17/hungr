@@ -61,11 +61,11 @@ const HiddenForm = () => {
                 <form className='form'>
                     <h1 style={{textAlign: 'center', color: '#41b7e1'}}>Sign In</h1>
                     <input onChange={validateUser} id='email-login' type='email' placeholder='Email'/>
-                    <input style={{marginTop: '2rem', marginBottom: '1rem'}} onChange={(e) => setState({password: e.target.value})} id='password-login' type='password' placeholder='Password'/>
+                    <input style={{marginTop: '2rem', marginBottom: '1.5rem'}} onChange={(e) => setState({password: e.target.value})} id='password-login' type='password' placeholder='Password'/>
                     <div style={{height: '40px', position: 'relative'}}>
                         <Alerts/>
                     </div>
-                    <div className='form-buttons' style={{marginTop: '1rem'}}>
+                    <div className='form-buttons'>
                         <input style={{textAlign: 'center', zIndex: '2'}} id='back' onClick={onClick} type='button' value='Back'/>
                         <input id='submit' type='submit' value='Submit'/>
                     </div>
