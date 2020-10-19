@@ -29,12 +29,13 @@ const Register = () => {
     }
 
     const next = () => {
-        if (state.step <= 4) {
+        if (state.step <= 5) {
             setState({
                 step: state.step + 1
             })
         }       
         document.querySelector('#hidden-text').style.display = 'none' 
+        // document.querySelector('.cont-overlay').style.display = 'block'
 
     }
 
