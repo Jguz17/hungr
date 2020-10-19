@@ -29,11 +29,13 @@ const Register = () => {
     }
 
     const next = () => {
-        if (state.step <= 5) {
+        if (state.step <= 3) {
             setState({
                 step: state.step + 1
             })
-        }       
+        } else {
+            console.log('trigg')
+        } 
         document.querySelector('#hidden-text').style.display = 'none' 
         // document.querySelector('.cont-overlay').style.display = 'block'
 
