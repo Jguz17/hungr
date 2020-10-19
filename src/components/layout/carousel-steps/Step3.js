@@ -19,8 +19,10 @@ const Step3 = (props) => {
         <div className='step-3'>
             <h1>What's your email?</h1>
             <p>Your email is used for updates</p>
-            <Alerts/>
             <input onChange={onChange} id='email-verification' type='email' required placeholder='hangry@hungr.com'/>
+            <div style={{height: '40px', position: 'relative'}}>
+              <Alerts/>
+            </div>
         </div>
      );
 }

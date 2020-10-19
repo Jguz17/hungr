@@ -124,7 +124,7 @@ const Carousel = (props) => {
            <div  className='carousel-buttons'>
                {/* <button onClick={props.prev}>Prev</button> */}
                {/* <div onClick={carouselBtnClick} className='clickable' style={{position: 'absolute', width: '100%', height: '100%'}}></div> */}
-               <button id='continue-button' onClick={props.next}>Continue</button>
+               <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
                 <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
                 {disabledStatus === 'true' ? <div onClick={contClick} className='cont-overlay'></div> : null}
            </div>
