@@ -5,7 +5,7 @@ import Step3 from './carousel-steps/Step3'
 import Step4 from './carousel-steps/Step4'
 import DisabledContext from '../../context/disabled/disabledContext'
 import AlertContext from '../../context/alert/alertContext'
-
+import FormValidationContext from '../../context/formValidation/formValidationContext'
 
 const Carousel = (props) => {
 
@@ -15,9 +15,11 @@ const Carousel = (props) => {
 
     const disabledContext = useContext(DisabledContext)
     const alertContext = useContext(AlertContext)
+    const formValidationContext = useContext(FormValidationContext)
 
     const { setDisabled, disabledStatus } = disabledContext
     const { setAlert } = alertContext
+    const { phone } = formValidationContext
 
     useEffect(() => {
         setDisabled('true')
@@ -42,16 +44,7 @@ const Carousel = (props) => {
                     currentStep: 2
                 })
             })
-        } else if (disabledStatus === 'true' && something) {
-            setDisabled('false')
-            document.querySelector('.cont-overlay').style.display = 'none';
-            document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
-                setState({
-                    currentStep: 4
-                })
-            })
-        } 
+        }  
     }
 
     const validateCode = (code) => {
@@ -65,6 +58,19 @@ const Carousel = (props) => {
                 })
             })
         }
+    }
+
+    const validateEmail = (email) => {
+        if (disabledStatus === 'true' && email) {
+            setDisabled('false')
+            document.querySelector('.cont-overlay').style.display = 'none';
+            document.querySelector('#continue-button').addEventListener('click', () => {
+                setDisabled('true')
+                setState({
+                    currentStep: 4
+                })
+            })
+        } 
     }
 
     const contClick = () => {
@@ -100,7 +106,7 @@ const Carousel = (props) => {
         <div className='carousel'>
            <Step1 something={receiveSomething} currentStep={props.step} />
            <Step2 validateCode={validateCode} currentStep={props.step} />
-           <Step3 something={receiveSomething} currentStep={props.step} />
+           <Step3 validateEmail={validateEmail} currentStep={props.step} />
            <Step4 something={receiveSomething} currentStep={props.step} />
            <div  className='carousel-buttons'>
                {/* <button onClick={props.prev}>Prev</button> */}

@@ -6,7 +6,7 @@ const Step3 = (props) => {
       const onChange = (e) => {
         const re = /\S+@\S+\.\S+/
         let emailValidator = re.test(e.target.value)
-          props.something(emailValidator)
+          props.validateEmail(emailValidator)
       }
 
       if (props.currentStep !== 3) {
