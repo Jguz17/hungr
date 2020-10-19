@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Alerts from '../Alerts'
 
 const Step4 = (props) => {
@@ -7,6 +7,14 @@ const Step4 = (props) => {
         fullName: ''
       })
 
+      // useEffect(() => {
+        // document.querySelector('.cont-overlay').style.height = '60%'
+        // document.querySelector('#hidden-text').style.display = 'none'
+      // },{})
+
+      // document.querySelector('.cont-overlay').style.height = '65%'
+
+
       // componentDidMount() {
       // }
 
@@ -14,16 +22,24 @@ const Step4 = (props) => {
         return null;
       } 
 
+      if (document.querySelector('.cont-overlay')) {
+        document.querySelector('.cont-overlay').style.height = '60%'
+        document.querySelector('#hidden-text').style.display = 'none'
+      }
+
       const onChange = (e) => {
         let first = document.querySelector('#firstName').value
         let last = document.querySelector('#lastName').value
 
-        props.something(first, last)
+        props.validateName(first, last)
       }
 
-      document.querySelector('.cont-overlay').style.height = '65%'
+      
+      // document.querySelector('.cont-overlay').style.display = 'block'
 
-      document.querySelector('#hidden-text').style.display = 'none'
+
+
+      
 
       return(
         <div className='step-4'>
