@@ -19,12 +19,13 @@ const Carousel = (props) => {
     const alertContext = useContext(AlertContext)
     const formValidationContext = useContext(FormValidationContext)
 
-    const { setDisabled, disabledStatus } = disabledContext
+    const { setDisabled, disabledStatus, signInLink, setDisabledSignIn } = disabledContext
     const { setAlert } = alertContext
     const { phone } = formValidationContext
 
     useEffect(() => {
         setDisabled('true')
+        setDisabledSignIn('true')
         // eslint-disable-next-line 
     },[])
 
@@ -42,6 +43,13 @@ const Carousel = (props) => {
                 })
                 }
         }  
+
+        if (document.querySelector('#phoneNumber').value.slice(-1) === '0') {
+            setDisabledSignIn('false')
+        } else {
+            setDisabledSignIn('true')
+        }
+
     }
 
     const validateCode = (code) => {
@@ -87,7 +95,7 @@ const Carousel = (props) => {
         if (disabledStatus === 'true' && props.step === 1) {
             if (document.querySelector('#phoneNumber').value === '') {
                 setAlert('Please enter your phone number', 'danger')
-            } else if (document.querySelector('#phoneNumber').value.length < 10) {
+            } else if (document.querySelector('#phoneNumber').value.length < 12) {
                 setAlert('Please enter a 10 digit phone number', 'danger')
             } else if (phone.slice(-1) === '0') {
                 setAlert('Number already registered', 'danger')
@@ -123,6 +131,7 @@ const Carousel = (props) => {
                {/* <button onClick={props.prev}>Prev</button> */}
                {/* <div onClick={carouselBtnClick} className='clickable' style={{position: 'absolute', width: '100%', height: '100%'}}></div> */}
                <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
+               { signInLink === 'true' ? null : <p>Already have an account with us? <span>Sign In</span></p>}
                 <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
                 {disabledStatus === 'true' ? <div onClick={contClick} className='cont-overlay'></div> : null}
            </div>

@@ -81,7 +81,6 @@ const Register = () => {
     const handleClick = () => {
         setState({ step: 1 })
         setDisabled('true')
-        // document.querySelector('.cont-overlay').style.display = 'block';
     }
 
     return (
