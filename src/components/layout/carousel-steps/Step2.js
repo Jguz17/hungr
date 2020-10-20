@@ -1,12 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Alerts from '../Alerts'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
 
 const Step2 = (props) => {
-
-    const [state, setState] = useState({
-        verificationCode: ''
-    })
 
     const formValidationContext = useContext(FormValidationContext)
 
@@ -25,6 +21,7 @@ const Step2 = (props) => {
         const myLength = target.value.length;
         if (myLength >= maxLength) {
             let next = target;
+            // eslint-disable-next-line 
             while (next = next.nextElementSibling) {
                 if (next == null)
                     break;
@@ -37,6 +34,7 @@ const Step2 = (props) => {
         // Move to previous field if empty (user pressed backspace)
         else if (myLength === 0) {
             let previous = target;
+            // eslint-disable-next-line 
             while (previous = previous.previousElementSibling) {
                 if (previous == null)
                     break;

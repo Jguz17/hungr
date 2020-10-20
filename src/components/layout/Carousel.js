@@ -10,6 +10,7 @@ import FormValidationContext from '../../context/formValidation/formValidationCo
 
 const Carousel = (props) => {
 
+    // eslint-disable-next-line 
     const [state, setState] = useState({
         currentStep: props.step    
     })
@@ -24,14 +25,7 @@ const Carousel = (props) => {
 
     useEffect(() => {
         setDisabled('true')
-        
-        // if(disabledStatus === 'true') {
-
-        // }
-        // if (disabledStatus === 'true') {
-        //     document.querySelector('#continue-button').disabled = true
-        //     document.querySelector('#continue-button').style.opacity = '.5'
-        // }
+        // eslint-disable-next-line 
     },[])
 
     const receiveSomething = (something) => {

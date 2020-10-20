@@ -1,17 +1,12 @@
 import React, { useState, useContext } from 'react'
 import Carousel from './Carousel'
 import DisabledContext from '../../context/disabled/disabledContext'
-import AlertContext from '../../context/alert/alertContext'
-import Alerts from './Alerts'
-
 
 const Register = () => {
 
     const disabledContext = useContext(DisabledContext)
-    const alertContext = useContext(AlertContext)
 
-    const { setDisabled, disabledStatus } = disabledContext
-    const { setAlert } = disabledContext
+    const { setDisabled } = disabledContext
 
     const [state, setState] = useState({
         phone: '',
@@ -23,10 +18,6 @@ const Register = () => {
         hidden: 'true',
         step: 1
     })
-
-    const onSubmit = () => {
-        console.log('triggered')
-    }
 
     const next = () => {
         if (state.step <= 3) {

@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Alerts from './Alerts'
 import DisabledContext from '../../context/disabled/disabledContext'
 import AlertContext from '../../context/alert/alertContext'
 
 const HiddenForm = () => {
 
+    // eslint-disable-next-line 
     const [state, setState] = useState({
         email: '',
         password: ''
