@@ -18,8 +18,6 @@ const Step1 = (props) => {
       props.something(phone)
     }
 
-
-
     const phoneT = document.getElementById('phoneNumber');
 
     if (phoneT) {
@@ -45,8 +43,7 @@ const Step1 = (props) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            variable: phone,
-            value: phone
+            phone: phone,
           })
         })
         .then((res) => res.json())
