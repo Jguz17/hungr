@@ -89,7 +89,7 @@ const Register = () => {
                 <i id='register-close' onClick={onClick} className="fas fa-times"></i>
             </div>
             <div style={{display: 'none', width: '100%'}}  id='carousel-container' >
-                <Carousel sendStep={sendStep} prev={prev} next={next} step={state.step}/>
+                <Carousel closeRegister={onClick} sendStep={sendStep} prev={prev} next={next} step={state.step}/>
             </div>
         </div>
     )

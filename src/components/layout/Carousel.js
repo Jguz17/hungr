@@ -120,6 +120,17 @@ const Carousel = (props) => {
         }
     }
 
+    const numberAlreadyExists = () => {
+        props.closeRegister()
+
+        const square = document.querySelector('#test')
+
+        if (square.className.includes('hidden')) {
+            square.className += 'animation-test notHidden'
+            document.querySelector('#form-container').style.display = 'block'
+        }
+    }
+
     return (
         <div className='carousel'>
            <Step1 something={receiveSomething} currentStep={props.step} />
@@ -131,7 +142,7 @@ const Carousel = (props) => {
                {/* <button onClick={props.prev}>Prev</button> */}
                {/* <div onClick={carouselBtnClick} className='clickable' style={{position: 'absolute', width: '100%', height: '100%'}}></div> */}
                <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
-               { signInLink === 'true' ? null : <p>Already have an account with us? <span>Sign In</span></p>}
+               { signInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
                 <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
                 {disabledStatus === 'true' ? <div onClick={contClick} className='cont-overlay'></div> : null}
            </div>
