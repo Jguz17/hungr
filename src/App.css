@@ -46,6 +46,15 @@ input {
   color: #fff;
   margin: 2.5% 0 0 0;
   font-size: 2rem;
+  display: none;
+  padding-left: .5rem;
+}
+
+#register-arrow {
+  color: #fff;
+  margin: 2.5% 0 0 0;
+  font-size: 2rem;
+  padding-left: .5rem;
 }
 
 .home-container {
@@ -211,11 +220,6 @@ input {
   width: 50%;
   margin: 0 auto;
   text-align: center;
-}
-
-#register-close {
-  display: none;
-  padding-left: .5rem;
 }
 
 .phone-verification {

@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Alerts from '../Alerts'
 
 const Step3 = (props) => {
+
+
+      if (props.currentStep !== 3) {
+        return null;
+      } 
 
       const onChange = (e) => {
         const re = /\S+@\S+\.\S+/
@@ -9,9 +14,6 @@ const Step3 = (props) => {
           props.validateEmail(emailValidator)
       }
 
-      if (props.currentStep !== 3) {
-        return null;
-      } 
 
       document.querySelector('#hidden-text').style.display = 'block'
 

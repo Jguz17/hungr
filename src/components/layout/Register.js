@@ -6,7 +6,7 @@ const Register = () => {
 
     const disabledContext = useContext(DisabledContext)
 
-    const { setDisabled } = disabledContext
+    const { setDisabled, disabledIcon, setDisabledIcon } = disabledContext
 
     const [state, setState] = useState({
         phone: '',
@@ -47,6 +47,10 @@ const Register = () => {
 
     const onClick = () => {
 
+        setState({ step: 1 })
+        setDisabled('true')
+        setDisabledIcon('true')
+
         const registerContainer = document.querySelector('#register-container')
 
         if (document.querySelector('.register-container').className.includes('hidden')) {
@@ -78,16 +82,13 @@ const Register = () => {
         console.log(state.step)
     }
 
-    const handleClick = () => {
-        setState({ step: 1 })
-        setDisabled('true')
-    }
-
     return (
         <div id='register-container' className='register-container hidden'>
-            <div onClick={handleClick} className='close-container'>
+            { disabledIcon === 'true' ? <div className='close-container'>
                 <i id='register-close' onClick={onClick} className="fas fa-times"></i>
-            </div>
+            </div> : <div>
+                    <i id='register-arrow' onClick={prev} class="fas fa-arrow-left"></i>
+                </div>}
             <div style={{display: 'none', width: '100%'}}  id='carousel-container' >
                 <Carousel closeRegister={onClick} sendStep={sendStep} prev={prev} next={next} step={state.step}/>
             </div>

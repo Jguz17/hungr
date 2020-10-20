@@ -1,16 +1,21 @@
 import React, { useContext } from 'react'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
+import DisabledContext from '../../../context/disabled/disabledContext'
 import Alerts from '../Alerts'
 
 const Step1 = (props) => {
 
     const formValidationContext = useContext(FormValidationContext)
+    const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
+    const { setDisabledIcon } = disabledContext
 
     if (props.currentStep !== 1) {
       return null;
     } 
+
+    setDisabledIcon('true')
 
     const onChange = (e) => {
       let changer = e.target.value

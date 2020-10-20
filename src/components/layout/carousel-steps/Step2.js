@@ -1,19 +1,22 @@
 import React, { useContext } from 'react'
 import Alerts from '../Alerts'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
+import DisabledContext from '../../../context/disabled/disabledContext'
 
 const Step2 = (props) => {
 
     const formValidationContext = useContext(FormValidationContext)
+    const disabledContext = useContext(DisabledContext)
 
     const { phone } = formValidationContext
 
-    
+    const { setDisabledIcon } = disabledContext
 
       if (props.currentStep !== 2) {
         return null;
       } 
 
+      setDisabledIcon('false')
 
     const handleUp = (e) => {
         const target = e.srcElement || e.target;
