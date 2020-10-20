@@ -1,6 +1,8 @@
 import {
     SET_DISABLED_OVERLAY,
-    SET_DISABLED_SIGN_IN
+    SET_DISABLED_SIGN_IN,
+    SET_DISABLED_POST_REQUEST,
+    SET_DISABLED_ICON
 } from '../types'
 
 export default (state, action) => {
@@ -16,6 +18,16 @@ export default (state, action) => {
                 ...state,
                 signInLink: action.payload
             }
+        case SET_DISABLED_POST_REQUEST:
+            return {
+                ...state,
+                postRequest: action.payload
+            }
+        case SET_DISABLED_ICON:
+            return {
+                ...state,
+                disabledIcon: action.payload
+                }
         default: 
             return state
     }
