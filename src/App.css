@@ -367,7 +367,14 @@ input {
   font-size: 1.15rem;
   letter-spacing: .05rem;
   opacity: .8;
-  margin-top: 1.8rem;
+  /* margin-top: 1.8rem; */
+}
+
+.hidden-div {
+  height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .step-3 p {

@@ -19,7 +19,13 @@ const Carousel = (props) => {
     const alertContext = useContext(AlertContext)
     const formValidationContext = useContext(FormValidationContext)
 
-    const { setDisabled, disabledStatus, signInLink, setDisabledSignIn } = disabledContext
+    const { setDisabled, 
+            disabledStatus, 
+            signInLink, 
+            setDisabledSignIn,
+            emailSignInLink,
+            setDisabledEmailSignIn
+        } = disabledContext
     const { setAlert } = alertContext
     const { phone } = formValidationContext
 
@@ -66,16 +72,23 @@ const Carousel = (props) => {
     }
 
     const validateEmail = (email) => {
-        if (disabledStatus === 'true' && email) {
-            setDisabled('false')
-            document.querySelector('.cont-overlay').style.display = 'none';
-            document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
-                setState({
-                    currentStep: 4
+        if (disabledStatus === 'true' && document.querySelector('#email-verification').value.slice(-1) !== 'q') {
+            if (email) {
+                setDisabled('false')
+                document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 4
+                    })
                 })
-            })
+            }
         } 
+        if (document.querySelector('#email-verification').value.slice(-1) === 'q') {
+            setDisabledEmailSignIn('false')
+        } else {
+            setDisabledEmailSignIn('true')
+        }
     }
 
     const validateName = (firstName, lastName) => {
@@ -107,11 +120,12 @@ const Carousel = (props) => {
         } else if (disabledStatus === 'true' && props.step === 3) {
             const re = /\S+@\S+\.\S+/
             let emailValidator = re.test(document.querySelector('#email-verification').value)
-            console.log(emailValidator)
             if (document.querySelector('#email-verification').value === '') {
                 setAlert('Please enter your email address', 'danger')
             } else if (!emailValidator) {
                 setAlert('Please enter a valid email address', 'danger') 
+            } else if (document.querySelector('#email-verification').value.slice(-1) === 'q') {
+                setAlert('Email already registered', 'danger') 
             }
         } else if (disabledStatus === 'true' && props.step === 4) {
             if (document.querySelector('#firstName').value === '' || document.querySelector('#lastName').value === '') {
@@ -139,11 +153,14 @@ const Carousel = (props) => {
            <Step4 validateName={validateName} currentStep={props.step} />
            <Step5 currentStep={props.step} />
            <div  className='carousel-buttons'>
-               {/* <button onClick={props.prev}>Prev</button> */}
-               {/* <div onClick={carouselBtnClick} className='clickable' style={{position: 'absolute', width: '100%', height: '100%'}}></div> */}
                <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
-               { signInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
+                <div className='hidden-div'>
+                    { signInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
+                </div>
                 <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
+                <div className='hidden-div'>
+                    { emailSignInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
+                </div>
                 {disabledStatus === 'true' ? <div onClick={contClick} className='cont-overlay'></div> : null}
            </div>
         </div>

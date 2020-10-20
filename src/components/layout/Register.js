@@ -64,7 +64,9 @@ const Register = () => {
             document.querySelector('#carousel-container').style.display = 'block'
         } else if (registerContainer.className.includes('notHidden')) {
             registerContainer.className = 'register-container hidden'
-            document.querySelector('#register-close').style.display = 'none'
+            if(document.querySelector('#register-close')) {
+                document.querySelector('#register-close').style.display = 'none'
+            }
             document.querySelector('#carousel-container').style.display = 'none'
             document.querySelector('#hidden-text').style.display = 'none'
             setState({
