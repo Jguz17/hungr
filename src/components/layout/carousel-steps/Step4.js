@@ -1,22 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Alerts from '../Alerts'
 
 const Step4 = (props) => {
-
-      const [state, setState] = useState({
-        fullName: ''
-      })
-
-      // useEffect(() => {
-        // document.querySelector('.cont-overlay').style.height = '60%'
-        // document.querySelector('#hidden-text').style.display = 'none'
-      // },{})
-
-      // document.querySelector('.cont-overlay').style.height = '65%'
-
-
-      // componentDidMount() {
-      // }
 
       if (props.currentStep !== 4) {
         return null;

@@ -3,11 +3,11 @@ import FormValidationContext from './formValidationContext'
 import formValidationReducer from './formValidationReducer'
 import {
     SET_PHONE_NUMBER,
-    SET_VERIFICATION_CODE,
-    SET_EMAIL_ADDRESS,
-    SET_FIRST_NAME,
-    SET_LAST_NAME,
-    CLEAR_ALL
+    // SET_VERIFICATION_CODE,
+    // SET_EMAIL_ADDRESS,
+    // SET_FIRST_NAME,
+    // SET_LAST_NAME,
+    // CLEAR_ALL
 } from '../types'
 
 const FormValidationState = (props) => {
