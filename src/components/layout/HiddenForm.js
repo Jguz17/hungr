@@ -67,8 +67,12 @@ const HiddenForm = () => {
                         <Alerts/>
                     </div>
                     <div className='form-buttons'>
-                        <input style={{textAlign: 'center', zIndex: '2'}} id='back' onClick={onClick} type='button' value='Back'/>
+                        <input style={{textAlign: 'center', zIndex: '2', marginRight: '2rem'}} id='back' onClick={onClick} type='button' value='Back'/>
                         <input id='submit' type='submit' value='Submit'/>
+                        <br/>
+                        <div className='help-container' style={{textAlign: 'center', zIndex: '3'}}>
+                            <a id='help-link' href="mailto:someone@example.com">Help</a>
+                        </div>
                     </div>
                 </form>
             </div>
