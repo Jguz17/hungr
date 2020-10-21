@@ -4,7 +4,8 @@ import {
     SET_DISABLED_POST_REQUEST,
     SET_DISABLED_ICON,
     SET_DISABLED_EMAIL_LINK,
-    SET_EMAIL_VERIFICATION_STATE
+    SET_EMAIL_VERIFICATION_STATE,
+    SET_PHONE_VERIFICATION_STATE
 } from '../types'
 
 export default (state, action) => {
@@ -39,6 +40,11 @@ export default (state, action) => {
             return {
                 ...state,
                 emailState: action.payload
+            }
+        case SET_PHONE_VERIFICATION_STATE:
+            return {
+                ...state,
+                phoneState: action.payload
             }
         default: 
             return state

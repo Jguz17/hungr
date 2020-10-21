@@ -9,7 +9,7 @@ const Step1 = (props) => {
     const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
-    const { setDisabledIcon, emailState, setEmailVerificationState } = disabledContext
+    const { setDisabledIcon, setPhoneVerificationState, phoneState } = disabledContext
 
     if (props.currentStep !== 1) {
       return null;
@@ -37,7 +37,7 @@ const Step1 = (props) => {
       })
     }
 
-    if (document.querySelector('#continue-button') && emailState === 'true') {
+    if (document.querySelector('#continue-button') && phoneState === 'true') {
 
       document.querySelector('#continue-button').addEventListener('click', () => {
 
@@ -46,7 +46,7 @@ const Step1 = (props) => {
               iosPlatforms = ['iPhone', 'iPad', 'iPod']
         
           if (iosPlatforms.indexOf(platform) !== -1) {
-
+            // setPhoneVerificationState('false')
             fetch("https://intapp.hungrapi.com/v2/phone_verification-ios/", {
             method: "POST",
             headers: {
@@ -59,10 +59,9 @@ const Step1 = (props) => {
           })
           .then((res) => res.json())
           .then((data) => console.log(data))
-          setEmailVerificationState('false')
 
           } else if (/Android/.test(userAgent)) {
-
+            // setPhoneVerificationState('false')
             fetch("https://intapp.hungrapi.com/v2/phone_verification-android/", {
             method: "POST",
             headers: {
@@ -77,6 +76,7 @@ const Step1 = (props) => {
           .then((res) => res.json())
           .then((data) => console.log(data))
           } else {
+            // setPhoneVerificationState('false')
             fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
             method: "POST",
             headers: {
@@ -90,11 +90,9 @@ const Step1 = (props) => {
 
           .then((res) => res.json())
           .then((data) => console.log(data))
-          setEmailVerificationState('false')
-          }
-
-          
+          }          
       })
+      setPhoneVerificationState('false')
     }
     
 
