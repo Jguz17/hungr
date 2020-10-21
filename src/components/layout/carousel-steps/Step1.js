@@ -40,23 +40,65 @@ const Step1 = (props) => {
     if (document.querySelector('#continue-button') && emailState === 'true') {
 
       document.querySelector('#continue-button').addEventListener('click', () => {
-      
-        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-          method: "POST",
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            phone: phone,
-          })
-        })
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-      })
-      setEmailVerificationState('false')
 
+        let userAgent = window.navigator.userAgent,
+              platform = window.navigator.platform,
+              iosPlatforms = ['iPhone', 'iPad', 'iPod']
+        
+          if (iosPlatforms.indexOf(platform) !== -1) {
+
+            fetch("https://intapp.hungrapi.com/v2/phone_verification-ios/", {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              phone: phone,
+            })
+          })
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          setEmailVerificationState('false')
+
+          } else if (/Android/.test(userAgent)) {
+
+            fetch("https://intapp.hungrapi.com/v2/phone_verification-android/", {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              phone: phone,
+            })
+          })
+
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          } else {
+            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+            method: "POST",
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              phone: phone,
+            })
+          })
+
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          setEmailVerificationState('false')
+          }
+
+          
+      })
     }
+    
+
+    
     
 
       return(
