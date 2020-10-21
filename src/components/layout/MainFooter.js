@@ -5,7 +5,7 @@ const MainFooter = () => {
 
     const disableContext = useContext(DisabledContext)
 
-    const { emailState, setEmailVerificationState } = disableContext
+    const { setEmailVerificationState } = disableContext
 
     const registerClick = () => {
         // if (document.querySelector('#phoneNumber').value.length < 10) {

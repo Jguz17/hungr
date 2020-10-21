@@ -134,7 +134,7 @@ const Carousel = (props) => {
         }
     }
 
-    const numberAlreadyExists = () => {
+    const userAlreadyExists = () => {
         props.closeRegister()
 
         const square = document.querySelector('#test')
@@ -155,11 +155,11 @@ const Carousel = (props) => {
            <div  className='carousel-buttons'>
                <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
                 <div className='hidden-div'>
-                    { signInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
+                    { signInLink === 'true' ? null : <p className='user-exists' style={{ zIndex: 2 }}>Already have an account with us? <span onClick={userAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
                 </div>
                 <p id='hidden-text' style={{display: 'none'}}>Clicking continue agrees to our terms of service</p>
                 <div className='hidden-div'>
-                    { emailSignInLink === 'true' ? null : <p style={{ zIndex: 2 }}>Already have an account with us? <span onClick={numberAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
+                    { emailSignInLink === 'true' ? null : <p className='user-exists' style={{ zIndex: 2 }}>Already have an account with us? <span onClick={userAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
                 </div>
                 {disabledStatus === 'true' ? <div onClick={contClick} className='cont-overlay'></div> : null}
            </div>

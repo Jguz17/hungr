@@ -17,7 +17,7 @@ const Register = () => {
         color: '',
         hidden: 'true',
         step: 1
-    })
+    }, [])
 
     const next = () => {
         if (state.step <= 3) {
@@ -59,7 +59,8 @@ const Register = () => {
 
             setState({
                 ...state,
-                hidden: 'false'
+                hidden: 'false',
+                step: 1
             })
             document.querySelector('#carousel-container').style.display = 'block'
         } else if (registerContainer.className.includes('notHidden')) {
@@ -71,7 +72,8 @@ const Register = () => {
             document.querySelector('#hidden-text').style.display = 'none'
             setState({
                 ...state,
-                hidden: 'true'
+                hidden: 'true',
+                step: 1
             })
         }
  
