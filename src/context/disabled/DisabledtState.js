@@ -6,7 +6,8 @@ import {
     SET_DISABLED_SIGN_IN,
     SET_DISABLED_POST_REQUEST,
     SET_DISABLED_ICON,
-    SET_DISABLED_EMAIL_LINK
+    SET_DISABLED_EMAIL_LINK,
+    SET_EMAIL_VERIFICATION_STATE
 } from '../types';
 
 const DisabledState = (props) => {
@@ -15,7 +16,8 @@ const DisabledState = (props) => {
         signInLink: 'true',
         postRequest: 'false',
         disabledIcon: 'true',
-        emailSignInLink: 'true'
+        emailSignInLink: 'true',
+        emailState: 'false'
     }
 
     const [state, dispatch] = useReducer(disabledReducer, initialState);
@@ -75,6 +77,18 @@ const DisabledState = (props) => {
         }
     }
 
+    const setEmailVerificationState = (text) => {
+        try {
+            dispatch({
+                type: SET_EMAIL_VERIFICATION_STATE,
+                payload: text
+            })
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+
     return (
         <DisabledContext.Provider value={{
             disabledStatus: state.overlay,
@@ -82,11 +96,13 @@ const DisabledState = (props) => {
             postRequest: state.postRequest,
             disabledIcon: state.disabledIcon,
             emailSignInLink: state.emailSignInLink,
+            emailState: state.emailState,
             setDisabled,
             setDisabledSignIn,
             setDisabledPostRequest,
             setDisabledIcon,
-            setDisabledEmailSignIn
+            setDisabledEmailSignIn,
+            setEmailVerificationState
         }}>
         {props.children}
         </DisabledContext.Provider>
