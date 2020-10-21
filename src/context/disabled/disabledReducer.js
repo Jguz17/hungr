@@ -3,7 +3,8 @@ import {
     SET_DISABLED_SIGN_IN,
     SET_DISABLED_POST_REQUEST,
     SET_DISABLED_ICON,
-    SET_DISABLED_EMAIL_LINK
+    SET_DISABLED_EMAIL_LINK,
+    SET_EMAIL_VERIFICATION_STATE
 } from '../types'
 
 export default (state, action) => {
@@ -33,6 +34,11 @@ export default (state, action) => {
             return {
                 ...state,
                 emailSignInLink: action.payload
+            }
+        case SET_EMAIL_VERIFICATION_STATE:
+            return {
+                ...state,
+                emailState: action.payload
             }
         default: 
             return state

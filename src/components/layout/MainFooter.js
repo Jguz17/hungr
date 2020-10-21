@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import DisabledContext from '../../context/disabled/disabledContext'
 
 const MainFooter = () => {
+
+    const disableContext = useContext(DisabledContext)
+
+    const { emailState, setEmailVerificationState } = disableContext
 
     const registerClick = () => {
         // if (document.querySelector('#phoneNumber').value.length < 10) {
         // }
+        setEmailVerificationState('true')
        const registerContainer = document.querySelector('#register-container')
        registerContainer.className = 'register-container notHidden'
        document.querySelector('#register-close').style.display = 'block'

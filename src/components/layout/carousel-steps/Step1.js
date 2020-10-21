@@ -9,14 +9,13 @@ const Step1 = (props) => {
     const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
-    const { setDisabledIcon } = disabledContext
+    const { setDisabledIcon, emailState, setEmailVerificationState } = disabledContext
 
     if (props.currentStep !== 1) {
       return null;
     } 
 
     setDisabledIcon('true')
-    // 
 
     const onChange = (e) => {
       let changer = e.target.value
@@ -38,7 +37,7 @@ const Step1 = (props) => {
       })
     }
 
-    if (document.querySelector('#continue-button')) {
+    if (document.querySelector('#continue-button') && emailState === 'true') {
 
       document.querySelector('#continue-button').addEventListener('click', () => {
       
@@ -55,7 +54,7 @@ const Step1 = (props) => {
         .then((res) => res.json())
         .then((data) => console.log(data))
       })
-
+      setEmailVerificationState('false')
 
     }
     
