@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
 import DisabledContext from '../../../context/disabled/disabledContext'
 import Alerts from '../Alerts'
@@ -9,13 +9,19 @@ const Step1 = (props) => {
     const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
-    const { setDisabledIcon, emailState, setEmailVerificationState } = disabledContext
+    const { setDisabledIcon, phoneState, setPhoneVerificationState } = disabledContext
+
+    useEffect(() => {
+
+      setPhoneVerificationState('true')
+
+              // eslint-disable-next-line 
+    }, [])
 
     if (props.currentStep !== 1) {
       return null;
     } 
 
-    setDisabledIcon('true')
 
     const onChange = (e) => {
       let changer = e.target.value
@@ -23,7 +29,12 @@ const Step1 = (props) => {
       props.something(phone)
     }
 
+    let phoneNum;
+
     const phoneT = document.getElementById('phoneNumber');
+    if (document.getElementById('phoneNumber')) {
+      phoneNum = document.getElementById('phoneNumber').value
+    }
 
     if (phoneT) {
       phoneT.addEventListener("keydown", (e) => {
@@ -37,28 +48,63 @@ const Step1 = (props) => {
       })
     }
 
-    if (document.querySelector('#continue-button') && emailState === 'true') {
+    // if (document.querySelector('#continue-button') && phoneState === 'true') {
+    //   setPhoneVerificationState('false')
 
-      document.querySelector('#continue-button').addEventListener('click', () => {
-      
-        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-          method: "POST",
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            phone: phone,
-          })
-        })
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-      })
-      setEmailVerificationState('false')
+    //   document.querySelector('#continue-button').addEventListener('click', () => {
 
-    }
-    
+    //       let userAgent = window.navigator.userAgent,
+    //           platform = window.navigator.platform,
+    //           iosPlatforms = ['iPhone', 'iPad', 'iPod']
+        
+    //       if (iosPlatforms.indexOf(platform) !== -1) {
+    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+    //         method: "POST",
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //           phone_number: phoneNum,
+    //           phone_type: 'ios'
+    //         })
+    //       })
+    //     .then((res) => res.json())
+    //     .then((data) => console.log(data))
+    //     setPhoneVerificationState('false')
 
+    //       } else if (/Android/.test(userAgent)) {
+    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+    //           method: "POST",
+    //           headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //           },
+    //           body: JSON.stringify({
+    //             phone_number: phoneNum,
+    //             phone_type: 'android'
+    //           })
+    //         })
+    //       .then((res) => res.json())
+    //       .then((data) => console.log(data))
+    //       setPhoneVerificationState('false')          
+    //     } else {
+    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+    //         method: "POST",
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //           phone_number: phoneNum
+    //         })
+    //       })
+    //       .then((res) => res.json())
+    //       .then((data) => console.log(data))
+    //       setPhoneVerificationState('false')
+    //       }
+    //   })
+    // }
       return(
         <div className='step-1'>
             <form>

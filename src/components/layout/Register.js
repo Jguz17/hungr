@@ -20,7 +20,7 @@ const Register = () => {
     }, [])
 
     const next = () => {
-        if (state.step <= 3) {
+        if (state.step <= 4) {
             setState({
                 step: state.step + 1
             })
@@ -79,6 +79,8 @@ const Register = () => {
  
     }
 
+    
+
     const sendStep = (num) => {
         setState({
             step: num 
@@ -91,7 +93,7 @@ const Register = () => {
             { disabledIcon === 'true' ? <div className='close-container'>
                 <i id='register-close' onClick={onClick} className="fas fa-times"></i>
             </div> : <div>
-                    <i id='register-arrow' onClick={prev} class="fas fa-arrow-left"></i>
+                    <i id='register-arrow' onClick={prev} className="fas fa-arrow-left"></i>
                 </div>}
             <div style={{display: 'none', width: '100%'}}  id='carousel-container' >
                 <Carousel closeRegister={onClick} sendStep={sendStep} prev={prev} next={next} step={state.step}/>

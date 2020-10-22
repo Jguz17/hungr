@@ -24,14 +24,31 @@ const Carousel = (props) => {
             signInLink, 
             setDisabledSignIn,
             emailSignInLink,
-            setDisabledEmailSignIn
+            setDisabledEmailSignIn,
+            setPhoneVerificationState,
+            phoneState,
+            setDisabledIcon,
+            
         } = disabledContext
+
     const { setAlert } = alertContext
-    const { phone } = formValidationContext
+
+    const { phone,
+            setVerificationCode, 
+            setPassword,
+            setEmail,
+            setFirstName,
+            setLastName,
+            createUser
+         } = formValidationContext
 
     useEffect(() => {
         setDisabled('true')
         setDisabledSignIn('true')
+        setPhoneVerificationState('false')
+        setDisabledIcon('true')
+        document.querySelector('#register-close').style.display = 'block'
+        // setPhone
         // eslint-disable-next-line 
     },[])
 
@@ -40,6 +57,62 @@ const Carousel = (props) => {
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber').value.slice(-1) !== '0') {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
                     setDisabled('false')
+                    document.querySelector('#continue-button').addEventListener('click', () => {
+
+                        console.log('phone validation sent')
+              
+                        let userAgent = window.navigator.userAgent,
+                            platform = window.navigator.platform,
+                            iosPlatforms = ['iPhone', 'iPad', 'iPod']
+                      
+                        if (iosPlatforms.indexOf(platform) !== -1) {
+                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                          method: "POST",
+                          headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({
+                            phone_number: phone,
+                            phone_type: 'ios'
+                          })
+                        })
+                      .then((res) => res.json())
+                      .then((data) => console.log(data))
+                      setPhoneVerificationState('false')
+              
+                        } else if (/Android/.test(userAgent)) {
+                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                            method: "POST",
+                            headers: {
+                              'Accept': 'application/json',
+                              'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                              phone_number: phone,
+                              phone_type: 'android'
+                            })
+                          })
+                        .then((res) => res.json())
+                        .then((data) => console.log(data))
+                        setPhoneVerificationState('false')          
+                      } else {
+                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                          method: "POST",
+                          headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({
+                            phone_number: phone
+                          })
+                        })
+                        .then((res) => res.json())
+                        .then((data) => console.log(data))
+                        setPhoneVerificationState('false')
+                        }
+                    })
+            
                 document.querySelector('.cont-overlay').style.display = 'none';
                 document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
@@ -49,7 +122,6 @@ const Carousel = (props) => {
                 })
                 }
         }  
-
         if (document.querySelector('#phoneNumber').value.slice(-1) === '0') {
             setDisabledSignIn('false')
         } else {
@@ -60,6 +132,7 @@ const Carousel = (props) => {
 
     const validateCode = (code) => {
         if (disabledStatus === 'true' && code.length >= 4) {
+            setVerificationCode(code)
             setDisabled('false')
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
@@ -68,6 +141,60 @@ const Carousel = (props) => {
                     currentStep: 3
                 })
             })
+
+            console.log('code verification sent')
+
+            let userAgent = window.navigator.userAgent,
+                            platform = window.navigator.platform,
+                            iosPlatforms = ['iPhone', 'iPad', 'iPod']
+                      
+                        if (iosPlatforms.indexOf(platform) !== -1) {
+                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                          method: "POST",
+                          headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({
+                            verification_code: code,
+                            phone_type: 'ios'
+                          })
+                        })
+                      .then((res) => res.json())
+                      .then((data) => console.log(data))
+                      setPhoneVerificationState('false')
+              
+                        } else if (/Android/.test(userAgent)) {
+                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                            method: "POST",
+                            headers: {
+                              'Accept': 'application/json',
+                              'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                              verification_code: phone,
+                              phone_type: 'android'
+                            })
+                          })
+                        .then((res) => res.json())
+                        .then((data) => console.log(data))
+                        setPhoneVerificationState('false')          
+                      } else {
+                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                          method: "POST",
+                          headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({
+                            verification_code: code
+                          })
+                        })
+                        .then((res) => res.json())
+                        .then((data) => console.log(data))
+                        setPhoneVerificationState('false')
+                        }
+
         }
     }
 
@@ -75,6 +202,7 @@ const Carousel = (props) => {
         if (disabledStatus === 'true' && document.querySelector('#email-verification').value.slice(-1) !== 'q') {
             if (email) {
                 setDisabled('false')
+                setEmail(document.querySelector('#email-verification').value)
                 document.querySelector('.cont-overlay').style.display = 'none';
                 document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
@@ -83,6 +211,19 @@ const Carousel = (props) => {
                     })
                 })
             }
+
+            console.log('email check fired off')
+
+            fetch("https://intapp.hungrapi.com/v2/email_check/", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            })
         } 
         if (document.querySelector('#email-verification').value.slice(-1) === 'q') {
             setDisabledEmailSignIn('false')
@@ -91,15 +232,38 @@ const Carousel = (props) => {
         }
     }
 
+    const validatePassword = () => {
+
+        if (disabledStatus === 'true' && (document.querySelector('#password').value.length >= 8 && document.querySelector('#password-2').value.length >= 8)) {
+            if (document.querySelector('#password').value === document.querySelector('#password-2').value) {
+                setDisabled('false')
+                document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 5
+                    })
+                    if (document.querySelector('#password')) {
+                        setPassword(document.querySelector('#password').value)
+                    }
+                })
+            }
+        }
+    }
+
     const validateName = (firstName, lastName) => {
-        if (disabledStatus === 'true' && firstName && lastName) {
+        if (disabledStatus === 'true' && document.querySelector('#firstName').value && document.querySelector('#lastName').value) {
             setDisabled('false')
+            setFirstName(document.querySelector('#firstName').value)
+            setLastName(document.querySelector('#lastName').value)
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
                 setDisabled('true')
+                createUser()
                 // setState({
                 //     currentStep: 5
                 // })
+
             })
         }
     }
@@ -128,6 +292,14 @@ const Carousel = (props) => {
                 setAlert('Email already registered', 'danger') 
             }
         } else if (disabledStatus === 'true' && props.step === 4) {
+            if (document.querySelector('#password').value.length >= 7) {
+                setAlert('Password must be 8 characters long', 'danger')
+            } else if (document.querySelector('#password').value !== document.querySelector('#password-2').value) {
+                setAlert('Passwords don\'t match!', 'danger')
+            } else if (document.querySelector('#password').value === '' || document.querySelector('#password-2').value === '') {
+                setAlert('Please enter all missing fields', 'danger')
+            }
+        } else if (disabledStatus === 'true' && props.step === 5) {
             if (document.querySelector('#firstName').value === '' || document.querySelector('#lastName').value === '') {
                 setAlert('Please enter all missing fields', 'danger')
             } 
@@ -150,8 +322,8 @@ const Carousel = (props) => {
            <Step1 something={receiveSomething} currentStep={props.step} />
            <Step2 validateCode={validateCode} currentStep={props.step} />
            <Step3 validateEmail={validateEmail} currentStep={props.step} />
-           <Step4 validateName={validateName} currentStep={props.step} />
-           <Step5 currentStep={props.step} />
+           <Step4 validatePassword={validatePassword} currentStep={props.step} />
+           <Step5 validateName={validateName} currentStep={props.step} />
            <div  className='carousel-buttons'>
                <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
                 <div className='hidden-div'>

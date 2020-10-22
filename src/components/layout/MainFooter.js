@@ -5,15 +5,17 @@ const MainFooter = () => {
 
     const disableContext = useContext(DisabledContext)
 
-    const { setEmailVerificationState } = disableContext
+    const { setPhoneVerificationState } = disableContext
 
     const registerClick = () => {
         // if (document.querySelector('#phoneNumber').value.length < 10) {
         // }
-        setEmailVerificationState('true')
+        setPhoneVerificationState('true')
        const registerContainer = document.querySelector('#register-container')
        registerContainer.className = 'register-container notHidden'
-       document.querySelector('#register-close').style.display = 'block'
+       if (document.querySelector('#register-close')) {
+        document.querySelector('#register-close').style.display = 'block'
+       }
        document.querySelector('#carousel-container').style.display = 'block'
     }
 
