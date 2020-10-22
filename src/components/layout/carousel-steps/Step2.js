@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Alerts from '../Alerts'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
 import DisabledContext from '../../../context/disabled/disabledContext'
@@ -12,11 +12,15 @@ const Step2 = (props) => {
 
     const { setDisabledIcon } = disabledContext
 
+    useEffect(() => {
+        setDisabledIcon('false')
+                // eslint-disable-next-line 
+    }, [])
+
       if (props.currentStep !== 2) {
         return null;
       } 
 
-      setDisabledIcon('false')
 
     const handleUp = (e) => {
         const target = e.srcElement || e.target;

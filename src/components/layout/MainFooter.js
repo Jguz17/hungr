@@ -13,7 +13,9 @@ const MainFooter = () => {
         setPhoneVerificationState('true')
        const registerContainer = document.querySelector('#register-container')
        registerContainer.className = 'register-container notHidden'
-       document.querySelector('#register-close').style.display = 'block'
+       if (document.querySelector('#register-close')) {
+        document.querySelector('#register-close').style.display = 'block'
+       }
        document.querySelector('#carousel-container').style.display = 'block'
     }
 

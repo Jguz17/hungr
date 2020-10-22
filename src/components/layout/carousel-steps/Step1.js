@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
 import DisabledContext from '../../../context/disabled/disabledContext'
 import Alerts from '../Alerts'
@@ -9,13 +9,18 @@ const Step1 = (props) => {
     const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
-    const { setDisabledIcon, setPhoneVerificationState, phoneState } = disabledContext
+    const { setDisabledIcon, phoneState, setPhoneVerificationState } = disabledContext
+
+    useEffect(() => {
+      setDisabledIcon('true')
+      setPhoneVerificationState('true')
+              // eslint-disable-next-line 
+    }, [])
 
     if (props.currentStep !== 1) {
       return null;
     } 
 
-    setDisabledIcon('true')
 
     const onChange = (e) => {
       let changer = e.target.value
@@ -40,64 +45,26 @@ const Step1 = (props) => {
     if (document.querySelector('#continue-button') && phoneState === 'true') {
 
       document.querySelector('#continue-button').addEventListener('click', () => {
-
-        let userAgent = window.navigator.userAgent,
-              platform = window.navigator.platform,
-              iosPlatforms = ['iPhone', 'iPad', 'iPod']
-        
-          if (iosPlatforms.indexOf(platform) !== -1) {
-            // setPhoneVerificationState('false')
-            fetch("https://intapp.hungrapi.com/v2/phone_verification-ios/", {
-            method: "POST",
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              phone: phone,
-            })
+      
+        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            phone_number: document.getElementById('phoneNumber').value.replace(/-/g, ""),
+            phone_type: 'ios'
           })
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-
-          } else if (/Android/.test(userAgent)) {
-            // setPhoneVerificationState('false')
-            fetch("https://intapp.hungrapi.com/v2/phone_verification-android/", {
-            method: "POST",
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              phone: phone,
-            })
-          })
-
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          } else {
-            // setPhoneVerificationState('false')
-            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-            method: "POST",
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              phone: phone,
-            })
-          })
-
-          .then((res) => res.json())
-          .then((data) => console.log(data))
-          }          
+        })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        setPhoneVerificationState('false')
+        // console.log(phone)
       })
-      setPhoneVerificationState('false')
+      
     }
-    
 
-    
-    
 
       return(
         <div className='step-1'>

@@ -3,7 +3,7 @@ import FormValidationContext from './formValidationContext'
 import formValidationReducer from './formValidationReducer'
 import {
     SET_PHONE_NUMBER,
-    // SET_VERIFICATION_CODE,
+    SET_VERIFICATION_CODE,
     // SET_EMAIL_ADDRESS,
     // SET_FIRST_NAME,
     // SET_LAST_NAME,
@@ -27,10 +27,20 @@ const FormValidationState = (props) => {
             payload: num
         })
     }
+
+    const setVerificationCode = (text) => {
+        dispatch({
+            type: SET_VERIFICATION_CODE,
+            payload: text
+        })
+    }
+
     return (
         <FormValidationContext.Provider value={{
             phone: state.phone,
-            setPhone
+            verificationCode: state.verificationCode,
+            setPhone,
+            setVerificationCode
         }}>
             {props.children}
         </FormValidationContext.Provider>

@@ -26,7 +26,6 @@ const Carousel = (props) => {
             emailSignInLink,
             setDisabledEmailSignIn
         } = disabledContext
-        
     const { setAlert } = alertContext
     const { phone } = formValidationContext
 

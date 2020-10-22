@@ -1,6 +1,6 @@
 import {
     SET_PHONE_NUMBER,
-    // SET_VERIFICATION_CODE,
+    SET_VERIFICATION_CODE,
     // SET_EMAIL_ADDRESS,
     // SET_FIRST_NAME,
     // SET_LAST_NAME,
@@ -13,6 +13,11 @@ export default (state, action) => {
             return {...state,
             phone: action.payload.replace(/-/g, "")
         }
+        case SET_VERIFICATION_CODE: 
+            return {
+                ...state,
+                verificationCode: action.payload
+            }
         default:
             return state
     }
