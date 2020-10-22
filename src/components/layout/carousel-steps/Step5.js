@@ -1,19 +1,41 @@
 import React from 'react'
+import Alerts from '../Alerts'
 
 const Step5 = (props) => {
 
-    if (props.currentStep !== 5) {
+      if (props.currentStep !== 5) {
         return null;
       } 
 
-      document.querySelector('.cont-overlay').style.display = 'block'
+      if (document.querySelector('.cont-overlay')) {
+        document.querySelector('.cont-overlay').style.height = '60%'
+        document.querySelector('#hidden-text').style.display = 'none'
+      }
+
+      const onChange = (e) => {
+        let first = document.querySelector('#firstName').value
+        let last = document.querySelector('#lastName').value
+
+        props.validateName(first, last)
+      }
+
+      
+      // document.querySelector('.cont-overlay').style.display = 'block'
 
 
-    return (
+
+      
+
+      return(
         <div className='step-4'>
-            <h2>Thank you page</h2>
+            <h1>What's your name?</h1>
+            <input onChange={onChange} id='firstName' type='text' required placeholder='First Name'/>
+            <input style={{marginTop: '1.8rem', marginBottom: '1rem'}} onChange={onChange} id='lastName' type='text' required placeholder='Last Name'/>
+            <div style={{height: '40px', position: 'relative'}}>
+              <Alerts/>
+            </div>        
         </div>
-    )
+     );
 }
 
 export default Step5

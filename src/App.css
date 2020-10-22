@@ -425,6 +425,35 @@ input {
   height: 2.5rem;
   padding-left: .5rem;
   font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+
+.step-5 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.step-5 h1 {
+  font-size: 1.3rem;
+  letter-spacing: .03rem;
+  margin-top: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.step-5 p {
+  font-size: 1.15rem;
+  letter-spacing: .05rem;
+  opacity: .8;
+  margin-bottom: 1.8rem;
+}
+
+.step-5 input {
+  width: 300px;
+  border: none;
+  height: 2.5rem;
+  padding-left: .5rem;
+  font-size: 1.1rem;
   /* margin-bottom: 1.8rem; */
 }
 

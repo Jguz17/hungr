@@ -35,7 +35,19 @@ const HiddenForm = () => {
                 setDisabled('false')
                 document.querySelector('#submit').addEventListener('click', (e) => {
                     e.preventDefault()
-                    console.log('test')
+                    fetch('https://intapp.hungrapi.com/v2/account/login_check/', {
+                        method: "POST",
+                        headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: document.querySelector('#email-login').value,
+                            password: document.querySelector('#password-login').value,
+                        })
+                    })
+                    .then((res) => res.json())
+                    .then((data) => console.log(data))
                 })
                 // document.querySelector('.cont-overlay').style.backgroundColor = 'red';
             }
