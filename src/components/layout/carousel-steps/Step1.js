@@ -9,7 +9,7 @@ const Step1 = (props) => {
     const disabledContext = useContext(DisabledContext)
 
     const { setPhone, phone } = formValidationContext
-    const { setDisabledIcon, phoneState, setPhoneVerificationState } = disabledContext
+    const { setPhoneVerificationState } = disabledContext
 
     useEffect(() => {
 
@@ -29,6 +29,7 @@ const Step1 = (props) => {
       props.something(phone)
     }
 
+    // eslint-disable-next-line
     let phoneNum;
 
     const phoneT = document.getElementById('phoneNumber');

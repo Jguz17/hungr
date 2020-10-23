@@ -8,6 +8,7 @@ import {
     SET_PASSWORD,
     SET_FIRST_NAME,
     SET_LAST_NAME,
+    SET_VERIFICATION_CODE_RESPONSE,
     // CLEAR_ALL
 } from '../types'
 
@@ -18,7 +19,8 @@ const FormValidationState = (props) => {
         email: '',
         password: '',
         firstName: '',
-        lastName: ''
+        lastName: '',
+        verificationCodeResponse: ''
     }
 
     const [state, dispatch] = useReducer(formValidationReducer, initialState)
@@ -132,8 +134,13 @@ const FormValidationState = (props) => {
         .then((res) => res.json())
         .then((data) => console.log(data))
         }
+    }
 
-
+    const setResponseVerificationCode = (text) => {
+        dispatch({
+            type: SET_VERIFICATION_CODE_RESPONSE,
+            payload: text
+        })
     }
 
     return (
@@ -144,13 +151,15 @@ const FormValidationState = (props) => {
             email: state.email,
             firstName: state.firstName,
             lastName: state.lastName,
+            verificationCodeResponse: state.verificationCodeResponse,
             setPhone,
             setVerificationCode,
             setPassword,
             setEmail,
             setFirstName,
             setLastName,
-            createUser
+            createUser,
+            setResponseVerificationCode
         }}>
             {props.children}
         </FormValidationContext.Provider>

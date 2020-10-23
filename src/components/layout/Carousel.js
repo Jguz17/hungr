@@ -26,7 +26,6 @@ const Carousel = (props) => {
             emailSignInLink,
             setDisabledEmailSignIn,
             setPhoneVerificationState,
-            phoneState,
             setDisabledIcon,
             
         } = disabledContext
@@ -39,7 +38,10 @@ const Carousel = (props) => {
             setEmail,
             setFirstName,
             setLastName,
-            createUser
+            createUser,
+            setVerificationCodeResponse,
+            verificationCodeResponse,
+            verificationCode
          } = formValidationContext
 
     useEffect(() => {
@@ -78,7 +80,7 @@ const Carousel = (props) => {
                           })
                         })
                       .then((res) => res.json())
-                      .then((data) => console.log(data))
+                      .then((data) => setVerificationCodeResponse(data.verification_code))
                       setPhoneVerificationState('false')
               
                         } else if (/Android/.test(userAgent)) {
@@ -94,7 +96,7 @@ const Carousel = (props) => {
                             })
                           })
                         .then((res) => res.json())
-                        .then((data) => console.log(data))
+                        .then((data) => setVerificationCodeResponse(data.verification_code))
                         setPhoneVerificationState('false')          
                       } else {
                           fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
@@ -108,7 +110,7 @@ const Carousel = (props) => {
                           })
                         })
                         .then((res) => res.json())
-                        .then((data) => console.log(data))
+                        .then((data) => setVerificationCodeResponse(data.verification_code))
                         setPhoneVerificationState('false')
                         }
                     })
@@ -131,70 +133,72 @@ const Carousel = (props) => {
     }
 
     const validateCode = (code) => {
-        if (disabledStatus === 'true' && code.length >= 4) {
-            setVerificationCode(code)
-            setDisabled('false')
-            document.querySelector('.cont-overlay').style.display = 'none';
-            document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
-                setState({
-                    currentStep: 3
+        if (verificationCodeResponse === verificationCode) {
+            if (disabledStatus === 'true' && code.length >= 4) {
+                setVerificationCode(code)
+                setDisabled('false')
+                document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 3
+                    })
                 })
-            })
-
-            console.log('code verification sent')
-
-            let userAgent = window.navigator.userAgent,
-                            platform = window.navigator.platform,
-                            iosPlatforms = ['iPhone', 'iPad', 'iPod']
-                      
-                        if (iosPlatforms.indexOf(platform) !== -1) {
-                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
-                          method: "POST",
-                          headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                          },
-                          body: JSON.stringify({
-                            verification_code: code,
-                            phone_type: 'ios'
-                          })
-                        })
-                      .then((res) => res.json())
-                      .then((data) => console.log(data))
-                      setPhoneVerificationState('false')
-              
-                        } else if (/Android/.test(userAgent)) {
-                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
-                            method: "POST",
-                            headers: {
-                              'Accept': 'application/json',
-                              'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                              verification_code: phone,
-                              phone_type: 'android'
+    
+                console.log('code verification sent')
+    
+                let userAgent = window.navigator.userAgent,
+                                platform = window.navigator.platform,
+                                iosPlatforms = ['iPhone', 'iPad', 'iPod']
+                          
+                            if (iosPlatforms.indexOf(platform) !== -1) {
+                              fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                              method: "POST",
+                              headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify({
+                                verification_code: code,
+                                phone_type: 'ios'
+                              })
                             })
-                          })
-                        .then((res) => res.json())
-                        .then((data) => console.log(data))
-                        setPhoneVerificationState('false')          
-                      } else {
-                          fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
-                          method: "POST",
-                          headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                          },
-                          body: JSON.stringify({
-                            verification_code: code
-                          })
-                        })
-                        .then((res) => res.json())
-                        .then((data) => console.log(data))
-                        setPhoneVerificationState('false')
-                        }
-
+                          .then((res) => res.json())
+                          .then((data) => console.log(data))
+                          setPhoneVerificationState('false')
+                  
+                            } else if (/Android/.test(userAgent)) {
+                              fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                                method: "POST",
+                                headers: {
+                                  'Accept': 'application/json',
+                                  'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                  verification_code: phone,
+                                  phone_type: 'android'
+                                })
+                              })
+                            .then((res) => res.json())
+                            .then((data) => console.log(data))
+                            setPhoneVerificationState('false')          
+                          } else {
+                              fetch("https://intapp.hungrapi.com/v2/verification_code_check/", {
+                              method: "POST",
+                              headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify({
+                                verification_code: code
+                              })
+                            })
+                            .then((res) => res.json())
+                            .then((data) => console.log(data))
+                            setPhoneVerificationState('false')
+                            }
+    
+            }
         }
     }
 
@@ -280,6 +284,8 @@ const Carousel = (props) => {
         } else if (disabledStatus === 'true' && props.step === 2) {
             if (document.querySelector('#code-verification-1').value === '' || document.querySelector('#code-verification-2').value === '' || document.querySelector('#code-verification-3').value === '' || document.querySelector('#code-verification-4').value === '') {
                 setAlert('Please enter verication code', 'danger')
+            } else if (verificationCode !== verificationCodeResponse) {
+                setAlert('Please enter the correct verification code', 'danger')
             }
         } else if (disabledStatus === 'true' && props.step === 3) {
             const re = /\S+@\S+\.\S+/

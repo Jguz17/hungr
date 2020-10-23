@@ -5,6 +5,7 @@ import {
     SET_PASSWORD,
     SET_FIRST_NAME,
     SET_LAST_NAME,
+    SET_VERIFICATION_CODE_RESPONSE,
     // CLEAR_ALL
 } from '../types'
 
@@ -38,6 +39,11 @@ export default (state, action) => {
             return {
                 ...state,
                 lastName: action.payload
+            }
+        case SET_VERIFICATION_CODE_RESPONSE:
+            return {
+                ...state,
+                verificationCodeResponse: action.payload
             }
         default:
             return state
