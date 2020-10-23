@@ -80,7 +80,17 @@ const Carousel = (props) => {
                           })
                         })
                       .then((res) => res.json())
-                      .then((data) => setVerificationCodeResponse(data.verification_code))
+                      .then((data) => {
+                          if (data.result === 1) {
+                              setAlert('Number already registered', 'danger')
+                              setDisabled('true')
+                              setDisabledSignIn('true')
+                          } else {
+                            setVerificationCodeResponse(data.verification_code)
+                            setDisabled('false')
+                            setDisabledSignIn('false')
+                          }
+                      })
                       setPhoneVerificationState('false')
               
                         } else if (/Android/.test(userAgent)) {
@@ -96,7 +106,17 @@ const Carousel = (props) => {
                             })
                           })
                         .then((res) => res.json())
-                        .then((data) => setVerificationCodeResponse(data.verification_code))
+                        .then((data) => {
+                            if (data.result === 1) {
+                                setDisabled('true')
+                                setDisabledSignIn('true')
+                                setAlert('Number already registered', 'danger')
+                            } else {
+                              setVerificationCodeResponse(data.verification_code)
+                              setDisabled('false')
+                              setDisabledSignIn('false')
+                            }
+                        })
                         setPhoneVerificationState('false')          
                       } else {
                           fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
@@ -110,7 +130,17 @@ const Carousel = (props) => {
                           })
                         })
                         .then((res) => res.json())
-                        .then((data) => setVerificationCodeResponse(data.verification_code))
+                        .then((data) => {
+                            if (data.result === 1) {
+                                setAlert('Number already registered', 'danger')
+                                setDisabled('true')
+                                setDisabledSignIn('true')
+                            } else {
+                              setVerificationCodeResponse(data.verification_code)
+                              setDisabled('false')
+                              setDisabledSignIn('false')
+                            }
+                        })
                         setPhoneVerificationState('false')
                         }
                     })
@@ -278,9 +308,7 @@ const Carousel = (props) => {
                 setAlert('Please enter your phone number', 'danger')
             } else if (document.querySelector('#phoneNumber').value.length < 12) {
                 setAlert('Please enter a 10 digit phone number', 'danger')
-            } else if (phone.slice(-1) === '0') {
-                setAlert('Number already registered', 'danger')
-            }
+            } 
         } else if (disabledStatus === 'true' && props.step === 2) {
             if (document.querySelector('#code-verification-1').value === '' || document.querySelector('#code-verification-2').value === '' || document.querySelector('#code-verification-3').value === '' || document.querySelector('#code-verification-4').value === '') {
                 setAlert('Please enter verication code', 'danger')
