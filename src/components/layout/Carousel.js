@@ -47,14 +47,14 @@ const Carousel = (props) => {
         setDisabledSignIn('true')
         setPhoneVerificationState('false')
         setDisabledIcon('true')
-        document.querySelector('#register-close').style.display = 'block'
+        document.querySelector('#register-close').style.display = 'none'
         // setPhone
         // eslint-disable-next-line 
     },[])
 
     const receiveSomething = (something) => {
 
-        if (disabledStatus === 'true' && document.querySelector('#phoneNumber').value.slice(-1) !== '0') {
+        if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
                     setDisabled('false')
                     document.querySelector('#continue-button').addEventListener('click', () => {
@@ -122,7 +122,7 @@ const Carousel = (props) => {
                 })
                 }
         }  
-        if (document.querySelector('#phoneNumber').value.slice(-1) === '0') {
+        if (document.querySelector('#phoneNumber').value) {
             setDisabledSignIn('false')
         } else {
             setDisabledSignIn('true')
