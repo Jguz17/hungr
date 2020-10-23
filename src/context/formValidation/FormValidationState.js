@@ -9,6 +9,7 @@ import {
     SET_FIRST_NAME,
     SET_LAST_NAME,
     SET_VERIFICATION_CODE_RESPONSE,
+    SET_USER_ID
     // CLEAR_ALL
 } from '../types'
 
@@ -20,12 +21,13 @@ const FormValidationState = (props) => {
         password: '',
         firstName: '',
         lastName: '',
-        verificationCodeResponse: ''
+        verificationCodeResponse: '',
+        userid: ''
     }
 
     const [state, dispatch] = useReducer(formValidationReducer, initialState)
 
-    const { phone, email, password, firstName=document.querySelector('#firstName').value, lastName =document.querySelector('#lastName').value} = state
+    const { phone, email, password, firstName=document.querySelector('#firstName').value, lastName =document.querySelector('#lastName').value, userid} = state
 
     const setPhone = (num) => {
         dispatch({
@@ -89,11 +91,15 @@ const FormValidationState = (props) => {
                 firstName: firstName,
                 lastName: lastName,
                 zipcode: '',
-                userid: ''
+                userid: userid
             })
         })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            console.log(data)
+            // props.history.push('https://www.google.com')
+        })
+        window.location ='https://www.google.com'
 
         } else if (/Android/.test(userAgent)) {
             fetch("https://intapp.hungrapi.com/v2/create_new_account_android/", {
@@ -113,7 +119,11 @@ const FormValidationState = (props) => {
             })
             })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            console.log(data)
+            // props.history.push('https://www.google.com')
+        })
+        window.location ='https://www.google.com'
         } else {
             fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
             method: "POST",
@@ -132,13 +142,26 @@ const FormValidationState = (props) => {
             })
         })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+            console.log(data)
+
+            // props.history.push('https://www.google.com')
+        })
+        window.location ='https://www.google.com'
+
         }
     }
 
     const setResponseVerificationCode = (text) => {
         dispatch({
             type: SET_VERIFICATION_CODE_RESPONSE,
+            payload: text
+        })
+    }
+
+    const setUserId = (text) => {
+        dispatch({
+            type: SET_USER_ID,
             payload: text
         })
     }
@@ -159,7 +182,8 @@ const FormValidationState = (props) => {
             setFirstName,
             setLastName,
             createUser,
-            setResponseVerificationCode
+            setResponseVerificationCode,
+            setUserId
         }}>
             {props.children}
         </FormValidationContext.Provider>

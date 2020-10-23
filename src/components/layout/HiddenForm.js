@@ -47,7 +47,13 @@ const HiddenForm = () => {
                         })
                     })
                     .then((res) => res.json())
-                    .then((data) => console.log(data))
+                    .then((data) => {
+                        if (data.result === 0) {
+                            window.location ='https://www.google.com'
+                        } else {
+                            console.log(data.result)
+                        }
+                    })
                 })
                 // document.querySelector('.cont-overlay').style.backgroundColor = 'red';
             }

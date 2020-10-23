@@ -41,7 +41,8 @@ const Carousel = (props) => {
             createUser,
             setVerificationCodeResponse,
             verificationCodeResponse,
-            verificationCode
+            verificationCode,
+            setUserId
          } = formValidationContext
 
     useEffect(() => {
@@ -89,6 +90,7 @@ const Carousel = (props) => {
                             setVerificationCodeResponse(data.verification_code)
                             setDisabled('false')
                             setDisabledSignIn('false')
+                            setUserId(data.userid)
                           }
                       })
                       setPhoneVerificationState('false')
@@ -115,6 +117,7 @@ const Carousel = (props) => {
                               setVerificationCodeResponse(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
+                              setUserId(data.userid)
                             }
                         })
                         setPhoneVerificationState('false')          
@@ -139,6 +142,7 @@ const Carousel = (props) => {
                               setVerificationCodeResponse(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
+                              setUserId(data.userid)
                             }
                         })
                         setPhoneVerificationState('false')
@@ -233,7 +237,7 @@ const Carousel = (props) => {
     }
 
     const validateEmail = (email) => {
-        if (disabledStatus === 'true' && document.querySelector('#email-verification').value.slice(-1) !== 'q') {
+        if (disabledStatus === 'true' && document.querySelector('#email-verification').value) {
             if (email) {
                 setDisabled('false')
                 setEmail(document.querySelector('#email-verification').value)
@@ -258,8 +262,19 @@ const Carousel = (props) => {
                     email: email
                 })
             })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.result === 1) {
+                    setAlert('Email already registered', 'danger')
+                    setDisabled('true')
+                    setDisabledSignIn('true')
+                } else {
+                  setDisabled('false')
+                  setDisabledSignIn('false')
+                }
+            })
         } 
-        if (document.querySelector('#email-verification').value.slice(-1) === 'q') {
+        if (document.querySelector('#email-verification').value) {
             setDisabledEmailSignIn('false')
         } else {
             setDisabledEmailSignIn('true')
@@ -292,7 +307,6 @@ const Carousel = (props) => {
             setLastName(document.querySelector('#lastName').value)
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('#continue-button').addEventListener('click', () => {
-                setDisabled('true')
                 createUser()
                 // setState({
                 //     currentStep: 5
