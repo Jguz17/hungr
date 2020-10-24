@@ -187,7 +187,7 @@ const Carousel = (props) => {
 
     const validateCode = (code) => {
         setVerificationCode(code)
-            if (disabledStatus === 'true' && code.length >= 4) {
+            if (disabledStatus === 'true' && code) {
                 if (verificationCodeResponse === verificationCode) {
                     setDisabled('false')
                     document.querySelector('.cont-overlay').style.display = 'none';
