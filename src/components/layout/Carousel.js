@@ -87,6 +87,7 @@ const Carousel = (props) => {
                               setDisabled('true')
                               setDisabledSignIn('true')
                           } else {
+                            console.log(data)
                             setVerificationCodeResponse(data.verification_code)
                             setDisabled('false')
                             setDisabledSignIn('false')
@@ -114,6 +115,7 @@ const Carousel = (props) => {
                                 setDisabledSignIn('true')
                                 setAlert('Number already registered', 'danger')
                             } else {
+                              console.log(data)
                               setVerificationCodeResponse(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
@@ -139,6 +141,7 @@ const Carousel = (props) => {
                                 setDisabled('true')
                                 setDisabledSignIn('true')
                             } else {
+                                console.log(data)
                               setVerificationCodeResponse(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
