@@ -90,8 +90,9 @@ const Carousel = (props) => {
                             setDisabled('false')
                             setDisabledSignIn('false')
                             setUserId(data.userid)
-                            document.querySelector('.cont-overlay').style.display = 'none';
-                document.querySelector('#continue-button').addEventListener('click', () => {
+                            if (document.querySelector('.cont-overlay')) {
+                                document.querySelector('.cont-overlay').style.display = 'none';
+                              }                document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
                     setState({
                         currentStep: 2
@@ -125,7 +126,9 @@ const Carousel = (props) => {
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
-                              document.querySelector('.cont-overlay').style.display = 'none';
+                              if (document.querySelector('.cont-overlay')) {
+                                document.querySelector('.cont-overlay').style.display = 'none';
+                              }
                 document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
                     setState({
@@ -158,8 +161,9 @@ const Carousel = (props) => {
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
-                              document.querySelector('.cont-overlay').style.display = 'none';
-                            document.querySelector('#continue-button').addEventListener('click', () => {
+                              if (document.querySelector('.cont-overlay')) {
+                                document.querySelector('.cont-overlay').style.display = 'none';
+                              }                            document.querySelector('#continue-button').addEventListener('click', () => {
                                 setDisabled('true')
                                 setState({
                                     currentStep: 2
