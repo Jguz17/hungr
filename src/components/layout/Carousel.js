@@ -59,6 +59,7 @@ const Carousel = (props) => {
 
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
+                    document.querySelector('#continue-button').onClick = ''
 
                     console.log('phone validation sent')
               
