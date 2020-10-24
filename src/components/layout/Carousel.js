@@ -186,7 +186,7 @@ const Carousel = (props) => {
     }
 
     const validateCode = (code) => {
-        if (verificationCodeResponse === verificationCode) {
+        if (verificationCodeResponse) {
             if (disabledStatus === 'true' && code.length >= 4) {
                 setVerificationCode(code)
                 setDisabled('false')
