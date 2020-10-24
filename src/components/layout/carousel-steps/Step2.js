@@ -63,7 +63,9 @@ const Step2 = (props) => {
         // })
         // let verificationCode = []
         // verificationCode
-        props.validateCode(holder)
+        if (holder.length >= 4) {
+            props.validateCode(holder)
+        }
     }
 
       return(
