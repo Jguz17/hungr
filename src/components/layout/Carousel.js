@@ -59,9 +59,9 @@ const Carousel = (props) => {
 
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
+                    document.querySelector('#continue-button').addEventListener('click', () => {
+                        console.log('phone validation sent')
 
-                    console.log('phone validation sent')
-              
                         let userAgent = window.navigator.userAgent,
                             platform = window.navigator.platform,
                             iosPlatforms = ['iPhone', 'iPad', 'iPod']
@@ -92,12 +92,11 @@ const Carousel = (props) => {
                             setUserId(data.userid)
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
-                              }                document.querySelector('#continue-button').addEventListener('click', () => {
-                    setDisabled('true')
-                    setState({
-                        currentStep: 2
+                              }                
+                                setDisabled('true')
+                                setState({
+                                    currentStep: 2
                     })
-                })
                           }
                       })
                       setPhoneVerificationState('false')
@@ -129,12 +128,10 @@ const Carousel = (props) => {
                               if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                               }
-                document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
                     setState({
                         currentStep: 2
                     })
-                })
                             }
                         })
                         setPhoneVerificationState('false')          
@@ -163,18 +160,16 @@ const Carousel = (props) => {
                               setUserId(data.userid)
                               if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
-                              }                            document.querySelector('#continue-button').addEventListener('click', () => {
+                              }                            
                                 setDisabled('true')
                                 setState({
                                     currentStep: 2
                                 })
-                            })
                             }
                         })
                         setPhoneVerificationState('false')
                         }
-            
-                
+                    })
                 }
         }  
         if (document.querySelector('#phoneNumber').value) {

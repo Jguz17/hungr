@@ -9,7 +9,8 @@ import {
     SET_FIRST_NAME,
     SET_LAST_NAME,
     SET_VERIFICATION_CODE_RESPONSE,
-    SET_USER_ID
+    SET_USER_ID,
+    SET_PHONE_NUMBER_EXISTS
     // CLEAR_ALL
 } from '../types'
 
@@ -22,7 +23,8 @@ const FormValidationState = (props) => {
         firstName: '',
         lastName: '',
         verificationCodeResponse: '',
-        userid: ''
+        userid: '',
+        phoneNumberExists: ''
     }
 
     const [state, dispatch] = useReducer(formValidationReducer, initialState)
@@ -166,6 +168,13 @@ const FormValidationState = (props) => {
         })
     }
 
+    const setPhoneNumberExists = (text) => {
+        dispatch({
+            type: SET_PHONE_NUMBER_EXISTS,
+            payload: text
+        })
+    }
+
     return (
         <FormValidationContext.Provider value={{
             phone: state.phone,
@@ -175,6 +184,7 @@ const FormValidationState = (props) => {
             firstName: state.firstName,
             lastName: state.lastName,
             verificationCodeResponse: state.verificationCodeResponse,
+            phoneNumberExists: state.phoneNumberExists,
             setPhone,
             setVerificationCode,
             setPassword,
@@ -183,7 +193,8 @@ const FormValidationState = (props) => {
             setLastName,
             createUser,
             setResponseVerificationCode,
-            setUserId
+            setUserId, 
+            setPhoneNumberExists
         }}>
             {props.children}
         </FormValidationContext.Provider>
