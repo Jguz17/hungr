@@ -218,7 +218,7 @@ const Carousel = (props) => {
 
             console.log('email check fired off')
 
-            fetch("https://intapp.hungrapi.com/v2/email_check/", {
+            fetch("https://intapp.hungrapi.com/v2/account/email_check/", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
