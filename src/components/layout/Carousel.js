@@ -187,19 +187,19 @@ const Carousel = (props) => {
 
     const validateCode = (code) => {
         setVerificationCode(code)
-        if (verificationCodeResponse === verificationCode) {
             if (disabledStatus === 'true' && code.length >= 4) {
-                setDisabled('false')
-                document.querySelector('.cont-overlay').style.display = 'none';
-                document.querySelector('#continue-button').addEventListener('click', () => {
-                    setDisabled('true')
-                    setState({
-                        currentStep: 3
+                if (verificationCodeResponse === verificationCode) {
+                    setDisabled('false')
+                    document.querySelector('.cont-overlay').style.display = 'none';
+                    document.querySelector('#continue-button').addEventListener('click', () => {
+                        setDisabled('true')
+                        setState({
+                            currentStep: 3
+                        })
                     })
-                })
+                }
     
             }
-        }
     }
 
     const validateEmail = (email) => {
