@@ -230,6 +230,7 @@ const Carousel = (props) => {
             })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 if (data.result === 1) {
                     setAlert('Email already registered', 'danger')
                     setDisabled('true')
