@@ -39,7 +39,7 @@ const Carousel = (props) => {
             setFirstName,
             setLastName,
             createUser,
-            setVerificationCodeResponse,
+            setResponseVerificationCode,
             verificationCodeResponse,
             verificationCode,
             setUserId
@@ -88,7 +88,7 @@ const Carousel = (props) => {
                               setDisabledSignIn('true')
                           } else {
                             console.log(data)
-                            setVerificationCodeResponse(data.verification_code)
+                            setResponseVerificationCode(data.verification_code)
                             setDisabled('false')
                             setDisabledSignIn('false')
                             setUserId(data.userid)
@@ -116,7 +116,7 @@ const Carousel = (props) => {
                                 setAlert('Number already registered', 'danger')
                             } else {
                               console.log(data)
-                              setVerificationCodeResponse(data.verification_code)
+                              setResponseVerificationCode(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
@@ -142,7 +142,7 @@ const Carousel = (props) => {
                                 setDisabledSignIn('true')
                             } else {
                                 console.log(data)
-                              setVerificationCodeResponse(data.verification_code)
+                                setResponseVerificationCode(data.verification_code)
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
