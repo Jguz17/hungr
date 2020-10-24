@@ -94,9 +94,9 @@ const Carousel = (props) => {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                               }                document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
-                    setState({
-                        currentStep: 2
-                    })
+                    // setState({
+                    //     currentStep: 2
+                    // })
                 })
                           }
                       })
@@ -131,9 +131,9 @@ const Carousel = (props) => {
                               }
                 document.querySelector('#continue-button').addEventListener('click', () => {
                     setDisabled('true')
-                    setState({
-                        currentStep: 2
-                    })
+                    // setState({
+                    //     currentStep: 2
+                    // })
                 })
                             }
                         })
@@ -165,9 +165,9 @@ const Carousel = (props) => {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                               }                            document.querySelector('#continue-button').addEventListener('click', () => {
                                 setDisabled('true')
-                                setState({
-                                    currentStep: 2
-                                })
+                                // setState({
+                                //     currentStep: 2
+                                // })
                             })
                             }
                         })
