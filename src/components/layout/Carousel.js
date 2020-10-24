@@ -186,9 +186,10 @@ const Carousel = (props) => {
     }
 
     const validateCode = (code) => {
-        setVerificationCode(code)
-            if (disabledStatus === 'true' && (verificationCodeResponse == verificationCode)) {
-                    setDisabled('false')
+        // setVerificationCode(code)
+            if (disabledStatus === 'true' && code.length >= 4 {
+                    if (verificationCodeResponse == code) {
+                        setDisabled('false')
                     document.querySelector('.cont-overlay').style.display = 'none';
                     document.querySelector('#continue-button').addEventListener('click', () => {
                         setDisabled('true')
@@ -196,6 +197,7 @@ const Carousel = (props) => {
                             currentStep: 3
                         })
                     })
+                    }
     
             }
     }
