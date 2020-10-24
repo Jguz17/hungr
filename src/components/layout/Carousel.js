@@ -59,10 +59,8 @@ const Carousel = (props) => {
 
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
-                    setDisabled('false')
-                    document.querySelector('#continue-button').addEventListener('click', () => {
 
-                        console.log('phone validation sent')
+                    console.log('phone validation sent')
               
                         let userAgent = window.navigator.userAgent,
                             platform = window.navigator.platform,
@@ -92,6 +90,13 @@ const Carousel = (props) => {
                             setDisabled('false')
                             setDisabledSignIn('false')
                             setUserId(data.userid)
+                            document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 2
+                    })
+                })
                           }
                       })
                       setPhoneVerificationState('false')
@@ -120,6 +125,13 @@ const Carousel = (props) => {
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
+                              document.querySelector('.cont-overlay').style.display = 'none';
+                document.querySelector('#continue-button').addEventListener('click', () => {
+                    setDisabled('true')
+                    setState({
+                        currentStep: 2
+                    })
+                })
                             }
                         })
                         setPhoneVerificationState('false')          
@@ -146,19 +158,19 @@ const Carousel = (props) => {
                               setDisabled('false')
                               setDisabledSignIn('false')
                               setUserId(data.userid)
+                              document.querySelector('.cont-overlay').style.display = 'none';
+                            document.querySelector('#continue-button').addEventListener('click', () => {
+                                setDisabled('true')
+                                setState({
+                                    currentStep: 2
+                                })
+                            })
                             }
                         })
                         setPhoneVerificationState('false')
                         }
-                    })
             
-                document.querySelector('.cont-overlay').style.display = 'none';
-                document.querySelector('#continue-button').addEventListener('click', () => {
-                    setDisabled('true')
-                    setState({
-                        currentStep: 2
-                    })
-                })
+                
                 }
         }  
         if (document.querySelector('#phoneNumber').value) {
