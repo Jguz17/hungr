@@ -102,6 +102,10 @@ const Carousel = (props) => {
                             })
                             props.next()
                             setDisabledSignIn('true')
+                            setDisabled('true')
+                                setState({
+                                    currentStep: 2
+                                })
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }                
@@ -150,6 +154,10 @@ const Carousel = (props) => {
                             })
                             props.next()
                             setDisabledSignIn('true')
+                            setDisabled('true')
+                                setState({
+                                    currentStep: 2
+                                })
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }
@@ -196,14 +204,18 @@ const Carousel = (props) => {
                             })
                             props.next()
                             setDisabledSignIn('true')
+                            setDisabled('true')
+                                setState({
+                                    currentStep: 2
+                                })
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }                            
                             // document.querySelector('#continue-button').addEventListener('click', () => {
-                            //     setDisabled('true')
-                            //     // setState({
-                            //     //     currentStep: 2
-                            //     // })
+                                // setDisabled('true')
+                                // setState({
+                                //     currentStep: 2
+                                // })
                             // })
                             }
                         })
