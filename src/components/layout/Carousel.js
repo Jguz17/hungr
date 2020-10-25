@@ -12,7 +12,8 @@ const Carousel = (props) => {
 
     // eslint-disable-next-line 
     const [state, setState] = useState({
-        currentStep: props.step    
+        currentStep: props.step,
+        continue: false
     })
 
     const disabledContext = useContext(DisabledContext)
@@ -59,62 +60,67 @@ const Carousel = (props) => {
 
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
-                    document.querySelector('#continue-button').onClick = ''
-
+                    setDisabled('false')
                     console.log('phone validation sent')
-              
+                    document.querySelector('#continue-button').addEventListener('click', () => {
+
                         let userAgent = window.navigator.userAgent,
-                            platform = window.navigator.platform,
-                            iosPlatforms = ['iPhone', 'iPad', 'iPod']
-                      
+                        platform = window.navigator.platform,
+                        iosPlatforms = ['iPhone', 'iPad', 'iPod']
+                  
                         if (iosPlatforms.indexOf(platform) !== -1) {
-                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-                          method: "POST",
-                          headers: {
+                        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                        method: "POST",
+                        headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
-                          },
-                          body: JSON.stringify({
+                        },
+                        body: JSON.stringify({
                             phone_number: phone,
                             phone_type: 'ios'
-                          })
                         })
-                      .then((res) => res.json())
-                      .then((data) => {
-                          if (data.result === 1) {
-                              setAlert('Number already registered', 'danger')
-                              setDisabled('true')
-                              setDisabledSignIn('true')
-                          } else {
+                        })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.result === 1) {
+                            setAlert('Number already registered', 'danger')
+                            setDisabled('true')
+                            setDisabledSignIn('true')
+                        } else {
                             console.log(data)
                             setResponseVerificationCode(data.verification_code)
                             setDisabled('false')
                             setDisabledSignIn('false')
                             setUserId(data.userid)
+                            setState({
+                                ...state,
+                                continue: true
+                            })
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
-                              }                document.querySelector('#continue-button').addEventListener('click', () => {
-                    setDisabled('true')
-                    // setState({
-                    //     currentStep: 2
-                    // })
-                })
-                          }
-                      })
-                      setPhoneVerificationState('false')
-              
+                            }                
+                //             document.querySelector('#continue-button').addEventListener('click', () => {
+                //     setDisabled('true')
+                //     // setState({
+                //     //     currentStep: 2
+                //     // })
+                // })
+                        }
+                    })
+                    setPhoneVerificationState('false')
+            
                         } else if (/Android/.test(userAgent)) {
-                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
                             method: "POST",
                             headers: {
-                              'Accept': 'application/json',
-                              'Content-Type': 'application/json'
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                              phone_number: phone,
-                              phone_type: 'android'
+                            phone_number: phone,
+                            phone_type: 'android'
                             })
-                          })
+                        })
                         .then((res) => res.json())
                         .then((data) => {
                             if (data.result === 1) {
@@ -122,33 +128,37 @@ const Carousel = (props) => {
                                 setDisabledSignIn('true')
                                 setAlert('Number already registered', 'danger')
                             } else {
-                              console.log(data)
-                              setResponseVerificationCode(data.verification_code)
-                              setDisabled('false')
-                              setDisabledSignIn('false')
-                              setUserId(data.userid)
-                              if (document.querySelector('.cont-overlay')) {
+                            console.log(data)
+                            setResponseVerificationCode(data.verification_code)
+                            setDisabled('false')
+                            setDisabledSignIn('false')
+                            setUserId(data.userid)
+                            setState({
+                                ...state,
+                                continue: true
+                            })
+                            if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
-                              }
-                document.querySelector('#continue-button').addEventListener('click', () => {
-                    setDisabled('true')
-                    // setState({
-                    //     currentStep: 2
-                    // })
-                })
+                            }
+                // document.querySelector('#continue-button').addEventListener('click', () => {
+                //     setDisabled('true')
+                //     // setState({
+                //     //     currentStep: 2
+                //     // })
+                // })
                             }
                         })
                         setPhoneVerificationState('false')          
-                      } else {
-                          fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-                          method: "POST",
-                          headers: {
+                        } else {
+                        fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                        method: "POST",
+                        headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
-                          },
-                          body: JSON.stringify({
+                        },
+                        body: JSON.stringify({
                             phone_number: phone
-                          })
+                        })
                         })
                         .then((res) => res.json())
                         .then((data) => {
@@ -159,21 +169,40 @@ const Carousel = (props) => {
                             } else {
                                 console.log(data)
                                 setResponseVerificationCode(data.verification_code)
-                              setDisabled('false')
-                              setDisabledSignIn('false')
-                              setUserId(data.userid)
-                              if (document.querySelector('.cont-overlay')) {
-                                document.querySelector('.cont-overlay').style.display = 'none';
-                              }                            document.querySelector('#continue-button').addEventListener('click', () => {
-                                setDisabled('true')
-                                // setState({
-                                //     currentStep: 2
-                                // })
+                            setDisabled('false')
+                            setDisabledSignIn('false')
+                            setUserId(data.userid)
+                            setState({
+                                ...state,
+                                continue: true
                             })
+                            if (document.querySelector('.cont-overlay')) {
+                                document.querySelector('.cont-overlay').style.display = 'none';
+                            }                            
+                            // document.querySelector('#continue-button').addEventListener('click', () => {
+                            //     setDisabled('true')
+                            //     // setState({
+                            //     //     currentStep: 2
+                            //     // })
+                            // })
                             }
                         })
                         setPhoneVerificationState('false')
                         }
+
+
+
+
+                    })
+                    
+                    // ==== NEED THIS ====
+                    // setState({
+                    //     ...state,
+                    //     continue: true
+                    // })
+
+              
+                       
             
                 
                 }
@@ -341,7 +370,7 @@ const Carousel = (props) => {
            <Step4 validatePassword={validatePassword} currentStep={props.step} />
            <Step5 validateName={validateName} currentStep={props.step} />
            <div  className='carousel-buttons'>
-               <button id='continue-button' onClick={props.next} style={{marginTop: '1rem'}}>Continue</button>
+               <button id='continue-button' onClick={state.continue ? props.next : null} style={{marginTop: '1rem'}}>Continue</button>
                 <div className='hidden-div'>
                     { signInLink === 'true' ? null : <p className='user-exists' style={{ zIndex: 2 }}>Already have an account with us? <span onClick={userAlreadyExists} id='take-to-sign-in'>Sign In</span></p>}
                 </div>
