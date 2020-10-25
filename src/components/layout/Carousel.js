@@ -89,6 +89,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: false
                             })
+                            setDisabledSignIn('false')
                         } else {
                             console.log(data)
                             setResponseVerificationCode(data.verification_code)
@@ -99,6 +100,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }                
@@ -133,6 +135,7 @@ const Carousel = (props) => {
                                     ...state,
                                     continue: false
                                 })
+                                setDisabledSignIn('false')
                                 setAlert('Number already registered', 'danger')
                             } else {
                             console.log(data)
@@ -144,6 +147,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }
@@ -177,6 +181,7 @@ const Carousel = (props) => {
                                     ...state,
                                     continue: false
                                 })
+                                setDisabledSignIn('false')
                             } else {
                                 console.log(data)
                                 setResponseVerificationCode(data.verification_code)
@@ -187,6 +192,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
                             }                            
