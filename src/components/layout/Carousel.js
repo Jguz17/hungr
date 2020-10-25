@@ -100,6 +100,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            props.next()
                             setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
@@ -147,6 +148,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            props.next()
                             setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
@@ -192,6 +194,7 @@ const Carousel = (props) => {
                                 ...state,
                                 continue: true
                             })
+                            props.next()
                             setDisabledSignIn('true')
                             if (document.querySelector('.cont-overlay')) {
                                 document.querySelector('.cont-overlay').style.display = 'none';
