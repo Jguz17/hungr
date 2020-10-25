@@ -61,7 +61,6 @@ const Carousel = (props) => {
         if (disabledStatus === 'true' && document.querySelector('#phoneNumber')) {
                 if (document.querySelector('#phoneNumber').value.length >= 12) {
                     setDisabled('false')
-                    console.log('phone validation sent')
                     document.querySelector('#continue-button').addEventListener('click', () => {
 
                         let userAgent = window.navigator.userAgent,
@@ -189,10 +188,6 @@ const Carousel = (props) => {
                         })
                         setPhoneVerificationState('false')
                         }
-
-
-
-
                     })
                     
                     // ==== NEED THIS ====
@@ -201,10 +196,6 @@ const Carousel = (props) => {
                     //     continue: true
                     // })
 
-              
-                       
-            
-                
                 }
         }  
         if (document.querySelector('#phoneNumber').value) {
