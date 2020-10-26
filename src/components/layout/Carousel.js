@@ -59,7 +59,8 @@ const Carousel = (props) => {
     const receiveSomething = (something) => {
 
         if (disabledStatus === 'true') {
-                if (document.querySelector('#phoneNumber').value.length >= 12 && props.state == 1) {
+                if (document.querySelector('#phoneNumber').value.length >= 12 && props.step === 1) {
+                    console.log(document.querySelector('#phoneNumber').value)
                     setDisabled('false')
                     document.querySelector('#continue-button').addEventListener('click', () => {
 
