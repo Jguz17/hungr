@@ -122,9 +122,9 @@ const Carousel = (props) => {
                                 props.next()
                                 setDisabledSignIn('true')
                                 setDisabled('true')
-                                if (document.querySelector('.cont-overlay')) {
-                                    document.querySelector('.cont-overlay').style.display = 'none';
-                                }                
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }                
                             }
                         })
                         setPhoneVerificationState('false')
@@ -166,9 +166,9 @@ const Carousel = (props) => {
                                 props.next()
                                 setDisabledSignIn('true')
                                 setDisabled('true')
-                                if (document.querySelector('.cont-overlay')) {
-                                    document.querySelector('.cont-overlay').style.display = 'none';
-                                }
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }
                     // document.querySelector('#continue-button').addEventListener('click', () => {
                     //     setDisabled('true')
                     //     // setState({
@@ -214,9 +214,9 @@ const Carousel = (props) => {
                                 props.next()
                                 setDisabledSignIn('true')
                                 setDisabled('true')
-                                if (document.querySelector('.cont-overlay')) {
-                                    document.querySelector('.cont-overlay').style.display = 'none';
-                                }                            
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }                            
                                 // document.querySelector('#continue-button').addEventListener('click', () => {
                                     // setDisabled('true')
                                     // setState({
