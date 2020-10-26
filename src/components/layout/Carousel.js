@@ -239,33 +239,31 @@ const Carousel = (props) => {
     const validateCode = (code) => {
         if (disabledStatus === 'true') {
             // ==== TEST ====
-            if(document.querySelector('#continue-button').className === 'button-step-2'){
+
+            if (document.querySelector('#continue-button').className === 'button-step-2') {
                 setDisabled('false')
-                if (code == verificationCodeResponse) {
-                    document.querySelector('.button-step-2').addEventListener('click', () => {
+                document.querySelector('.button-step-2').addEventListener('click', () => {
+                    if (code == verificationCodeResponse) {
                         document.querySelector('#continue-button').className = 'button-step-3'
                         props.next()
                         setDisabled('true')
-                    })
-                } else {
-                    setAlert('Passwords don\'t match!', 'danger')
-                }
-            } 
-
-            // ==== PRODUCTION CODE ====
+                    } else {
+                        setAlert('Passwords don\'t match!', 'danger')
+                    }
+                })
+            }
             // if(document.querySelector('#continue-button').className === 'button-step-2'){
-            //     if (code.length >= 4) {
-            //         setDisabled('false')
-            //         if (verificationCode == verificationCodeResponse) {
-            //             document.querySelector('.button-step-2').addEventListener('click', () => {
-            //                 console.log(code)
-            //                 document.querySelector('#continue-button').className = 'button-step-3'
-            //                 props.next()
-            //                 setDisabled('true')
-            //             })
+            //     setDisabled('false')
+            //     document.querySelector('.button-step-2'.addEventListener('click', () => {
+            //         if (code == verificationCodeResponse) {
+            //             document.querySelector('#continue-button').className = 'button-step-3'
+            //             props.next()
+            //             setDisabled('true')
+            //         } else {
+            //             setAlert('Passwords don\'t match!', 'danger')
             //         }
-            //     }
-            // }
+            //     })
+            // }) 
         }
     }
 
