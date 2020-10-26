@@ -3,6 +3,7 @@ import MainHeader from '../layout/MainHeader'
 import MainFooter from '../layout/MainFooter'
 import HiddenForm from '../layout/HiddenForm'
 import Register from '../layout/Register'
+import ForgotPassword from '../layout/ForgotPassword'
 const Home = () => {
 
     return (
@@ -22,6 +23,7 @@ const Home = () => {
             <MainFooter/>
             <Register/>
             <HiddenForm/>
+            <ForgotPassword/>
         </div>
     )
 }

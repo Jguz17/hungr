@@ -73,6 +73,13 @@ const HiddenForm = () => {
             setAlert('Please enter all missing fields', 'danger')
         }
     }
+
+    const forgotPasswordClick = () => {
+        if (document.querySelector('.forgotPasswordComp')) {
+            document.querySelector('#forgotPasswordComp').className = 'forgotPasswordComp forgot-unhide'
+            document.querySelector('.animation-test').style.display = 'none'
+        }
+    }
     
     return (
         <div id='test' className='animation-test hidden'>
@@ -88,8 +95,11 @@ const HiddenForm = () => {
                         <input style={{textAlign: 'center', zIndex: '2', marginRight: '2rem'}} id='back' onClick={onClick} type='button' value='Back'/>
                         <input id='submit' type='submit' value='Submit'/>
                         <br/>
+                        <div id='forgot-password' className='forgot-password-container' style={{textAlign: 'center', zIndex: '4'}}>
+                            <a onClick={forgotPasswordClick} id='forgot-password-link'>Forgot Password</a>
+                        </div>
                         <div className='help-container' style={{textAlign: 'center', zIndex: '3'}}>
-                            <a id='help-link' href="mailto:someone@example.com">Help</a>
+                            <a id='help-link' href="mailto:help@hungr.com">Help</a>
                         </div>
                     </div>
                 </form>

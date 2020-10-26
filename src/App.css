@@ -96,7 +96,17 @@ input {
 
 .help-container {
   position: absolute;
+  padding-top: 8rem;
+}
+.forgot-password-container {
+  position: absolute;
   padding-top: 6rem;
+  font-family: 'roboto';
+  color: #00adef;
+}
+
+#forgot-password-link:hover {
+  cursor: pointer;
 }
 
 #help-link {
@@ -520,4 +530,23 @@ input {
   height: 69%;
   position: absolute;
   bottom: 0;
+}
+
+.forgotPasswordComp {
+  bottom: 0;
+  position: absolute;
+  transition: all .5s;
+  background-color: #00ADEE;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forgot-unhide {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: all .5s;
+  transform: translateX(0) translateY(0);
 }
