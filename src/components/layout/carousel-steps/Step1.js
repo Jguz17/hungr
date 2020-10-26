@@ -25,8 +25,11 @@ const Step1 = (props) => {
 
     const onChange = (e) => {
       let changer = e.target.value
-      setPhone(changer)
-      props.something(phone)
+
+      if(changer.length >= 12) {
+        setPhone(changer)
+        props.something(phone)
+      }
     }
 
     // eslint-disable-next-line

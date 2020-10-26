@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Alerts from '../Alerts'
+import FormValidationContext from '../../../context/formValidation/formValidationContext'
 
 const Step3 = (props) => {
-
+  
+  const formValidationContext = useContext(FormValidationContext)
+  const { setEmail } = formValidationContext
 
       if (props.currentStep !== 3) {
         return null;
@@ -11,7 +14,9 @@ const Step3 = (props) => {
       const onChange = (e) => {
         const re = /\S+@\S+\.\S+/
         let emailValidator = re.test(e.target.value)
-          props.validateEmail(emailValidator)
+        let userEmail = e.target.value
+        setEmail(userEmail)
+        props.validateEmail(emailValidator)
       }
 
 

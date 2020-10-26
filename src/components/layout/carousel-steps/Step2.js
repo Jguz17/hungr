@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Alerts from '../Alerts'
 import FormValidationContext from '../../../context/formValidation/formValidationContext'
 import DisabledContext from '../../../context/disabled/disabledContext'
@@ -8,9 +8,13 @@ const Step2 = (props) => {
     const formValidationContext = useContext(FormValidationContext)
     const disabledContext = useContext(DisabledContext)
 
-    const { phone } = formValidationContext
+    const { phone, setPhone, setVerificationCode } = formValidationContext
 
     const { setDisabledIcon } = disabledContext
+
+    const [state, setState] = useState({
+        verCode: ''
+    })
 
     useEffect(() => {
         setDisabledIcon('false')
@@ -20,7 +24,6 @@ const Step2 = (props) => {
       if (props.currentStep !== 2) {
         return null;
       } 
-
 
     const handleUp = (e) => {
         const target = e.srcElement || e.target;
@@ -43,8 +46,9 @@ const Step2 = (props) => {
             let previous = target;
             // eslint-disable-next-line 
             while (previous = previous.previousElementSibling) {
-                if (previous == null)
+                if (previous == null) {
                     break;
+                }
                 if (previous.tagName.toLowerCase() === "input") {
                     previous.focus();
                     break;
@@ -56,14 +60,15 @@ const Step2 = (props) => {
     let holder = ''
 
     const onChange = (e) => {
-        // let holder = ''
-        holder += e.target.value
-        // setState({
-        //     verificationCode: holder
-        // })
-        // let verificationCode = []
-        // verificationCode
-        if (holder.length >= 4) {
+        let codeIndex1 = document.querySelector('#code-verification-1').value
+        let codeIndex2 = document.querySelector('#code-verification-2').value
+        let codeIndex3 = document.querySelector('#code-verification-3').value
+        let codeIndex4 = document.querySelector('#code-verification-4').value
+
+        holder = codeIndex1 + codeIndex2 + codeIndex3 + codeIndex4
+
+        if (holder.length == 4) {
+            setVerificationCode(holder)
             props.validateCode(holder)
         }
     }

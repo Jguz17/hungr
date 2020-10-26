@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Alerts from '../Alerts'
+import FormValidationContext from '../../../context/formValidation/formValidationContext'
 
 const Step4 = (props) => {
+
+    const formValidationContext = useContext(FormValidationContext)
+
+    const { setPassword } = formValidationContext
 
     if (props.currentStep !== 4) {
         return null;
@@ -13,8 +18,16 @@ const Step4 = (props) => {
         document.querySelector('.cont-overlay').style.display = 'block'
       }
 
-      const onChange = () => {
-        props.validatePassword()
+      const onChange = (e) => {
+        let password1 = document.querySelector('#password').value
+        let password2 = document.querySelector('#password-2').value
+
+        if (password1.length >= 8 && password2.length >= 8) {
+          if (password1 === password2) {
+            setPassword(password1)
+            props.validatePassword()
+          }
+        }
       }
 
 
