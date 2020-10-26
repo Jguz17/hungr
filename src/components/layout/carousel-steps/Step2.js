@@ -67,7 +67,7 @@ const Step2 = (props) => {
 
         holder = codeIndex1 + codeIndex2 + codeIndex3 + codeIndex4
 
-        if (holder.length == 4) {
+        if (holder.length >= 4) {
             setVerificationCode(holder)
             props.validateCode(holder)
         }
