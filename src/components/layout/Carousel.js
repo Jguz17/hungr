@@ -101,7 +101,7 @@ const Carousel = (props) => {
                         .then((data) => {
                             if (data.result === 1) {
                                 setAlert('Number already registered', 'danger')
-                                setDisabled('true')
+                                // setDisabled('true')
                                 setDisabledSignIn('true')
                                 setState({
                                     ...state,
@@ -111,7 +111,7 @@ const Carousel = (props) => {
                             } else {
                                 console.log(data)
                                 setResponseVerificationCode(data.verification_code)
-                                setDisabled('false')
+                                // setDisabled('false')
                                 setDisabledSignIn('false')
                                 setUserId(data.userid)
                                 setState({
@@ -121,7 +121,7 @@ const Carousel = (props) => {
                                 document.querySelector('#continue-button').className = 'button-step-2'
                                 props.next()
                                 setDisabledSignIn('true')
-                                setDisabled('true')
+                                // setDisabled('true')
                                 // if (document.querySelector('.cont-overlay')) {
                                 //     document.querySelector('.cont-overlay').style.display = 'none';
                                 // }                
@@ -144,7 +144,7 @@ const Carousel = (props) => {
                             .then((res) => res.json())
                             .then((data) => {
                                 if (data.result === 1) {
-                                    setDisabled('true')
+                                    // setDisabled('true')
                                     setDisabledSignIn('true')
                                     setState({
                                         ...state,
@@ -155,7 +155,7 @@ const Carousel = (props) => {
                                 } else {
                                 console.log(data)
                                 setResponseVerificationCode(data.verification_code)
-                                setDisabled('false')
+                                // setDisabled('false')
                                 setDisabledSignIn('false')
                                 setUserId(data.userid)
                                 setState({
@@ -165,7 +165,7 @@ const Carousel = (props) => {
                                 document.querySelector('#continue-button').className = 'button-step-2'
                                 props.next()
                                 setDisabledSignIn('true')
-                                setDisabled('true')
+                                // setDisabled('true')
                                 // if (document.querySelector('.cont-overlay')) {
                                 //     document.querySelector('.cont-overlay').style.display = 'none';
                                 // }
@@ -193,7 +193,7 @@ const Carousel = (props) => {
                             .then((data) => {
                                 if (data.result === 1) {
                                     setAlert('Number already registered', 'danger')
-                                    setDisabled('true')
+                                    // setDisabled('true')
                                     setDisabledSignIn('true')
                                     setState({
                                         ...state,
@@ -203,7 +203,7 @@ const Carousel = (props) => {
                                 } else {
                                     console.log(data)
                                     setResponseVerificationCode(data.verification_code)
-                                setDisabled('false')
+                                // setDisabled('false')
                                 setDisabledSignIn('false')
                                 setUserId(data.userid)
                                 setState({
@@ -213,7 +213,7 @@ const Carousel = (props) => {
                                 document.querySelector('#continue-button').className = 'button-step-2'
                                 props.next()
                                 setDisabledSignIn('true')
-                                setDisabled('true')
+                                // setDisabled('true')
                                 // if (document.querySelector('.cont-overlay')) {
                                 //     document.querySelector('.cont-overlay').style.display = 'none';
                                 // }                            
@@ -239,29 +239,29 @@ const Carousel = (props) => {
     const validateCode = (code) => {
         if (disabledStatus === 'true') {
             // ==== TEST ====
-            // if(document.querySelector('#continue-button').className === 'button-step-2'){
-            //     setDisabled('false')
-            //     document.querySelector('.button-step-2').addEventListener('click', () => {
-            //         document.querySelector('#continue-button').className = 'button-step-3'
-            //         props.next()
-            //         setDisabled('true')
-            //     })
-            // } 
+            if(document.querySelector('#continue-button').className === 'button-step-2'){
+                setDisabled('false')
+                document.querySelector('.button-step-2').addEventListener('click', () => {
+                    document.querySelector('#continue-button').className = 'button-step-3'
+                    props.next()
+                    setDisabled('true')
+                })
+            } 
 
             // ==== PRODUCTION CODE ====
-            if(document.querySelector('#continue-button').className === 'button-step-2'){
-                if (code.length >= 4) {
-                    setDisabled('false')
-                    if (verificationCode == verificationCodeResponse) {
-                        document.querySelector('.button-step-2').addEventListener('click', () => {
-                            console.log(code)
-                            document.querySelector('#continue-button').className = 'button-step-3'
-                            props.next()
-                            setDisabled('true')
-                        })
-                    }
-                }
-            }
+            // if(document.querySelector('#continue-button').className === 'button-step-2'){
+            //     if (code.length >= 4) {
+            //         setDisabled('false')
+            //         if (verificationCode == verificationCodeResponse) {
+            //             document.querySelector('.button-step-2').addEventListener('click', () => {
+            //                 console.log(code)
+            //                 document.querySelector('#continue-button').className = 'button-step-3'
+            //                 props.next()
+            //                 setDisabled('true')
+            //             })
+            //         }
+            //     }
+            // }
         }
     }
 
