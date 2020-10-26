@@ -84,7 +84,7 @@ const Carousel = (props) => {
                     platform = window.navigator.platform,
                     iosPlatforms = ['iPhone', 'iPad', 'iPod']
               
-                    if (x > 1) {
+                    if (x < 1) {
                         if (iosPlatforms.indexOf(platform) !== -1) {
                             fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
                             method: "POST",
