@@ -250,7 +250,7 @@ const Carousel = (props) => {
 
             // ==== PRODUCTION CODE ====
             if(document.querySelector('#continue-button').className == 'button-step-2'){
-                if (verificationCode == verificationCodeResponse) {
+                if (code.length >= 4 && (verificationCode == verificationCodeResponse)) {
                     setDisabled('false')
                     document.querySelector('.button-step-2').addEventListener('click', () => {
                         console.log(code)
