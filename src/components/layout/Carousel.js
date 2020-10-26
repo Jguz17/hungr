@@ -241,11 +241,13 @@ const Carousel = (props) => {
             // ==== TEST ====
             if(document.querySelector('#continue-button').className === 'button-step-2'){
                 setDisabled('false')
-                document.querySelector('.button-step-2').addEventListener('click', () => {
-                    document.querySelector('#continue-button').className = 'button-step-3'
-                    props.next()
-                    setDisabled('true')
-                })
+                if (code == verificationCodeResponse) {
+                    document.querySelector('.button-step-2').addEventListener('click', () => {
+                        document.querySelector('#continue-button').className = 'button-step-3'
+                        props.next()
+                        setDisabled('true')
+                    })
+                } 
             } 
 
             // ==== PRODUCTION CODE ====
