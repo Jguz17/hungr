@@ -247,7 +247,9 @@ const Carousel = (props) => {
                         props.next()
                         setDisabled('true')
                     })
-                } 
+                } else {
+                    setAlert('Passwords don\'t match!', 'danger')
+                }
             } 
 
             // ==== PRODUCTION CODE ====
