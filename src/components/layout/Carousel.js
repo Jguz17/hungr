@@ -256,7 +256,7 @@ const Carousel = (props) => {
                         document.querySelector('#continue-button').className = 'button-step-3'
                         props.next()
                         setDisabled('true')
-                    } else {
+                    } else if (code != verificationCodeResponse){
                         setAlert('Passwords don\'t match!', 'danger')
                     }
                 })
