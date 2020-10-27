@@ -68,166 +68,166 @@ const Carousel = (props) => {
                 document.querySelector('.button-step-1').addEventListener('click', () => {
 
                     // ==== EXAMPLE/TEST ====
-                    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-                    .then((res) => res.json())
-                    .then((data) => {
-                        if ( x < 1) {
-                            console.log(data)
-                            document.querySelector('#continue-button').className = 'button-step-2'
-                            props.next()
-                            x++
-                        }
-                    })
+                    // fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+                    // .then((res) => res.json())
+                    // .then((data) => {
+                    //     if ( x < 1) {
+                    //         console.log(data)
+                    //         document.querySelector('#continue-button').className = 'button-step-2'
+                    //         props.next()
+                    //         x++
+                    //     }
+                    // })
 
                     // ==== PRODUCTION CODE ====
-                    // let userAgent = window.navigator.userAgent,
-                    // platform = window.navigator.platform,
-                    // iosPlatforms = ['iPhone', 'iPad', 'iPod']
+                    let userAgent = window.navigator.userAgent,
+                    platform = window.navigator.platform,
+                    iosPlatforms = ['iPhone', 'iPad', 'iPod']
               
-                    // if (x < 1) {
-                    //     if (iosPlatforms.indexOf(platform) !== -1) {
-                    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-                    //         method: "POST",
-                    //         headers: {
-                    //             'Accept': 'application/json',
-                    //             'Content-Type': 'application/json'
-                    //         },
-                    //         body: JSON.stringify({
-                    //             phone_number: phone,
-                    //             phone_type: 'ios'
-                    //         })
-                    //         })
-                    //     .then((res) => res.json())
-                    //     .then((data) => {
-                    //         if (data.result === 1) {
-                    //             setAlert('Number already registered', 'danger')
-                    //             // setDisabled('true')
-                    //             setDisabledSignIn('true')
-                    //             setState({
-                    //                 ...state,
-                    //                 continue: false
-                    //             })
-                    //             setDisabledSignIn('false')
-                    //         } else {
-                    //             console.log(data)
-                    //             setResponseVerificationCode(data.verification_code)
-                    //             // setDisabled('false')
-                    //             setDisabledSignIn('false')
-                    //             setUserId(data.userid)
-                    //             setState({
-                    //                 ...state,
-                    //                 continue: true
-                    //             })
-                    //             document.querySelector('#continue-button').className = 'button-step-2'
-                    //             props.next()
-                    //             setDisabledSignIn('true')
-                    //             // setDisabled('true')
-                    //             // if (document.querySelector('.cont-overlay')) {
-                    //             //     document.querySelector('.cont-overlay').style.display = 'none';
-                    //             // }                
-                    //         }
-                    //     })
-                    //     setPhoneVerificationState('false')
+                    if (x < 1) {
+                        if (iosPlatforms.indexOf(platform) !== -1) {
+                            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                            method: "POST",
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                phone_number: phone,
+                                phone_type: 'ios'
+                            })
+                            })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            if (data.result === 1) {
+                                setAlert('Number already registered', 'danger')
+                                // setDisabled('true')
+                                setDisabledSignIn('true')
+                                setState({
+                                    ...state,
+                                    continue: false
+                                })
+                                setDisabledSignIn('false')
+                            } else {
+                                console.log(data)
+                                setResponseVerificationCode(data.verification_code)
+                                // setDisabled('false')
+                                setDisabledSignIn('false')
+                                setUserId(data.userid)
+                                setState({
+                                    ...state,
+                                    continue: true
+                                })
+                                document.querySelector('#continue-button').className = 'button-step-2'
+                                props.next()
+                                setDisabledSignIn('true')
+                                // setDisabled('true')
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }                
+                            }
+                        })
+                        setPhoneVerificationState('false')
                 
-                    //         } else if (/Android/.test(userAgent)) {
-                    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-                    //             method: "POST",
-                    //             headers: {
-                    //             'Accept': 'application/json',
-                    //             'Content-Type': 'application/json'
-                    //             },
-                    //             body: JSON.stringify({
-                    //             phone_number: phone,
-                    //             phone_type: 'android'
-                    //             })
-                    //         })
-                    //         .then((res) => res.json())
-                    //         .then((data) => {
-                    //             if (data.result === 1) {
-                    //                 // setDisabled('true')
-                    //                 setDisabledSignIn('true')
-                    //                 setState({
-                    //                     ...state,
-                    //                     continue: false
-                    //                 })
-                    //                 setDisabledSignIn('false')
-                    //                 setAlert('Number already registered', 'danger')
-                    //             } else {
-                    //             console.log(data)
-                    //             setResponseVerificationCode(data.verification_code)
-                    //             // setDisabled('false')
-                    //             setDisabledSignIn('false')
-                    //             setUserId(data.userid)
-                    //             setState({
-                    //                 ...state,
-                    //                 continue: true
-                    //             })
-                    //             document.querySelector('#continue-button').className = 'button-step-2'
-                    //             props.next()
-                    //             setDisabledSignIn('true')
-                    //             // setDisabled('true')
-                    //             // if (document.querySelector('.cont-overlay')) {
-                    //             //     document.querySelector('.cont-overlay').style.display = 'none';
-                    //             // }
-                    // // document.querySelector('#continue-button').addEventListener('click', () => {
-                    // //     setDisabled('true')
-                    // //     // setState({
-                    // //     //     currentStep: 2
-                    // //     // })
-                    // // })
-                    //             }
-                    //         })
-                    //         setPhoneVerificationState('false')          
-                    //         } else {
-                    //         fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
-                    //         method: "POST",
-                    //         headers: {
-                    //             'Accept': 'application/json',
-                    //             'Content-Type': 'application/json'
-                    //         },
-                    //         body: JSON.stringify({
-                    //             phone_number: phone
-                    //         })
-                    //         })
-                    //         .then((res) => res.json())
-                    //         .then((data) => {
-                    //             if (data.result === 1) {
-                    //                 setAlert('Number already registered', 'danger')
-                    //                 // setDisabled('true')
-                    //                 setDisabledSignIn('true')
-                    //                 setState({
-                    //                     ...state,
-                    //                     continue: false
-                    //                 })
-                    //                 setDisabledSignIn('false')
-                    //             } else {
-                    //                 console.log(data)
-                    //                 setResponseVerificationCode(data.verification_code)
-                    //             // setDisabled('false')
-                    //             setDisabledSignIn('false')
-                    //             setUserId(data.userid)
-                    //             setState({
-                    //                 ...state,
-                    //                 continue: true
-                    //             })
-                    //             document.querySelector('#continue-button').className = 'button-step-2'
-                    //             props.next()
-                    //             setDisabledSignIn('true')
-                    //             // setDisabled('true')
-                    //             // if (document.querySelector('.cont-overlay')) {
-                    //             //     document.querySelector('.cont-overlay').style.display = 'none';
-                    //             // }                            
-                    //             // document.querySelector('#continue-button').addEventListener('click', () => {
-                    //                 // setDisabled('true')
-                    //                 // setState({
-                    //                 //     currentStep: 2
-                    //                 // })
-                    //             // })
-                    //             }
-                    //         })
-                    //     }
-                    //     x++
-                    // }
+                            } else if (/Android/.test(userAgent)) {
+                            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                                method: "POST",
+                                headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                phone_number: phone,
+                                phone_type: 'android'
+                                })
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                if (data.result === 1) {
+                                    // setDisabled('true')
+                                    setDisabledSignIn('true')
+                                    setState({
+                                        ...state,
+                                        continue: false
+                                    })
+                                    setDisabledSignIn('false')
+                                    setAlert('Number already registered', 'danger')
+                                } else {
+                                console.log(data)
+                                setResponseVerificationCode(data.verification_code)
+                                // setDisabled('false')
+                                setDisabledSignIn('false')
+                                setUserId(data.userid)
+                                setState({
+                                    ...state,
+                                    continue: true
+                                })
+                                document.querySelector('#continue-button').className = 'button-step-2'
+                                props.next()
+                                setDisabledSignIn('true')
+                                // setDisabled('true')
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }
+                    // document.querySelector('#continue-button').addEventListener('click', () => {
+                    //     setDisabled('true')
+                    //     // setState({
+                    //     //     currentStep: 2
+                    //     // })
+                    // })
+                                }
+                            })
+                            setPhoneVerificationState('false')          
+                            } else {
+                            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+                            method: "POST",
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                phone_number: phone
+                            })
+                            })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                if (data.result === 1) {
+                                    setAlert('Number already registered', 'danger')
+                                    // setDisabled('true')
+                                    setDisabledSignIn('true')
+                                    setState({
+                                        ...state,
+                                        continue: false
+                                    })
+                                    setDisabledSignIn('false')
+                                } else {
+                                    console.log(data)
+                                    setResponseVerificationCode(data.verification_code)
+                                // setDisabled('false')
+                                setDisabledSignIn('false')
+                                setUserId(data.userid)
+                                setState({
+                                    ...state,
+                                    continue: true
+                                })
+                                document.querySelector('#continue-button').className = 'button-step-2'
+                                props.next()
+                                setDisabledSignIn('true')
+                                // setDisabled('true')
+                                // if (document.querySelector('.cont-overlay')) {
+                                //     document.querySelector('.cont-overlay').style.display = 'none';
+                                // }                            
+                                // document.querySelector('#continue-button').addEventListener('click', () => {
+                                    // setDisabled('true')
+                                    // setState({
+                                    //     currentStep: 2
+                                    // })
+                                // })
+                                }
+                            })
+                        }
+                        x++
+                    }
                     setDisabled('true')
                 })
             }
@@ -239,28 +239,28 @@ const Carousel = (props) => {
     const validateCode = (code) => {
         if (disabledStatus === 'true') {
             // ==== TEST ====
-            if(document.querySelector('#continue-button').className === 'button-step-2'){
-                setDisabled('false')
-                document.querySelector('.button-step-2').addEventListener('click', () => {
-                    document.querySelector('#continue-button').className = 'button-step-3'
-                    props.next()
-                    setDisabled('true')
-                })
-            } 
-
-            // ==== PRODUCTION CODE ====
-            // if (document.querySelector('#continue-button').className === 'button-step-2') {
+            // if(document.querySelector('#continue-button').className === 'button-step-2'){
             //     setDisabled('false')
             //     document.querySelector('.button-step-2').addEventListener('click', () => {
-            //         if (code == verificationCodeResponse) {
-            //             document.querySelector('#continue-button').className = 'button-step-3'
-            //             props.next()
-            //             setDisabled('true')
-            //         } else {
-            //             setAlert('Passwords don\'t match!', 'danger')
-            //         }
+            //         document.querySelector('#continue-button').className = 'button-step-3'
+            //         props.next()
+            //         setDisabled('true')
             //     })
-            // }
+            // } 
+
+            // ==== PRODUCTION CODE ====
+            if (document.querySelector('#continue-button').className === 'button-step-2') {
+                setDisabled('false')
+                document.querySelector('.button-step-2').addEventListener('click', () => {
+                    if (code == verificationCodeResponse) {
+                        document.querySelector('#continue-button').className = 'button-step-3'
+                        props.next()
+                        setDisabled('true')
+                    } else {
+                        setAlert('Passwords don\'t match!', 'danger')
+                    }
+                })
+            }
         }
     }
 

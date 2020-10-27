@@ -75,10 +75,17 @@ const HiddenForm = () => {
     }
 
     const forgotPasswordClick = () => {
-        if (document.querySelector('.forgotPasswordComp')) {
-            document.querySelector('#forgotPasswordComp').className = 'forgotPasswordComp forgot-unhide'
-            document.querySelector('.animation-test').style.display = 'none'
-        }
+            const square = document.querySelector('#test')
+
+            if (square.className.includes('notHidden')) {
+                square.className = 'animation-test hidden'
+                document.querySelector('#form-container').style.display = 'none'
+            } 
+
+            const registerContainer = document.querySelector('#forgotPasswordComp')
+            registerContainer.className = 'forgotPasswordComp notHidden'
+            document.querySelector('.password-carousel').style.display = 'block'
+
     }
     
     return (
