@@ -8,7 +8,7 @@ const Password2 = (props) => {
 
     return (
         <div>
-            <p style={{color: 'white'}}>Password Step 2</p>
+            <h1 style={{color: 'white'}}>Enter the 4 digit code we sent you</h1>
         </div>
     )
 }
