@@ -255,11 +255,9 @@ const Carousel = (props) => {
                     if (code == verificationCodeResponse) {
                         document.querySelector('#continue-button').className = 'button-step-3'
                         props.next()
-                        setDisabled('true')
-                    } else if (code != verificationCodeResponse){
-                        setAlert('Passwords don\'t match!', 'danger')
                     }
                 })
+                setDisabled('true')
             }
         }
     }
