@@ -253,12 +253,11 @@ const Carousel = (props) => {
                 setDisabled('false')
                 document.querySelector('.button-step-2').addEventListener('click', () => {
                     if (code == verificationCodeResponse) {
-                        setDisabled('false')
                         document.querySelector('#continue-button').className = 'button-step-3'
                         props.next()
                     }
+                    setDisabled('true')
                 })
-                setDisabled('true')
             }
         }
     }
