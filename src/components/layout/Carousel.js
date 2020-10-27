@@ -351,7 +351,7 @@ const Carousel = (props) => {
             } else if (document.querySelector('#phoneNumber').value.length < 12) {
                 setAlert('Please enter a 10 digit phone number', 'danger')
             } 
-        } else if (disabledStatus === 'true' && props.step === 2) {
+        } else if (disabledStatus === 'true' && document.querySelector('.button-step-2')) {
             if (document.querySelector('#code-verification-1').value === '' || document.querySelector('#code-verification-2').value === '' || document.querySelector('#code-verification-3').value === '' || document.querySelector('#code-verification-4').value === '') {
                 setAlert('Please enter verication code', 'danger')
             } else if (verificationCode !== verificationCodeResponse) {
