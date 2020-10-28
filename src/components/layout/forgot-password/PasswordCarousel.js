@@ -71,7 +71,6 @@ const PasswordCarousel = () => {
                 } else {
                     // set verification code to context
                     setState({
-                        ...state,
                         verificationCodeResponse: data.verification_code
                     })
                     document.querySelector('#password-next-step').className = 'password-step-2'
