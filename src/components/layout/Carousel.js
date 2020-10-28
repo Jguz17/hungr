@@ -343,10 +343,10 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            createNewUser()
+            // createNewUser()
                 
         
-                // createUser()
+                createUser()
             })
         }
     }
