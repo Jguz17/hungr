@@ -144,6 +144,7 @@ const Carousel = (props) => {
                             .then((res) => res.json())
                             .then((data) => {
                                 if (data.result === 1) {
+                                    setAlert('Number already registered', 'danger')
                                     // setDisabled('true')
                                     setDisabledSignIn('true')
                                     setState({
@@ -151,7 +152,6 @@ const Carousel = (props) => {
                                         continue: false
                                     })
                                     setDisabledSignIn('false')
-                                    setAlert('Number already registered', 'danger')
                                 } else {
                                 console.log(data)
                                 setResponseVerificationCode(data.verification_code)
