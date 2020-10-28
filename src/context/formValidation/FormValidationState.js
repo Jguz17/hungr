@@ -119,7 +119,7 @@ const FormValidationState = (props) => {
                 firstName: firstName,
                 lastName: lastName,
                 zipcode: '',
-                userid: ''
+                userid: userid
             })
             })
         .then((res) => res.json())
@@ -142,7 +142,7 @@ const FormValidationState = (props) => {
                 firstName: firstName,
                 lastName: lastName,
                 zipcode: '',
-                userid: ''
+                userid: userid
             })
         })
         .then((res) => res.json())

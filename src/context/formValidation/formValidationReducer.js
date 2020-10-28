@@ -6,7 +6,8 @@ import {
     SET_FIRST_NAME,
     SET_LAST_NAME,
     SET_VERIFICATION_CODE_RESPONSE,
-    SET_FORGOT_PASSWORD_CODE
+    SET_FORGOT_PASSWORD_CODE,
+    SET_USER_ID
 } from '../types'
 
 export default (state, action) => {
@@ -49,6 +50,11 @@ export default (state, action) => {
             return {
                 ...state,
                 forgotPasswordCode: action.payload
+            }
+        case SET_USER_ID:
+            return {
+                ...state,
+                userid: action.payload
             }
         default:
             return state
