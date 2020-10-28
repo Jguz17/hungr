@@ -383,8 +383,8 @@ const Carousel = (props) => {
             phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
             email: document.querySelector('#email-verification').value,
             password: document.querySelector('#password').value,
-            firstName: document.querySelector('#firstName').value,
-            lastName: document.querySelector('#lastName').value,
+            fname: document.querySelector('#firstName').value,
+            lname: document.querySelector('#lastName').value,
             zipcode: '',
             userid: userid
         })
@@ -406,8 +406,8 @@ const Carousel = (props) => {
             phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
             email: document.querySelector('#email-verification').value,
             password: document.querySelector('#password').value,
-            firstName: document.querySelector('#firstName').value,
-            lastName: document.querySelector('#lastName').value,
+            fname: document.querySelector('#firstName').value,
+            lname: document.querySelector('#lastName').value,
             zipcode: '',
             userid: userid
         })
