@@ -343,7 +343,7 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 
-                if (document.querySelector('#firstName') && document.querySelector('#lastName')) {
+                if (document.querySelector('#firstName') && document.querySelector('#lastName') && document.querySelector('#phoneNumber') && document.querySelector('#email-verification') && document.querySelector('#password').value) {
                     let userAgent = window.navigator.userAgent,
         platform = window.navigator.platform,
         iosPlatforms = ['iPhone', 'iPad', 'iPod']
