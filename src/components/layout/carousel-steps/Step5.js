@@ -29,8 +29,8 @@ const Step5 = (props) => {
       return(
         <div className='step-4'>
             <h1>What's your name?</h1>
-            <input onChange={onChange} id='firstName' type='text' required placeholder='First Name'/>
-            <input style={{marginTop: '1.8rem', marginBottom: '1rem'}} onChange={onChange} id='lastName' type='text' required placeholder='Last Name'/>
+            <input onChange={onChange} id='firstName' type='text' placeholder='First Name'/>
+            <input style={{marginTop: '1.8rem', marginBottom: '1rem'}} onChange={onChange} id='lastName' type='text' placeholder='Last Name'/>
             <div style={{height: '40px', position: 'relative'}}>
               <Alerts/>
             </div>        
