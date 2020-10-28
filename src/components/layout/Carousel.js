@@ -338,21 +338,23 @@ const Carousel = (props) => {
     const validateName = (firstName, lastName) => {
         if (disabledStatus === 'true' && document.querySelector('#firstName').value && document.querySelector('#lastName').value) {
             setDisabled('false')
-            setFirstName(document.querySelector('#firstName').value)
-            setLastName(document.querySelector('#lastName').value)
+            setFirstName(firstName)
+            setLastName(lastName)
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            createNewUser()
+            // createNewUser(firstName, lastName)
                 
         
-                // createUser()
+                createUser()
             })
         }
     }
 
-    const createNewUser = () => {
-        createUser()
+    const createNewUser = (first, last) => {
+        console.log(first)
+        console.log(last)
+        // createUser()
     }
 
     const contClick = () => {
