@@ -343,7 +343,7 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            createNewUser(firstName, lastName)
+            createNewUser()
                 
         
                 // createUser()
@@ -352,10 +352,10 @@ const Carousel = (props) => {
     }
 
     const createNewUser = (first, last) => {
-        console.log(first)
-        console.log(last)
-        setFirstName(first)
-        setLastName(last)
+        console.log(document.querySelector('#firstName').value)
+        console.log(document.querySelector('#lastName').value)
+        setFirstName(document.querySelector('#firstName').value)
+        setLastName(document.querySelector('#lastName').value)
         createUser()
     }
 
