@@ -287,7 +287,7 @@ const Carousel = (props) => {
                 console.log(document.querySelector('#email-verification').value)
                 setDisabled('false')
                 let x = 0
-                document.querySelector('.button-step-4').addEventListener('click', () => {
+                document.querySelector('.button-step-3').addEventListener('click', () => {
                     if (x < 1) {
                         fetch("https://intapp.hungrapi.com/v2/account/email_check/", {
                             method: "POST",
@@ -309,8 +309,8 @@ const Carousel = (props) => {
                             } else {
                             setDisabled('false')
                             setDisabledSignIn('false')
-                            props.next()
                             document.querySelector('#continue-button').className = 'button-step-4'
+                            props.next()
                             }
                         })
                         x++
