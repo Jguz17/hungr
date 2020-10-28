@@ -295,7 +295,7 @@ const Carousel = (props) => {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                email: email
+                                email: document.querySelector('#email-verification').value
                             })
                         })
                         .then((res) => res.json())
