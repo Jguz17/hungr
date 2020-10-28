@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Alerts from '../Alerts'
+import FormValidationContext from '../../../context/formValidation/formValidationContext'
 
 const Step5 = (props) => {
+
+      const formValidationContext = useContext(FormValidationContext)
+
+      const { setFirstName, setLastName } = formValidationContext
 
       if (props.currentStep !== 5) {
         return null;
@@ -15,8 +20,14 @@ const Step5 = (props) => {
       const onChange = (e) => {
         let first = document.querySelector('#firstName').value
         let last = document.querySelector('#lastName').value
-
-        props.validateName(first, last)
+        if (first && last !== '') {
+          console.log(first)
+          console.log(last)
+          setFirstName(first)
+          setLastName(last)
+          props.validateName()
+        }
+        // props.validateName(first, last)
       }
 
       

@@ -352,11 +352,11 @@ const Carousel = (props) => {
     }
 
     const createNewUser = (first, last) => {
-        console.log(document.querySelector('#firstName').value)
-        console.log(document.querySelector('#lastName').value)
-        setFirstName(document.querySelector('#firstName').value)
-        setLastName(document.querySelector('#lastName').value)
-        createUser()
+        // console.log(document.querySelector('#firstName').value)
+        // console.log(document.querySelector('#lastName').value)
+        // setFirstName(document.querySelector('#firstName').value)
+        // setLastName(document.querySelector('#lastName').value)
+        // createUser()
     }
 
     const contClick = () => {
