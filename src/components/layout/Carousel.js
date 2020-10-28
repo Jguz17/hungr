@@ -46,7 +46,8 @@ const Carousel = (props) => {
             verificationCodeResponse,
             verificationCode,
             setUserId,
-            password
+            password,
+            userid
          } = formValidationContext
 
     useEffect(() => {
@@ -342,84 +343,84 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 
-    //     let userAgent = window.navigator.userAgent,
-    //     platform = window.navigator.platform,
-    //     iosPlatforms = ['iPhone', 'iPad', 'iPod']
+        let userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        iosPlatforms = ['iPhone', 'iPad', 'iPod']
     
-    // if (iosPlatforms.indexOf(platform) !== -1) {
-    //     fetch("https://intapp.hungrapi.com/v2/account/create_new_account_ios/", {
-    //     method: "POST",
-    //     headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
-    //         email: document.querySelector('#email-verification').value,
-    //         password: document.querySelector('#password').value,
-    //         firstName: document.querySelector('#firstName').value,
-    //         lastName: document.querySelector('#lastName').value,
-    //         zipcode: '',
-    //         userid: userid
-    //     })
-    // })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //     console.log(data)
-    //     // props.history.push('https://www.google.com')
-    // })
-    // // window.location ='https://www.google.com'
+    if (iosPlatforms.indexOf(platform) !== -1) {
+        fetch("https://intapp.hungrapi.com/v2/account/create_new_account_ios/", {
+        method: "POST",
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
+            email: document.querySelector('#email-verification').value,
+            password: document.querySelector('#password').value,
+            firstName: document.querySelector('#firstName').value,
+            lastName: document.querySelector('#lastName').value,
+            zipcode: '',
+            userid: userid
+        })
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data)
+        // props.history.push('https://www.google.com')
+    })
+    // window.location ='https://www.google.com'
 
-    // } else if (/Android/.test(userAgent)) {
-    //     fetch("https://intapp.hungrapi.com/v2/account/create_new_account_android/", {
-    //     method: "POST",
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
-    //         email: document.querySelector('#email-verification').value,
-    //         password: document.querySelector('#password').value,
-    //         firstName: document.querySelector('#firstName').value,
-    //         lastName: document.querySelector('#lastName').value,
-    //         zipcode: '',
-    //         userid: userid
-    //     })
-    //     })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //     console.log(data)
-    //     // props.history.push('https://www.google.com')
-    // })
-    // // window.location ='https://www.google.com'
-    // } else {
-    //     fetch("https://intapp.hungrapi.com/v2/account/create_new_account/", {
-    //     method: "POST",
-    //     headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
-    //         email: document.querySelector('#email-verification').value,
-    //         password: document.querySelector('#password').value,
-    //         firstName: document.querySelector('#firstName').value,
-    //         lastName: document.querySelector('#lastName').value,
-    //         zipcode: '',
-    //         userid: userid
-    //     })
-    // })
-    // .then((res) => res.json())
-    // .then((data) => {
-    //     console.log(data)
+    } else if (/Android/.test(userAgent)) {
+        fetch("https://intapp.hungrapi.com/v2/account/create_new_account_android/", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
+            email: document.querySelector('#email-verification').value,
+            password: document.querySelector('#password').value,
+            firstName: document.querySelector('#firstName').value,
+            lastName: document.querySelector('#lastName').value,
+            zipcode: '',
+            userid: userid
+        })
+        })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data)
+        // props.history.push('https://www.google.com')
+    })
+    // window.location ='https://www.google.com'
+    } else {
+        fetch("https://intapp.hungrapi.com/v2/account/create_new_account/", {
+        method: "POST",
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
+            email: document.querySelector('#email-verification').value,
+            password: document.querySelector('#password').value,
+            firstName: document.querySelector('#firstName').value,
+            lastName: document.querySelector('#lastName').value,
+            zipcode: '',
+            userid: userid
+        })
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data)
 
-    //     // props.history.push('https://www.google.com')
-    // })
-    // // window.location ='https://www.google.com'
+        // props.history.push('https://www.google.com')
+    })
+    // window.location ='https://www.google.com'
 
-    // }
-                createUser()
+    }
+                // createUser()
             })
         }
     }

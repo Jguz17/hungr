@@ -195,6 +195,7 @@ const FormValidationState = (props) => {
             verificationCodeResponse: state.verificationCodeResponse,
             phoneNumberExists: state.phoneNumberExists,
             forgotPasswordCode: state.forgotPasswordCode,
+            userid: state.userid,
             setPhone,
             setVerificationCode,
             setPassword,
