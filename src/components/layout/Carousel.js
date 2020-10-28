@@ -356,7 +356,7 @@ const Carousel = (props) => {
         console.log(last)
         setFirstName(first)
         setLastName(last)
-        // createUser()
+        createUser()
     }
 
     const contClick = () => {
