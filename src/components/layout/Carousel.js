@@ -284,6 +284,7 @@ const Carousel = (props) => {
 
             // ==== PRODUCTION CODE ====
             if(emailBool && document.querySelector('#continue-button').className === 'button-step-3') {
+                console.log(document.querySelector('#email-verification').value)
                 setDisabled('false')
                 let x = 0
                 document.querySelector('.button-step-3').addEventListener('click', () => {
