@@ -343,20 +343,20 @@ const Carousel = (props) => {
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            // createNewUser()
+            createNewUser()
                 
         
-                createUser()
+                // createUser()
             })
         }
     }
 
-    const createNewUser = (first, last) => {
+    const createNewUser = () => {
         // console.log(document.querySelector('#firstName').value)
         // console.log(document.querySelector('#lastName').value)
         // setFirstName(document.querySelector('#firstName').value)
         // setLastName(document.querySelector('#lastName').value)
-        // createUser()
+        createUser()
     }
 
     const contClick = () => {
