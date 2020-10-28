@@ -14,7 +14,9 @@ const Carousel = (props) => {
     // eslint-disable-next-line 
     const [state, setState] = useState({
         currentStep: props.step,
-        continue: false
+        continue: false,
+        firstName: '',
+        lastName: ''
     })
 
     const disabledContext = useContext(DisabledContext)
@@ -341,9 +343,15 @@ const Carousel = (props) => {
             // setFirstName(firstName)
             // setLastName(lastName)
             document.querySelector('.cont-overlay').style.display = 'none';
+            setState({
+                ...state,
+                firstName: first,
+                lastName: last
+            })
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            createNewUser()
+            console.log(state)
+            // createNewUser()
                 
         
                 // createUser()

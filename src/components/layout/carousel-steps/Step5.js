@@ -23,8 +23,8 @@ const Step5 = (props) => {
         if (first && last !== '') {
           console.log(first)
           console.log(last)
-          setFirstName(first)
-          setLastName(last)
+          
+          // setLastName(last)
           props.validateName()
         }
         // props.validateName(first, last)
