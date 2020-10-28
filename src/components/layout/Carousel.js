@@ -310,6 +310,7 @@ const Carousel = (props) => {
                             setDisabled('false')
                             setDisabledSignIn('false')
                             props.next()
+                            document.querySelector('#continue-button').className = 'button-step-4'
                             }
                         })
                         x++
