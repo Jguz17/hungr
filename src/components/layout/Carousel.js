@@ -93,7 +93,7 @@ const Carousel = (props) => {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                phone_number: phone,
+                                phone_number: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
                                 phone_type: 'ios'
                             })
                             })
@@ -137,7 +137,7 @@ const Carousel = (props) => {
                                 'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({
-                                phone_number: phone,
+                                phone_number: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
                                 phone_type: 'android'
                                 })
                             })
@@ -186,7 +186,7 @@ const Carousel = (props) => {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                phone_number: phone
+                                phone_number: document.querySelector('#phoneNumber').value.replace(/-/g, "")
                             })
                             })
                             .then((res) => res.json())
