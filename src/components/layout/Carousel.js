@@ -342,7 +342,8 @@ const Carousel = (props) => {
             setLastName(document.querySelector('#lastName').value)
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
-
+                console.log(document.querySelector('#firstName').value)
+                console.log(document.querySelector('#lasttName').value)
         let userAgent = window.navigator.userAgent,
         platform = window.navigator.platform,
         iosPlatforms = ['iPhone', 'iPad', 'iPod']
@@ -358,8 +359,8 @@ const Carousel = (props) => {
             phone: document.querySelector('#phoneNumber').value.replace(/-/g, ""),
             email: document.querySelector('#email-verification').value,
             password: document.querySelector('#password').value,
-            firstName: document.querySelector('#firstName').value,
-            lastName: document.querySelector('#lastName').value,
+            fname: document.querySelector('#firstName').value,
+            lname: document.querySelector('#lastName').value,
             zipcode: '',
             userid: userid
         })
