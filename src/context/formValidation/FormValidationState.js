@@ -82,7 +82,7 @@ const FormValidationState = (props) => {
             iosPlatforms = ['iPhone', 'iPad', 'iPod']
         
         if (iosPlatforms.indexOf(platform) !== -1) {
-            fetch("https://intapp.hungrapi.com/v2/create_new_account_ios/", {
+            fetch("https://intapp.hungrapi.com/v2/account/create_new_account_ios/", {
             method: "POST",
             headers: {
             'Accept': 'application/json',
@@ -106,7 +106,7 @@ const FormValidationState = (props) => {
         // window.location ='https://www.google.com'
 
         } else if (/Android/.test(userAgent)) {
-            fetch("https://intapp.hungrapi.com/v2/create_new_account_android/", {
+            fetch("https://intapp.hungrapi.com/v2/account/create_new_account_android/", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -129,7 +129,7 @@ const FormValidationState = (props) => {
         })
         // window.location ='https://www.google.com'
         } else {
-            fetch("https://intapp.hungrapi.com/v2/create_new_account/", {
+            fetch("https://intapp.hungrapi.com/v2/account/create_new_account/", {
             method: "POST",
             headers: {
             'Accept': 'application/json',
