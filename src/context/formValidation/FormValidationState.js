@@ -92,8 +92,8 @@ const FormValidationState = (props) => {
                 phone: phone,
                 email: email,
                 password: password,
-                firstName: document.querySelector('#firstName').value,
-                lastName: document.querySelector('#lastName').value,
+                firstName: firstName,
+                lastName: lastName,
                 zipcode: '',
                 userid: userid
             })
@@ -116,8 +116,8 @@ const FormValidationState = (props) => {
                 phone: phone,
                 email: email,
                 password: password,
-                firstName: document.querySelector('#firstName').value,
-                lastName: document.querySelector('#lastName').value,
+                firstName: firstName,
+                lastName: lastName,
                 zipcode: '',
                 userid: userid
             })
@@ -139,8 +139,8 @@ const FormValidationState = (props) => {
                 phone: phone,
                 email: email,
                 password: password,
-                firstName: document.querySelector('#firstName').value,
-                lastName: document.querySelector('#lastName').value,
+                firstName: firstName,
+                lastName: lastName,
                 zipcode: '',
                 userid: userid
             })
