@@ -283,7 +283,7 @@ const Carousel = (props) => {
             // }
 
             // ==== PRODUCTION CODE ====
-            if(emailBool && document.querySelector('#continue-button').className === 'button-step-4') {
+            if(emailBool && document.querySelector('#continue-button').className === 'button-step-3') {
                 console.log(document.querySelector('#email-verification').value)
                 setDisabled('false')
                 let x = 0
@@ -310,7 +310,7 @@ const Carousel = (props) => {
                             setDisabled('false')
                             setDisabledSignIn('false')
                             props.next()
-                            document.querySelector('#continue-button').className = 'button-step-5'
+                            document.querySelector('#continue-button').className = 'button-step-4'
                             }
                         })
                         x++
@@ -324,7 +324,7 @@ const Carousel = (props) => {
     const validatePassword = () => {
 
         if (disabledStatus === 'true') {
-            if (document.querySelector('#continue-button').className === 'button-step-5' && document.querySelector('#password').value === document.querySelector('#password-2').value) {
+            if (document.querySelector('#continue-button').className === 'button-step-4' && document.querySelector('#password').value === document.querySelector('#password-2').value) {
                 setDisabled('false')
                 document.querySelector('.button-step-4').addEventListener('click', () => {
                     document.querySelector('#continue-button').className = 'button-step-5'
