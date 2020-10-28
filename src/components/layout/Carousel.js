@@ -343,14 +343,16 @@ const Carousel = (props) => {
             // setFirstName(firstName)
             // setLastName(lastName)
             document.querySelector('.cont-overlay').style.display = 'none';
-            setState({
-                ...state,
-                firstName: first,
-                lastName: last
-            })
+            
             document.querySelector('.button-step-5').addEventListener('click', () => {
-// test
-            console.log(state)
+// // test     
+//             setState({
+//                 ...state,
+//                 firstName: first,
+//                 lastName: last
+//             })
+//             console.log(state)
+                console.log(firstName)
             // createNewUser()
                 
         
