@@ -129,7 +129,7 @@ const FormValidationState = (props) => {
         })
         window.location ='https://www.google.com'
         } else {
-            fetch("https://intapp.hungrapi.com/v2/phone_verification/", {
+            fetch("https://intapp.hungrapi.com/v2/create_new_account/", {
             method: "POST",
             headers: {
             'Accept': 'application/json',
