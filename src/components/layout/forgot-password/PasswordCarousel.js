@@ -101,8 +101,8 @@ const PasswordCarousel = () => {
             } else if (!emailValidator) {
                 setAlert('Please enter a valid email address', 'danger')
             } else {
-                // validateEmail()
-                next()
+                validateEmail()
+                // next()
             }
         } else if (document.querySelector('#password-next-step').className === 'password-step-2') {
             validateCode()
