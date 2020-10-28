@@ -281,7 +281,8 @@ input {
   width: 100%;
 }
 
-.carousel {
+.carousel,
+.password-carousel {
   width: 100%;
   display: flex;
   margin: 0 auto;
@@ -314,21 +315,24 @@ input {
   font-weight: bold;
 }
 
-.step-1 h1 {
+.step-1 h1,
+.password-1 h1 {
   font-size: 1.3rem;
   letter-spacing: .03rem;
   margin-top: 1.8rem;
   margin-bottom: .3rem;
 }
 
-.step-1 p {
+.step-1 p,
+.password-1 p {
   font-size: 1.15rem;
   letter-spacing: .05rem;
   opacity: .8;
   margin-bottom: 1.8rem;
 }
 
-.step-1 input {
+.step-1 input,
+.password-1 input {
   width: 300px;
   border: none;
   height: 2.5rem;

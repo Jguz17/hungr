@@ -74,22 +74,45 @@ const PasswordCarousel = () => {
                         ...state,
                         verificationCodeResponse: data.verification_code
                     })
+                    document.querySelector('#password-next-step').className = 'password-step-2'
                     next()
                 }
             })
         } 
     }
 
+    const validateCode = (code) => {
+        document.querySelector('.password-step-2').addEventListener('click', () => {
+            if (code == state.verificationCodeResponse) {
+                document.querySelector('#password-next-step').className = 'button-step-3'
+                next()
+            } else if (code != state.verificationCodeResponse) {
+                setAlert('Please enter the correct verification code', 'danger')
+            }
+        })
+    }
+
     const handleClick = () => {
         if (document.querySelector('#password-next-step').className === 'password-step-1') {
-            validateEmail()
+            const re = /\S+@\S+\.\S+/
+            let emailValidator = re.test(document.querySelector('#forgot-password-email').value)
+            if (document.querySelector('#forgot-password-email').value === '') {
+                setAlert('Please enter your email address', 'danger')
+            } else if (!emailValidator) {
+                setAlert('Please enter a valid email address', 'danger')
+            } else {
+                // validateEmail()
+                next()
+            }
+        } else if (document.querySelector('#password-next-step').className === 'password-step-2') {
+            validateCode()
         }
     }
 
     return (
         <div id='password-carousel' className='password-carousel'>
             <PasswordStep1 validateEmail={validateEmail} step={state.step}/>
-            <PasswordStep2 step={state.step}/>
+            <PasswordStep2 validateCode={validateCode} step={state.step}/>
             <button id='password-next-step' className='password-step-1' onClick={handleClick}>Next</button>
         </div>
     )

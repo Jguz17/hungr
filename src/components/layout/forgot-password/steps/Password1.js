@@ -17,10 +17,12 @@ const Password1 = (props) => {
     // }
 
     return (
-        <div>
+        <div className='password-1'>
            <h1 style={{color: 'white'}}>Enter your email address</h1>
-           <Alerts/>
            <input id='forgot-password-email' type='email' placeholder='Email'/>
+           <div style={{height: '40px', position: 'relative'}}>
+              <Alerts/>
+            </div>
         </div>
     )
 }
