@@ -103,7 +103,7 @@ const FormValidationState = (props) => {
             console.log(data)
             // props.history.push('https://www.google.com')
         })
-        window.location ='https://www.google.com'
+        // window.location ='https://www.google.com'
 
         } else if (/Android/.test(userAgent)) {
             fetch("https://intapp.hungrapi.com/v2/create_new_account_android/", {
@@ -127,7 +127,7 @@ const FormValidationState = (props) => {
             console.log(data)
             // props.history.push('https://www.google.com')
         })
-        window.location ='https://www.google.com'
+        // window.location ='https://www.google.com'
         } else {
             fetch("https://intapp.hungrapi.com/v2/create_new_account/", {
             method: "POST",
@@ -151,7 +151,7 @@ const FormValidationState = (props) => {
 
             // props.history.push('https://www.google.com')
         })
-        window.location ='https://www.google.com'
+        // window.location ='https://www.google.com'
 
         }
     }
