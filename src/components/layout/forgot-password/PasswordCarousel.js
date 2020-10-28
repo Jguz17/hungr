@@ -70,9 +70,13 @@ const PasswordCarousel = () => {
                     setAlert('Email not registered', 'danger')
                 } else {
                     // set verification code to context
+                    console.log(state)
+                    console.log(data)
                     setState({
+                        ...state,
                         verificationCodeResponse: data.verification_code
                     })
+                    console.log(state)
                     document.querySelector('#password-next-step').className = 'password-step-2'
                     next()
                 }
