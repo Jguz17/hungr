@@ -338,15 +338,15 @@ const Carousel = (props) => {
     const validateName = (firstName, lastName) => {
         if (disabledStatus === 'true' && document.querySelector('#firstName').value && document.querySelector('#lastName').value) {
             setDisabled('false')
-            setFirstName(firstName)
-            setLastName(lastName)
+            // setFirstName(firstName)
+            // setLastName(lastName)
             document.querySelector('.cont-overlay').style.display = 'none';
             document.querySelector('.button-step-5').addEventListener('click', () => {
 // test
-            // createNewUser(firstName, lastName)
+            createNewUser(firstName, lastName)
                 
         
-                createUser()
+                // createUser()
             })
         }
     }
@@ -354,6 +354,8 @@ const Carousel = (props) => {
     const createNewUser = (first, last) => {
         console.log(first)
         console.log(last)
+        setFirstName(first)
+        setLastName(last)
         // createUser()
     }
 
