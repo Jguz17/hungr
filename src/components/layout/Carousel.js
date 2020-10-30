@@ -352,7 +352,6 @@ const Carousel = (props) => {
 //                 lastName: last
 //             })
 //             console.log(state)
-                console.log(firstName)
             // createNewUser()
                 
         

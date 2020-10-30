@@ -49,21 +49,20 @@ const Password2 = (props) => {
 
         holder = codeIndex1 + codeIndex2 + codeIndex3 + codeIndex4
 
-        if (holder.length >= 4) {
-            props.validateCode(holder)
-        }
+        // if (holder.length >= 4) {
+        //     props.validateCode(holder)
+        // }
     }
 
     return (
-        <div>
-            <h1 style={{color: 'white'}}>Enter the 4 digit code we sent you</h1>
+        <div className='password-2'>
             <h1>Enter the 4 digit code we sent you</h1>
             <input onChange={onChange} id='password-code-verification-1' type='phone' maxLength='1' size='1' onKeyUp={handleUp} autoFocus/>
             <input onChange={onChange} id='password-code-verification-2' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
             <input onChange={onChange} id='password-code-verification-3' type='phone' maxLength='1' size='1' onKeyUp={handleUp}/>
             <input onChange={onChange} id='password-code-verification-4' type='phone' maxLength='1' size='1' onKeyUp={(e) => e.target.blur()}/>
-            <div style={{height: '40px', position: 'relative'}}>
-              <Alerts/>
+            <div style={{height: '40px', position: 'relative', width: '300px', margin: '0 auto'}}>
+                <Alerts/>
             </div>
         </div>
     )

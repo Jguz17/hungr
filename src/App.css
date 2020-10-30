@@ -320,7 +320,7 @@ input {
   font-size: 1.3rem;
   letter-spacing: .03rem;
   margin-top: 1.8rem;
-  margin-bottom: .3rem;
+  margin-bottom: 1.8rem;
 }
 
 .step-1 p,
@@ -555,3 +555,92 @@ input {
   transform: translateX(0) translateY(0); */
   /* display: block; */
 /* } */
+
+#password-close {
+  color: #fff;
+  margin: 2.5% 0 0;
+  font-size: 2rem;
+  padding-left: .5rem;
+  text-align: left;
+  display: block;
+}
+
+.password-step-1 {
+  width: 310px;
+    margin: 1rem auto 0 auto;
+    height: 2.7rem;
+    border-radius: 14px;
+    border: none;
+    background-color: #fff;
+    color: #00adef;
+    font-family: "Roboto";
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.password-step-2 {
+  width: 310px;
+    margin: 1rem auto 0 auto;
+    height: 2.7rem;
+    border-radius: 14px;
+    border: none;
+    background-color: #fff;
+    color: #00adef;
+    font-family: "Roboto";
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.password-step-3 {
+  width: 310px;
+    margin: 1rem auto 0 auto;
+    height: 2.7rem;
+    border-radius: 14px;
+    border: none;
+    background-color: #fff;
+    color: #00adef;
+    font-family: "Roboto";
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.password-2 input{
+  width: 2rem;
+  height: 3rem;
+  margin-right: 1rem;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 1rem;
+  outline: none;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.password-3 h1 {
+  margin-bottom: 1.8rem;
+}
+
+.password-3 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.password-3 input {
+  width: 300px;
+  border: none;
+  height: 2.5rem;
+  padding-left: .5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+
+/* FOR ALERT DIV */
+/* element.style {
+  height: 40px;
+  margin: 0 auto;
+  width: 43%;
+  position: relative; */

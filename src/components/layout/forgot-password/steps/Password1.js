@@ -20,7 +20,7 @@ const Password1 = (props) => {
         <div className='password-1'>
            <h1 style={{color: 'white'}}>Enter your email address</h1>
            <input id='forgot-password-email' type='email' placeholder='Email'/>
-           <div style={{height: '40px', position: 'relative'}}>
+           <div style={{height: '40px', position: 'relative', width: '300px', margin: '0 auto'}}>
               <Alerts/>
             </div>
         </div>
