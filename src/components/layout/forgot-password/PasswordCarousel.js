@@ -116,7 +116,7 @@ const PasswordCarousel = () => {
         // console.log(document.querySelector('#new-password').value)
         user.password = document.querySelector('#new-password').value
         console.log(user)
-        fetch("https://intapp.hungrapi.com//v2/account/resetpassword/", {
+        fetch("https://intapp.hungrapi.com/v2/account/resetpassword/", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
