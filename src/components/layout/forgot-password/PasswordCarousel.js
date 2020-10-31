@@ -82,7 +82,7 @@ const PasswordCarousel = () => {
                     console.log(data)
                     user.verificationCodeRespons = data.code
                     user.email = email
-                    userid = data.dn
+                    user.userid = data.dn
 
                     // setState({
                     //     ...state,
