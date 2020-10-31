@@ -14,6 +14,8 @@ const PasswordCarousel = () => {
         userid: ''
     })
 
+    const user = {}
+
     const alertContext = useContext(AlertContext)
 
     const { setAlert } = alertContext
@@ -78,13 +80,17 @@ const PasswordCarousel = () => {
                     // set verification code to context
                     console.log(state)
                     console.log(data)
-                    setState({
-                        ...state,
-                        verificationCodeResponse: data.code,
-                        email: email,
-                        userid: data.dn
+                    user.verificationCodeRespons = data.code
+                    user.email = email
+                    userid = data.dn
 
-                    })
+                    // setState({
+                    //     ...state,
+                    //     verificationCodeResponse: data.code,
+                    //     email: email,
+                    //     userid: data.dn
+
+                    // })
                     console.log(state)
                     document.querySelector('#password-next-step').className = 'password-step-2'
                     next()
@@ -108,7 +114,8 @@ const PasswordCarousel = () => {
 
     const validatePassword = () => {
         // console.log(document.querySelector('#new-password').value)
-        console.log(state)
+        user.password = document.querySelector('#new-password').value
+        console.log(user)
         fetch("https://intapp.hungrapi.com//v2/account/resetpassword/", {
                 method: "POST",
                 headers: {
@@ -116,9 +123,9 @@ const PasswordCarousel = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    email: state.email,
-                    userid: state.userid,
-                    password: document.querySelector('#new-password').value
+                    email: user.email,
+                    userid: user.userid,
+                    password: user.password
                 })
         })
         .then((res) => res.json())
