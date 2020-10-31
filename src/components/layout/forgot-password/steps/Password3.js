@@ -1,4 +1,5 @@
 import React from 'react'
+import Alerts from '../../Alerts'
 
 const Password3 = (props) => {
 
@@ -11,6 +12,9 @@ const Password3 = (props) => {
             <h1>Enter your new password</h1>
             <input id='new-password' type='password' placeholder='New Password'/>
             <input id='confirm-password' type='password' placeholder='Confirm Password'/>
+            <div style={{height: '40px', position: 'relative', width: '300px', margin: '0 auto'}}>
+                <Alerts/>
+            </div>
         </div>
     )
 }

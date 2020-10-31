@@ -8,7 +8,10 @@ const PasswordCarousel = () => {
 
     const [state, setState] = useState({
         step: 1,
-        verificationCodeResponse: ''
+        verificationCodeResponse: '',
+        email: '',
+        password: '',
+        userid: ''
     })
 
     const alertContext = useContext(AlertContext)
@@ -48,55 +51,91 @@ const PasswordCarousel = () => {
 // }
 
     const validateEmail = () => {
-        document.querySelector('#password-next-step').className = 'password-step-2'
-        next()
-        // const re = /\S+@\S+\.\S+/
+        // document.querySelector('#password-next-step').className = 'password-step-2'
+        // next()
+        const re = /\S+@\S+\.\S+/
 
-        // let email = document.querySelector('#forgot-password-email').value
-        // let emailValidator = re.test(email)
+        let email = document.querySelector('#forgot-password-email').value
+        let emailValidator = re.test(email)
 
-        // if (emailValidator) {
-        //     console.log(document.querySelector('#forgot-password-email').value)
-        //     fetch("https://intapp.hungrapi.com/v2/account/forgot_password/", {
-        //         method: "POST",
-        //         headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({
-        //             email: email
-        //         })
-        //     })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         if (data.result === 1) {
-        //             setAlert('Email not registered', 'danger')
-        //         } else {
-        //             // set verification code to context
-        //             console.log(state)
-        //             console.log(data)
-        //             setState({
-        //                 ...state,
-        //                 verificationCodeResponse: data.verification_code
-        //             })
-        //             console.log(state)
-        //             document.querySelector('#password-next-step').className = 'password-step-2'
-        //             next()
-        //         }
-        //     })
-        // } 
+        if (emailValidator) {
+            console.log(document.querySelector('#forgot-password-email').value)
+            fetch("https://intapp.hungrapi.com/v2/account/forgot_password/", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email
+                })
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.result === 1) {
+                    setAlert('Email not registered', 'danger')
+                } else {
+                    // set verification code to context
+                    console.log(state)
+                    console.log(data)
+                    setState({
+                        ...state,
+                        verificationCodeResponse: data.code,
+                        email: email,
+                        userid: data.dn
+
+                    })
+                    console.log(state)
+                    document.querySelector('#password-next-step').className = 'password-step-2'
+                    next()
+                }
+            })
+        } 
     }
 
     const validateCode = (code) => {
-        document.querySelector('#password-next-step').className = 'password-step-3'
-        next()
-        // document.querySelector('.password-step-2').addEventListener('click', () => {
-        //     if (code == state.verificationCodeResponse) {
-        //         document.querySelector('#password-next-step').className = 'button-step-3'
-        //         next()
-        //     } else if (code != state.verificationCodeResponse) {
-        //         setAlert('Please enter the correct verification code', 'danger')
-        //     }
+        // document.querySelector('#password-next-step').className = 'password-step-3'
+        // next()
+        document.querySelector('.password-step-2').addEventListener('click', () => {
+            if (code == state.verificationCodeResponse) {
+                document.querySelector('#password-next-step').className = 'button-step-3'
+                next()
+            } else if (code != state.verificationCodeResponse) {
+                setAlert('Please enter the correct verification code', 'danger')
+            }
+        })
+    }
+
+    const validatePassword = () => {
+        // console.log(document.querySelector('#new-password').value)
+        // console.log(state)
+        fetch("https://intapp.hungrapi.com//v2/account/resetpassword/", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: state.email,
+                    userid: state.userid,
+                    password: document.querySelector('#new-password').value
+                })
+        })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        // let x = 0
+        // document.querySelector('.password-step-3').addEventListener('click', () => {
+        //     if (x < 1) {
+        //         fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             if (data) {
+        //                 console.log(data)
+        //             }
+        //         })
+        //         // console.log(document.querySelector('#confirm-password').value)
+        //     } 
+        //     x++
         // })
     }
 
@@ -115,8 +154,19 @@ const PasswordCarousel = () => {
         } else if (document.querySelector('#password-next-step').className === 'password-step-2') {
             if (document.querySelector('#password-code-verification-1').value === '' || document.querySelector('#password-code-verification-2').value === '' || document.querySelector('#password-code-verification-3').value === '' || document.querySelector('#password-code-verification-4').value === '') {
                 setAlert('Please enter verication code', 'danger')
+            } else {
+                validateCode()
             }
-            validateCode()
+        } else if (document.querySelector('#password-next-step').className === 'password-step-3') {
+            if (document.querySelector('#new-password').value === '' || document.querySelector('#confirm-password').value === '') {
+                setAlert('Please enter your new password', 'danger')
+            } else if (document.querySelector('#new-password').length <= 7 || document.querySelector('#confirm-password').value.length <= 7) {
+                setAlert('Please enter a password with 8 characters', 'danger') 
+            } else if (document.querySelector('#new-password').value !== document.querySelector('#confirm-password').value) {
+                setAlert('Passwords do not match', 'danger')
+            } else {
+                validatePassword()
+            }
         }
     }
 
