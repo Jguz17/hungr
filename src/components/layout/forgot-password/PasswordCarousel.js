@@ -94,8 +94,8 @@ const PasswordCarousel = () => {
     }
 
     const validateCode = (code) => {
-        document.querySelector('#password-next-step').className = 'password-step-3'
-        next()
+        // document.querySelector('#password-next-step').className = 'password-step-3'
+        // next()
         document.querySelector('.password-step-2').addEventListener('click', () => {
             if (code == state.verificationCodeResponse) {
                 document.querySelector('#password-next-step').className = 'button-step-3'
