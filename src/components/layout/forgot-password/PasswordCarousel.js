@@ -54,7 +54,7 @@ const PasswordCarousel = () => {
 // 4. confirm/take to login
 // }
 
-    const validateEmail = () => {
+    const validateEmail = (userEmail) => {
         // document.querySelector('#password-next-step').className = 'password-step-2'
         // next()
         const re = /\S+@\S+\.\S+/
@@ -82,18 +82,18 @@ const PasswordCarousel = () => {
                     // set verification code to context
                     console.log(state)
                     console.log(data)
-                    user.verificationCodeRespons = data.code
-                    user.email = document.querySelector('#forgot-password-email').value
+                    user.verificationCodeResponse = data.code
+                    user.email = userEmail
                     user.userid = data.dn
                     userid = data.dn
 
-                    // setState({
-                    //     ...state,
-                    //     verificationCodeResponse: data.code,
-                    //     email: email,
-                    //     userid: data.dn
+                    setState({
+                        ...state,
+                        verificationCodeResponse: data.code,
+                        email: userEmail,
+                        userid: data.dn
 
-                    // })
+                    })
                     console.log(state)
                     document.querySelector('#password-next-step').className = 'password-step-2'
                     next()
