@@ -16,6 +16,8 @@ const PasswordCarousel = () => {
 
     const user = {}
 
+    let userid = ''
+
     const alertContext = useContext(AlertContext)
 
     const { setAlert } = alertContext
@@ -81,8 +83,9 @@ const PasswordCarousel = () => {
                     console.log(state)
                     console.log(data)
                     user.verificationCodeRespons = data.code
-                    user.email = email
+                    user.email = document.querySelector('#forgot-password-email').value
                     user.userid = data.dn
+                    userid = data.dn
 
                     // setState({
                     //     ...state,
@@ -124,26 +127,26 @@ const PasswordCarousel = () => {
                 },
                 body: JSON.stringify({
                     email: user.email,
-                    userid: user.userid,
+                    userid: userid,
                     password: user.password
                 })
         })
         .then((res) => res.json())
         .then((data) => console.log(data))
-        let x = 0
-        document.querySelector('.password-step-3').addEventListener('click', () => {
-            if (x < 1) {
-                fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data) {
-                        console.log(data)
-                    }
-                })
-                // console.log(document.querySelector('#confirm-password').value)
-            } 
-            x++
-        })
+        // let x = 0
+        // document.querySelector('.password-step-3').addEventListener('click', () => {
+        //     if (x < 1) {
+        //         fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             if (data) {
+        //                 console.log(data)
+        //             }
+        //         })
+        //         // console.log(document.querySelector('#confirm-password').value)
+        //     } 
+        //     x++
+        // })
     }
 
     const handleClick = () => {
