@@ -96,14 +96,14 @@ const PasswordCarousel = () => {
     const validateCode = (code) => {
         // document.querySelector('#password-next-step').className = 'password-step-3'
         // next()
-        document.querySelector('.password-step-2').addEventListener('click', () => {
+        // document.querySelector('.password-step-2').addEventListener('click', () => {
             if (code == state.verificationCodeResponse) {
                 document.querySelector('#password-next-step').className = 'button-step-3'
                 next()
             } else if (code != state.verificationCodeResponse) {
                 setAlert('Please enter the correct verification code', 'danger')
             }
-        })
+        // })
     }
 
     const validatePassword = () => {
